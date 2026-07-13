@@ -14,9 +14,12 @@ export function useFormations(categorie = '') {
     setLoading(true)
     setError(null)
 
-    const url = categorie
-      ? `/api/formations?categorie=${encodeURIComponent(categorie)}`
-      : '/api/formations'
+    // Remplacez l'adresse ci-dessous par VOTRE URL de backend Render si elle est différente
+    const BASE_URL = 'https://proj-esp.onrender.com'; 
+
+    const url = categorie 
+     ? `${BASE_URL}/api/formations?categorie=${encodeURIComponent(categorie)}`
+     : `${BASE_URL}/api/formations`;
 
     fetch(url, { signal: controller.signal })
       .then((res) => {
