@@ -186,14 +186,14 @@ export default function Contact() {
               <ul className="space-y-1.5 text-sm text-gray-500">
                 <li className="flex justify-between">
                   <span>Lundi – Vendredi</span>
-                  <span className="font-medium text-gray-700">08h00 – 18h00</span>
+                  <span className="font-medium text-gray-700">08h00 – 17h00</span>
                 </li>
                 <li className="flex justify-between">
                   <span>Samedi</span>
-                  <span className="font-medium text-gray-700">09h00 – 13h00</span>
+                  <span className="font-medium text-gray-700">09h00 – 15h30</span>
                 </li>
                 <li className="flex justify-between">
-                  <span>Dimanche</span>
+                  <span>Dimanche et jours fériés</span>
                   <span className="text-gray-400">Fermé</span>
                 </li>
               </ul>

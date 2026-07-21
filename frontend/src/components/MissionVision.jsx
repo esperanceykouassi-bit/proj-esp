@@ -9,7 +9,7 @@ export default function MissionVision() {
           <h2 className="section-title mt-2">Mission & Vision</h2>
           <p className="section-subtitle">
             SkillUp Consulting CI est un cabinet spécialisé dans la formation professionnelle
-            pratique et l'optimisation des performances en Côte d'Ivoire.
+            pratique et l'optimisation des performances des PME/PMI, étudiants, et particuliers en Côte d'Ivoire.
           </p>
         </div>
 
