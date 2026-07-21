@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import {
-  Clock, BadgeCheck, GraduationCap, ServerCrash, Loader2,
+  GraduationCap, ServerCrash, Loader2,
   Monitor, FileSpreadsheet, Users, Calculator, Briefcase, BookOpen,
 } from 'lucide-react'
 import { useFormations } from '../hooks/useFormations'
@@ -21,11 +21,11 @@ const FILTRES = [
 ]
 
 const BADGE = {
-  SAARI:       { label: 'SAARI',        bg: 'bg-brand-green',      text: 'text-white' },
-  BUREAUTIQUE: { label: 'Bureautique',  bg: 'bg-brand-teal',       text: 'text-white' },
-  LEADERSHIP:  { label: 'Leadership',   bg: 'bg-brand-blue',       text: 'text-white' },
-  COMPTABLE:   { label: 'Comptabilité', bg: 'bg-amber-600',        text: 'text-white' },
-  PROJET:      { label: 'Projets',      bg: 'bg-brand-blue-mid',   text: 'text-white' },
+  SAARI:       { label: 'SAARI',        bg: 'bg-brand-green',    text: 'text-white' },
+  BUREAUTIQUE: { label: 'Bureautique',  bg: 'bg-brand-teal',     text: 'text-white' },
+  LEADERSHIP:  { label: 'Leadership',   bg: 'bg-brand-blue',     text: 'text-white' },
+  COMPTABLE:   { label: 'Comptabilité', bg: 'bg-amber-600',      text: 'text-white' },
+  PROJET:      { label: 'Projets',      bg: 'bg-brand-blue-mid', text: 'text-white' },
 }
 
 const ICON = {
@@ -34,10 +34,6 @@ const ICON = {
   LEADERSHIP:  Users,
   COMPTABLE:   Calculator,
   PROJET:      Briefcase,
-}
-
-function formatPrix(prix) {
-  return new Intl.NumberFormat('fr-FR').format(prix) + ' FCFA'
 }
 
 // ─── Page principale ──────────────────────────────────────────────────────────
@@ -234,24 +230,10 @@ function FormationCard({ formation, index, onInscrire }) {
           {formation.description}
         </p>
 
-        {/* Meta : durée + prix */}
-        <div className="flex items-center justify-between gap-2 mb-5">
-          <div className="flex items-center gap-1.5 text-gray-500 text-sm">
-            <Clock size={14} className="text-brand-green shrink-0" />
-            <span>{formation.duree}</span>
-          </div>
-          <div className="flex items-center gap-1.5">
-            <BadgeCheck size={14} className="text-brand-green shrink-0" />
-            <span className="text-brand-green font-bold text-sm">
-              {formatPrix(formation.prix)}
-            </span>
-          </div>
-        </div>
-
         {/* Bouton */}
         <button
           onClick={onInscrire}
-          className="btn-primary w-full justify-center py-2.5 text-sm"
+          className="btn-primary w-full justify-center py-2.5 text-sm mt-auto"
         >
           <GraduationCap size={16} />
           S'inscrire

@@ -15,10 +15,6 @@ const reasons = [
     desc: "Nous travaillons avec les référentiels SYSCOHADA, les logiciels SAARI et la fiscalité ivoirienne — pas des adaptations de programmes étrangers.",
   },
   {
-    title: 'Tarifs accessibles',
-    desc: "Des formations de qualité à des prix conçus pour les PME et les professionnels ivoiriens. Des facilités de paiement sont disponibles sur demande.",
-  },
-  {
     title: 'Accompagnement personnalisé',
     desc: "Un suivi individuel avant, pendant et après la formation ou la mission pour garantir l'ancrage des compétences et la durabilité des résultats.",
   },
