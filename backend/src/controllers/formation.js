@@ -25,8 +25,6 @@ export async function getAllFormations(req, res) {
         titre: true,
         categorie: true,
         description: true,
-        duree: true,
-        prix: true,
         statut: true,
         createdAt: true,
         _count: { select: { inscriptions: true } },
