@@ -96,7 +96,7 @@ export default function About() {
                   SkillUp Consulting CI a été fondé par des professionnels passionnés par le
                   développement du capital humain en Côte d'Ivoire. Face au constat que de
                   nombreuses entreprises peinent à trouver des collaborateurs immédiatement
-                  opérationnels sur des outils clés — SAARI, Excel avancé, gestion de projets —
+                  opérationnels sur des outils clés (SAARI, Excel avancé, gestion de projets)
                   nous avons décidé de créer une réponse concrète et locale.
                 </p>
                 <p className="text-gray-600 leading-relaxed">
