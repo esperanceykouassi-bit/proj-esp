@@ -28,7 +28,7 @@ const valeurs = [
   {
     icon: Shield,
     titre: 'Intégrité',
-    desc: `Transparence dans nos tarifs, honnêteté dans nos diagnostics et rigueur dans l'exécution de nos missions — sans compromis.`,
+    desc: `Transparence dans nos tarifs, honnêteté dans nos diagnostics et rigueur dans l'exécution de nos missions, sans compromis.`,
     color: 'bg-brand-blue-mid',
   },
   {
