@@ -13,7 +13,7 @@ const services = [
     color: 'bg-brand-green',
     badge: 'Logiciels SAARI',
     titre: 'Formation en Logiciels de Gestion SAARI',
-    intro: `Maîtrisez les logiciels Sage (SAARI) — standards incontournables de la gestion
+    intro: `Maîtrisez les logiciels Sage (SAARI), standards incontournables de la gestion
 d'entreprise en Côte d'Ivoire. Nos formateurs certifiés vous accompagnent de la
 prise en main jusqu'à la maîtrise avancée, en formation individuelle ou en groupe.`,
     modules: [
