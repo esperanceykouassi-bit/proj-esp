@@ -39,7 +39,7 @@ const services = [
     icon: Briefcase,
     title: 'Étude & Montage de Projets',
     color: 'bg-brand-blue-mid',
-    tags: ['Business plan', 'Étude de rentabilité', 'Financement'],
+    tags: ['Business plan', 'Étude de projet', 'Rédaction de Business Plan'],
     description:
       "De l'idée à la réalisation : étude de faisabilité, business plan complet, analyse de rentabilité et montage des dossiers de financement auprès des banques et investisseurs.",
   },

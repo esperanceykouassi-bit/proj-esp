@@ -25,7 +25,7 @@ export default function HeroSection() {
               transition={{ duration: 0.5, ease }}
               className="inline-block bg-white/20 text-white text-xs font-semibold px-4 py-1.5 rounded-full mb-6 uppercase tracking-widest"
             >
-              Cabinet de Conseil — Côte d'Ivoire
+              Cabinet de formartion et de Conseil
             </motion.span>
 
             <motion.h1
