@@ -14,7 +14,7 @@ const steps = [
   {
     num: '03',
     title: 'Proposition adaptée',
-    desc: "Élaboration d'une solution sur mesure — programme de formation, plan d'assistance ou montage de projet — correspondant à vos enjeux réels.",
+    desc: "Élaboration d'une solution sur mesure (programme de formation, plan d'assistance ou montage de projet) correspondant à vos enjeux réels.",
   },
   {
     num: '04',
@@ -39,7 +39,7 @@ export default function MethodologySection() {
           </span>
           <h2 className="section-title mt-2">Notre Méthodologie</h2>
           <p className="section-subtitle">
-            Une approche <strong>pratique, orientée résultats</strong> — construite sur une
+            Une approche <strong>pratique, orientée résultats</strong>, construite sur une
             compréhension fine de votre réalité terrain.
           </p>
         </FadeIn>
