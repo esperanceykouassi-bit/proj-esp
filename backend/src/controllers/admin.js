@@ -1,8 +1,6 @@
-import { PrismaClient } from '@prisma/client'
 import jwt from 'jsonwebtoken'
 import { createHash, timingSafeEqual } from 'crypto'
-
-const prisma = new PrismaClient()
+import { prisma } from '../prisma.js'
 
 // Comparaison en temps constant pour éviter les timing attacks
 function safeEqual(a, b) {

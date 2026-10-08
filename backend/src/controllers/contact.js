@@ -1,8 +1,6 @@
-import { PrismaClient } from '@prisma/client'
 import { z } from 'zod'
 import { sendNotificationEmail, sendConfirmationEmail } from '../services/mailer.js'
-
-const prisma = new PrismaClient()
+import { prisma } from '../prisma.js'
 
 const SUJETS_VALIDES = ['Formation', 'Assistance comptable', 'Montage de projet', 'Autre']
 

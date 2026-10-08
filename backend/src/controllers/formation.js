@@ -1,6 +1,4 @@
-import { PrismaClient } from '@prisma/client'
-
-const prisma = new PrismaClient()
+import { prisma } from '../prisma.js'
 
 const CATEGORIES_VALIDES = ['SAARI', 'BUREAUTIQUE', 'LEADERSHIP', 'COMPTABLE', 'PROJET']
 
