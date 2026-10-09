@@ -5,7 +5,7 @@ import { getAllFormations, getFormationById } from '../controllers/formation.js'
 const router = Router()
 const prisma = new PrismaClient()
 
-// Route temporaire pour alimenter la base de données PostgreSQL
+// Route temporaire pour alimenter la base PostgreSQL avec des enums valides
 router.get('/seed-now', async (req, res) => {
   try {
     const result = await prisma.formation.createMany({
@@ -14,19 +14,19 @@ router.get('/seed-now', async (req, res) => {
           titre: 'Formation SAARI Comptabilité',
           categorie: 'SAARI',
           description: 'Maîtriser les logiciels SAARI pour la gestion comptable.',
-          statut: 'DISPONIBLE',
+          statut: 'ACTIF',
         },
         {
           titre: 'Bureautique Avancée (Excel, Word)',
           categorie: 'BUREAUTIQUE',
           description: 'Perfectionnement sur la suite Office.',
-          statut: 'DISPONIBLE',
+          statut: 'ACTIF',
         },
         {
           titre: 'Management et Leadership',
           categorie: 'LEADERSHIP',
           description: 'Développer ses compétences de leader d\'équipe.',
-          statut: 'DISPONIBLE',
+          statut: 'ACTIF',
         },
       ],
       skipDuplicates: true,
