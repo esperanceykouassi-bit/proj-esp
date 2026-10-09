@@ -23,13 +23,14 @@ async function main() {
         statut: 'DISPONIBLE',
       },
     ],
+    skipDuplicates: true, // Empêche l'erreur en cas de réexécution
   })
   console.log('✅ Données de démonstration insérées avec succès !')
 }
 
 main()
   .catch((e) => {
-    console.error(e)
+    console.error('Erreur Seed:', e)
     process.exit(1)
   })
   .finally(async () => {
