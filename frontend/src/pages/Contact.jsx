@@ -34,14 +34,14 @@ const COORDONNEES = [
   },
 ]
 
-// ─── Page Contact ─────────────────────────────────────────────────────────────
-
 export default function Contact() {
   const whatsappNumber = '2250102211421'
   const whatsappMessage = encodeURIComponent(
-    "Bonjour, je souhaite avoir des informations sur vos services et formations."
+    "Bonjour, je souhaite obtenir des informations sur vos services et vos formations."
   )
   const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`
+  const callUrl = 'tel:+2250102211421'
+  const mailUrl = 'mailto:infos.skillup24@gmail.com?subject=Demande%20d%27information'
 
   return (
     <div>
@@ -70,7 +70,7 @@ export default function Contact() {
             transition={{ duration: 0.5, delay: 0.16 }}
             className="text-lg text-white/80 max-w-xl mx-auto"
           >
-            Échangez directement avec notre équipe via WhatsApp pour obtenir une réponse rapide à toutes vos questions.
+            Choisissez le canal de communication qui vous convient le mieux pour échanger avec notre équipe.
           </motion.p>
         </div>
       </section>
@@ -131,35 +131,49 @@ export default function Contact() {
             </div>
           </FadeIn>
 
-          {/* ── Colonne droite : Carte WhatsApp ── */}
+          {/* ── Colonne droite : Carte d'actions multiples ── */}
           <FadeIn delay={0.1} className="lg:col-span-2">
-            <div className="card p-8 md:p-12 text-center space-y-6 bg-white rounded-2xl border border-gray-100 shadow-sm">
-              <div className="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto">
-                <MessageCircle size={32} />
-              </div>
-
+            <div className="card p-8 md:p-12 text-center space-y-8 bg-white rounded-2xl border border-gray-100 shadow-sm">
               <div>
-                <h2 className="text-2xl font-bold text-gray-900 mb-2">
-                  Discutons directement sur WhatsApp
+                <h2 className="text-2xl font-bold text-gray-900 mb-3">
+                  Échangeons sur votre projet
                 </h2>
-                <p className="text-gray-600 max-w-md mx-auto text-sm leading-relaxed">
+                <p className="text-gray-600 max-w-lg mx-auto text-sm leading-relaxed">
                   Vous avez un projet ou souhaitez découvrir nos services ? Contactez-nous pour obtenir des informations sur nos formations, notre assistance comptable et notre accompagnement personnalisé.
                 </p>
               </div>
 
-              <div className="pt-2">
+              {/* Boutons d'action */}
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-2">
+                {/* Bouton WhatsApp */}
                 <a
                   href={whatsappUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-3 bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-base px-8 py-4 rounded-xl shadow-lg shadow-emerald-600/20 transition-all hover:scale-105 active:scale-95"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-sm px-6 py-3.5 rounded-xl shadow-lg shadow-emerald-600/20 transition-all hover:scale-105 active:scale-95"
                 >
-                  <MessageCircle size={22} />
-                  Démarrer la discussion WhatsApp
+                  <MessageCircle size={20} />
+                  WhatsApp
+                </a>
+
+                {/* Bouton Appeler */}
+                <a
+                  href={callUrl}
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 bg-brand-green hover:bg-emerald-800 text-white font-semibold text-sm px-6 py-3.5 rounded-xl shadow-lg shadow-brand-green/20 transition-all hover:scale-105 active:scale-95"
+                >
+                  <Phone size={20} />
+                  Appeler
+                </a>
+
+                {/* Bouton Email */}
+                <a
+                  href={mailUrl}
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 bg-gray-900 hover:bg-gray-800 text-white font-semibold text-sm px-6 py-3.5 rounded-xl shadow-lg shadow-gray-900/20 transition-all hover:scale-105 active:scale-95"
+                >
+                  <Mail size={20} />
+                  Envoyer un email
                 </a>
               </div>
-
-              
             </div>
           </FadeIn>
 
