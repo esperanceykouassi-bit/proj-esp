@@ -1,16 +1,12 @@
-import { useState } from 'react'
 import { motion } from 'framer-motion'
-import { Mail, Phone, MapPin, Send, Loader2, MessageSquare } from 'lucide-react'
+import { Mail, Phone, MapPin, MessageCircle } from 'lucide-react'
 import FadeIn from '../components/FadeIn'
-import Toast from '../components/Toast'
 
 // ─── Données statiques ────────────────────────────────────────────────────────
 
-const SUJETS = ['Formation', 'Assistance comptable', 'Montage de projet', 'Autre']
-
 const COORDONNEES = [
   {
-    icon:  Phone,
+    icon: Phone,
     label: 'Téléphone',
     color: 'bg-brand-green/10',
     iconColor: 'text-brand-green',
@@ -20,89 +16,32 @@ const COORDONNEES = [
     ],
   },
   {
-    icon:  Mail,
+    icon: Mail,
     label: 'Email',
     color: 'bg-brand-blue/10',
     iconColor: 'text-brand-blue',
     lines: [
-      { text: 'infos.skillup24@gmail.com',        href: 'mailto:infos.skillup24@gmail.com' },
-      { text: 'ci_consultskillup24@yahoo.com',    href: 'mailto:ci_consultskillup24@yahoo.com' },
+      { text: 'infos.skillup24@gmail.com', href: 'mailto:infos.skillup24@gmail.com' },
+      { text: 'ci_consultskillup24@yahoo.com', href: 'mailto:ci_consultskillup24@yahoo.com' },
     ],
   },
   {
-    icon:  MapPin,
+    icon: MapPin,
     label: 'Localisation',
     color: 'bg-brand-teal/10',
     iconColor: 'text-brand-teal',
-    lines: [{ text: 'Abidjan, Côte d\'Ivoire' }],
+    lines: [{ text: "Abidjan, Côte d'Ivoire" }],
   },
 ]
-
-const INITIAL_FORM = { nom: '', email: '', telephone: '', sujet: '', message: '' }
-
-// ─── Validation client ────────────────────────────────────────────────────────
-
-function validate(form) {
-  const errs = {}
-  if (!form.nom.trim() || form.nom.trim().length < 2)
-    errs.nom = 'Nom requis (min 2 caractères)'
-  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email))
-    errs.email = 'Email invalide'
-  if (!form.telephone.trim() || form.telephone.trim().length < 8)
-    errs.telephone = 'Téléphone requis (min 8 chiffres)'
-  if (!form.sujet)
-    errs.sujet = 'Veuillez choisir un sujet'
-  if (!form.message.trim() || form.message.trim().length < 10)
-    errs.message = 'Message trop court (min 10 caractères)'
-  return errs
-}
 
 // ─── Page Contact ─────────────────────────────────────────────────────────────
 
 export default function Contact() {
-  const [form, setForm]         = useState(INITIAL_FORM)
-  const [errors, setErrors]     = useState({})
-  const [loading, setLoading]   = useState(false)
-  const [toast, setToast]       = useState(null)
-
-  const showToast = (message, type = 'success') =>
-    setToast({ message, type, key: Date.now() })
-
-  const handleChange = (e) => {
-    const { name, value } = e.target
-    setForm((prev) => ({ ...prev, [name]: value }))
-    if (errors[name]) setErrors((prev) => ({ ...prev, [name]: null }))
-  }
-
-  const handleSubmit = async (e) => {
-    e.preventDefault()
-    const errs = validate(form)
-    if (Object.keys(errs).length) { setErrors(errs); return }
-
-    setLoading(true)
-    try {
-      const res  = await fetch('/api/contact', {
-        method:  'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body:    JSON.stringify(form),
-      })
-      const data = await res.json()
-
-      if (!res.ok) {
-        if (data.details) setErrors(flattenServerErrors(data.details))
-        else showToast(data.error || 'Une erreur est survenue.', 'error')
-        return
-      }
-
-      showToast(data.message || 'Message envoyé avec succès !', 'success')
-      setForm(INITIAL_FORM)
-      setErrors({})
-    } catch {
-      showToast('Connexion impossible. Vérifiez votre connexion internet.', 'error')
-    } finally {
-      setLoading(false)
-    }
-  }
+  const whatsappNumber = '2250768891544'
+  const whatsappMessage = encodeURIComponent(
+    "Bonjour, je souhaite avoir des informations sur vos services et formations."
+  )
+  const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`
 
   return (
     <div>
@@ -110,26 +49,28 @@ export default function Contact() {
       <section className="bg-hero-gradient text-white py-16 md:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.span
-            initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4 }}
             className="inline-block bg-white/20 text-xs font-semibold px-4 py-1.5 rounded-full mb-5 uppercase tracking-widest"
           >
             Prenons contact
           </motion.span>
           <motion.h1
-            initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.08 }}
             className="text-4xl md:text-5xl font-bold font-heading mb-4"
           >
             Contactez-nous
           </motion.h1>
           <motion.p
-            initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.16 }}
             className="text-lg text-white/80 max-w-xl mx-auto"
           >
-            Partagez-nous votre besoin et nous vous répondrons dans les plus brefs délais
-            avec une proposition adaptée à votre contexte.
+            Échangez directement avec notre équipe via WhatsApp pour obtenir une réponse rapide à toutes vos questions.
           </motion.p>
         </div>
       </section>
@@ -140,7 +81,6 @@ export default function Contact() {
 
           {/* ── Colonne gauche : coordonnées ── */}
           <FadeIn className="space-y-6">
-
             <h2 className="text-2xl font-bold text-gray-900">Nos coordonnées</h2>
 
             <div className="space-y-4">
@@ -155,8 +95,11 @@ export default function Contact() {
                     </p>
                     {lines.map(({ text, href }) =>
                       href ? (
-                        <a key={text} href={href}
-                           className="block text-sm text-gray-700 hover:text-brand-green transition-colors">
+                        <a
+                          key={text}
+                          href={href}
+                          className="block text-sm text-gray-700 hover:text-brand-green transition-colors"
+                        >
                           {text}
                         </a>
                       ) : (
@@ -167,9 +110,6 @@ export default function Contact() {
                 </div>
               ))}
             </div>
-
-            {/* Encart diagnostic */}
-            
 
             {/* Horaires */}
             <div className="bg-gray-50 border border-gray-100 rounded-2xl p-6">
@@ -189,158 +129,44 @@ export default function Contact() {
                 </li>
               </ul>
             </div>
-
           </FadeIn>
 
-          {/* ── Colonne droite : formulaire ── */}
+          {/* ── Colonne droite : Carte WhatsApp ── */}
           <FadeIn delay={0.1} className="lg:col-span-2">
-            <form
-              onSubmit={handleSubmit}
-              noValidate
-              className="card p-8 md:p-10 space-y-5"
-            >
+            <div className="card p-8 md:p-12 text-center space-y-6 bg-white rounded-2xl border border-gray-100 shadow-sm">
+              <div className="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto">
+                <MessageCircle size={32} />
+              </div>
+
               <div>
-                <h2 className="text-xl font-bold text-gray-900">Formulaire de contact</h2>
-                <p className="text-sm text-gray-500 mt-1">
-                  Les champs marqués <span className="text-red-500">*</span> sont obligatoires.
+                <h2 className="text-2xl font-bold text-gray-900 mb-2">
+                  Discutons directement sur WhatsApp
+                </h2>
+                <p className="text-gray-600 max-w-md mx-auto text-sm leading-relaxed">
+                  Besoin d'informations sur nos formations, une assistance comptable ou le montage de votre projet ? Notre équipe vous répond immédiatement.
                 </p>
               </div>
 
-              {/* Nom + Email */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                <Field
-                  label="Nom complet" name="nom" value={form.nom}
-                  error={errors.nom} onChange={handleChange}
-                  placeholder="Kouassi Adjoua" required
-                />
-                <Field
-                  label="Email" name="email" type="email" value={form.email}
-                  error={errors.email} onChange={handleChange}
-                  placeholder="votre@email.com" required
-                />
+              <div className="pt-2">
+                <a
+                  href={whatsappUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-3 bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-base px-8 py-4 rounded-xl shadow-lg shadow-emerald-600/20 transition-all hover:scale-105 active:scale-95"
+                >
+                  <MessageCircle size={22} />
+                  Démarrer la discussion WhatsApp
+                </a>
               </div>
 
-              {/* Téléphone + Sujet */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                <Field
-                  label="Téléphone" name="telephone" type="tel" value={form.telephone}
-                  error={errors.telephone} onChange={handleChange}
-                  placeholder="+225 07 00 00 00 00" required
-                />
-                <SelectField
-                  label="Sujet" name="sujet" value={form.sujet}
-                  error={errors.sujet} onChange={handleChange}
-                  options={SUJETS} required
-                />
-              </div>
-
-              {/* Message */}
-              <div>
-                <label htmlFor="message"
-                       className="block text-sm font-medium text-gray-700 mb-1.5">
-                  Message <span className="text-red-500">*</span>
-                </label>
-                <textarea
-                  id="message" name="message" rows={5} value={form.message}
-                  onChange={handleChange}
-                  placeholder="Décrivez votre besoin, votre contexte ou votre projet…"
-                  className={`w-full px-4 py-2.5 border rounded-xl text-sm resize-none
-                    focus:outline-none focus:ring-2 transition-colors
-                    ${errors.message
-                      ? 'border-red-400 focus:ring-red-200 bg-red-50'
-                      : 'border-gray-200 focus:ring-brand-green/40 focus:border-brand-green'
-                    }`}
-                />
-                {errors.message && (
-                  <p className="mt-1 text-xs text-red-600">{errors.message}</p>
-                )}
-              </div>
-
-              {/* Bouton */}
-              <button
-                type="submit"
-                disabled={loading}
-                className="btn-primary w-full justify-center py-3.5 text-base
-                           disabled:opacity-60 disabled:cursor-not-allowed"
-              >
-                {loading
-                  ? <><Loader2 size={18} className="animate-spin" /> Envoi en cours…</>
-                  : <><Send size={18} /> Envoyer le message</>
-                }
-              </button>
-
-              <p className="text-xs text-center text-gray-400">
-                Un accusé de réception vous sera envoyé par email. Réponse sous 24h.
+              <p className="text-xs text-gray-400">
+                Temps de réponse habituel : moins de 15 minutes.
               </p>
-            </form>
+            </div>
           </FadeIn>
 
         </div>
       </section>
-
-      {/* ── Toast ── */}
-      {toast && (
-        <Toast
-          key={toast.key}
-          message={toast.message}
-          type={toast.type}
-          onClose={() => setToast(null)}
-        />
-      )}
     </div>
   )
-}
-
-// ─── Sous-composants ──────────────────────────────────────────────────────────
-
-function Field({ label, name, type = 'text', value, error, onChange, placeholder, required }) {
-  return (
-    <div>
-      <label htmlFor={name} className="block text-sm font-medium text-gray-700 mb-1.5">
-        {label} {required && <span className="text-red-500">*</span>}
-      </label>
-      <input
-        id={name} name={name} type={type} value={value}
-        onChange={onChange} placeholder={placeholder}
-        className={`w-full px-4 py-2.5 border rounded-xl text-sm
-          focus:outline-none focus:ring-2 transition-colors
-          ${error
-            ? 'border-red-400 focus:ring-red-200 focus:border-red-400 bg-red-50'
-            : 'border-gray-200 focus:ring-brand-green/40 focus:border-brand-green'
-          }`}
-      />
-      {error && <p className="mt-1 text-xs text-red-600">{error}</p>}
-    </div>
-  )
-}
-
-function SelectField({ label, name, value, error, onChange, options, required }) {
-  return (
-    <div>
-      <label htmlFor={name} className="block text-sm font-medium text-gray-700 mb-1.5">
-        {label} {required && <span className="text-red-500">*</span>}
-      </label>
-      <select
-        id={name} name={name} value={value} onChange={onChange}
-        className={`w-full px-4 py-2.5 border rounded-xl text-sm bg-white
-          focus:outline-none focus:ring-2 transition-colors
-          ${error
-            ? 'border-red-400 focus:ring-red-200 focus:border-red-400 bg-red-50'
-            : 'border-gray-200 focus:ring-brand-green/40 focus:border-brand-green'
-          }`}
-      >
-        <option value="">Choisir un sujet…</option>
-        {options.map((o) => <option key={o} value={o}>{o}</option>)}
-      </select>
-      {error && <p className="mt-1 text-xs text-red-600">{error}</p>}
-    </div>
-  )
-}
-
-function flattenServerErrors(details) {
-  const flat = {}
-  for (const [key, messages] of Object.entries(details)) {
-    flat[key] = Array.isArray(messages) ? messages[0] : messages
-  }
-  return flat
 }
