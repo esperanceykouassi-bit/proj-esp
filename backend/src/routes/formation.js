@@ -15,6 +15,7 @@ router.get('/seed-now', async (req, res) => {
           description: 'Maîtriser les logiciels SAARI pour la gestion comptable.',
           statut: 'ACTIF',
           duree: '3 semaines',
+          prix: 50000,
         },
         {
           titre: 'Bureautique Avancée (Excel, Word)',
@@ -22,6 +23,7 @@ router.get('/seed-now', async (req, res) => {
           description: 'Perfectionnement sur la suite Office.',
           statut: 'ACTIF',
           duree: '2 semaines',
+          prix: 35000,
         },
         {
           titre: 'Management et Leadership',
@@ -29,6 +31,7 @@ router.get('/seed-now', async (req, res) => {
           description: 'Développer ses compétences de leader d\'équipe.',
           statut: 'ACTIF',
           duree: '1 mois',
+          prix: 60000,
         },
       ],
       skipDuplicates: true,
