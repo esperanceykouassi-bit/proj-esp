@@ -1,5 +1,5 @@
 import { z } from 'zod'
-import { prisma } from '../prisma.js'
+import { prisma } from '../services/prisma.js'
 
 const inscriptionSchema = z.object({
   nom: z.string().min(2, 'Nom trop court (min 2 caractères)').max(100),
