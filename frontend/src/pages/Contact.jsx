@@ -143,7 +143,7 @@ export default function Contact() {
                   Discutons directement sur WhatsApp
                 </h2>
                 <p className="text-gray-600 max-w-md mx-auto text-sm leading-relaxed">
-                  Besoin d'informations sur nos formations, une assistance comptable ou le montage de votre projet ? Notre équipe vous répond immédiatement.
+                  Vous avez un projet ou souhaitez découvrir nos services ? Contactez-nous pour obtenir des informations sur nos formations, notre assistance comptable et notre accompagnement personnalisé.
                 </p>
               </div>
 
@@ -159,9 +159,7 @@ export default function Contact() {
                 </a>
               </div>
 
-              <p className="text-xs text-gray-400">
-                Temps de réponse habituel : moins de 15 minutes.
-              </p>
+              
             </div>
           </FadeIn>
 
