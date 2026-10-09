@@ -37,7 +37,7 @@ const COORDONNEES = [
 // ─── Page Contact ─────────────────────────────────────────────────────────────
 
 export default function Contact() {
-  const whatsappNumber = '2250768891544'
+  const whatsappNumber = '2250102211421'
   const whatsappMessage = encodeURIComponent(
     "Bonjour, je souhaite avoir des informations sur vos services et formations."
   )
