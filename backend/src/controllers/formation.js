@@ -1,10 +1,9 @@
-import { prisma } from '../prisma.js'
+import { prisma } from '../services/prisma.js'
 
 const CATEGORIES_VALIDES = ['SAARI', 'BUREAUTIQUE', 'LEADERSHIP', 'COMPTABLE', 'PROJET']
-
 export async function getAllFormations(req, res) {
   try {
-    const { categorie, statut = 'ACTIF' } = req.query
+    const { categorie, statut } = req.query
 
     if (categorie && !CATEGORIES_VALIDES.includes(categorie)) {
       return res.status(400).json({
@@ -12,11 +11,17 @@ export async function getAllFormations(req, res) {
       })
     }
 
+    // On ne filtre sur le statut que si un statut est explicitement transmis dans l'URL
+    const whereCondition = {}
+    if (statut) {
+      whereCondition.statut = statut
+    }
+    if (categorie) {
+      whereCondition.categorie = categorie
+    }
+
     const formations = await prisma.formation.findMany({
-      where: {
-        statut,
-        ...(categorie && { categorie }),
-      },
+      where: whereCondition,
       orderBy: { createdAt: 'asc' },
       select: {
         id: true,
@@ -32,29 +37,9 @@ export async function getAllFormations(req, res) {
     res.json(formations)
   } catch (err) {
     console.error('[formation] getAllFormations :', err)
-    res.status(500).json({ error: 'Impossible de charger les formations.' })
-  }
-}
-
-export async function getFormationById(req, res) {
-  try {
-    const id = parseInt(req.params.id, 10)
-    if (isNaN(id)) return res.status(400).json({ error: 'ID invalide.' })
-
-    const formation = await prisma.formation.findUnique({
-      where: { id },
-      include: {
-        inscriptions: {
-          select: { id: true, statut: true, createdAt: true },
-          orderBy: { createdAt: 'desc' },
-        },
-      },
+    res.status(500).json({ 
+      error: 'Impossible de charger les formations.',
+      details: err.message 
     })
-
-    if (!formation) return res.status(404).json({ error: 'Formation introuvable.' })
-    res.json(formation)
-  } catch (err) {
-    console.error('[formation] getFormationById :', err)
-    res.status(500).json({ error: 'Impossible de charger cette formation.' })
   }
 }

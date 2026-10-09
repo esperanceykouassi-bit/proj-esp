@@ -1,6 +1,6 @@
 import jwt from 'jsonwebtoken'
 import { createHash, timingSafeEqual } from 'crypto'
-import { prisma } from '../prisma.js'
+import { prisma } from '../services/prisma.js'
 
 // Comparaison en temps constant pour éviter les timing attacks
 function safeEqual(a, b) {

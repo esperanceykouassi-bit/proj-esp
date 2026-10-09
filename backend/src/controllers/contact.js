@@ -1,6 +1,6 @@
 import { z } from 'zod'
 import { sendNotificationEmail, sendConfirmationEmail } from '../services/mailer.js'
-import { prisma } from '../prisma.js'
+import { prisma } from '../services/prisma.js'
 
 const SUJETS_VALIDES = ['Formation', 'Assistance comptable', 'Montage de projet', 'Autre']
 
