@@ -169,16 +169,7 @@ export default function Contact() {
             </div>
 
             {/* Encart diagnostic */}
-            <div className="bg-brand-green/5 border border-brand-green/20 rounded-2xl p-6">
-              <div className="flex items-center gap-2 mb-2">
-                <MessageSquare size={18} className="text-brand-green" />
-                <h3 className="font-semibold text-gray-900">Diagnostic gratuit</h3>
-              </div>
-              <p className="text-sm text-gray-500 leading-relaxed">
-                Chaque engagement commence par une analyse gratuite de vos besoins.
-                Nous vous proposons ensuite la solution la plus adaptée à votre réalité.
-              </p>
-            </div>
+            
 
             {/* Horaires */}
             <div className="bg-gray-50 border border-gray-100 rounded-2xl p-6">
