@@ -92,7 +92,7 @@ export default function ServicesPreview() {
               </div>
               <h3 className="text-lg font-semibold mb-3">Solution sur mesure ?</h3>
               <p className="text-sm text-white/80 mb-5">
-                Après diagnostic gratuit, nous construisons une offre adaptée à vos besoins réels.
+                Après diagnostic, nous construisons une offre adaptée à vos besoins réels.
               </p>
               <Link
                 to="/contact"
