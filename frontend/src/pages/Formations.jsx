@@ -1,11 +1,11 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import { Link } from 'react-router-dom'
 import {
-  GraduationCap, ServerCrash, Loader2,
+  ServerCrash, Loader2, ArrowRight,
   Monitor, FileSpreadsheet, Users, Calculator, Briefcase, BookOpen,
 } from 'lucide-react'
 import { useFormations } from '../hooks/useFormations'
-import InscriptionModal from '../components/InscriptionModal'
 import Toast from '../components/Toast'
 import FadeIn from '../components/FadeIn'
 
@@ -40,14 +40,9 @@ const ICON = {
 
 export default function Formations() {
   const [activeCategorie, setActiveCategorie] = useState('')
-  const [selectedFormation, setSelectedFormation] = useState(null)
   const [toast, setToast] = useState(null)
 
   const { formations, loading, error } = useFormations(activeCategorie)
-
-  const showToast = (message, type = 'success') => {
-    setToast({ message, type, key: Date.now() })
-  }
 
   return (
     <div>
@@ -119,7 +114,6 @@ export default function Formations() {
               <ServerCrash size={48} className="text-red-400" />
               <h3 className="text-lg font-semibold text-gray-700">Impossible de charger les formations</h3>
               <p className="text-sm text-gray-500 max-w-md">{error}</p>
-              <p className="text-xs text-gray-400">Vérifiez que le serveur backend est démarré sur le port 3001.</p>
               <button
                 onClick={() => setActiveCategorie(activeCategorie)}
                 className="btn-outline text-sm py-2"
@@ -136,7 +130,7 @@ export default function Formations() {
             {formations.length === 0 ? (
               <FadeIn>
                 <div className="flex flex-col items-center justify-center py-24 gap-3 text-center">
-                  <GraduationCap size={48} className="text-gray-300" />
+                  <BookOpen size={48} className="text-gray-300" />
                   <h3 className="text-lg font-semibold text-gray-600">Aucune formation dans cette catégorie</h3>
                   <button
                     onClick={() => setActiveCategorie('')}
@@ -158,7 +152,6 @@ export default function Formations() {
                         key={formation.id}
                         formation={formation}
                         index={index}
-                        onInscrire={() => setSelectedFormation(formation)}
                       />
                     ))}
                   </div>
@@ -168,15 +161,6 @@ export default function Formations() {
           </>
         )}
       </section>
-
-      {/* ── Modale inscription ── */}
-      {selectedFormation && (
-        <InscriptionModal
-          formation={selectedFormation}
-          onClose={() => setSelectedFormation(null)}
-          onSuccess={(msg) => showToast(msg, 'success')}
-        />
-      )}
 
       {/* ── Toast ── */}
       {toast && (
@@ -191,9 +175,9 @@ export default function Formations() {
   )
 }
 
-// ─── Carte formation ──────────────────────────────────────────────────────────
+// ─── Carte formation (Explicative) ────────────────────────────────────────────
 
-function FormationCard({ formation, index, onInscrire }) {
+function FormationCard({ formation, index }) {
   const badge = BADGE[formation.categorie] ?? { label: formation.categorie, bg: 'bg-gray-500', text: 'text-white' }
   const Icon = ICON[formation.categorie] ?? BookOpen
 
@@ -204,9 +188,9 @@ function FormationCard({ formation, index, onInscrire }) {
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, scale: 0.96 }}
       transition={{ duration: 0.35, delay: index * 0.06, ease: [0.22, 1, 0.36, 1] }}
-      className="card flex flex-col group"
+      className="card flex flex-col group border border-gray-100 rounded-2xl bg-white shadow-sm hover:shadow-md transition-all"
     >
-      {/* Top coloré */}
+      {/* Bande de couleur supérieure */}
       <div className={`h-2 ${badge.bg} rounded-t-2xl`} />
 
       <div className="p-6 flex flex-col flex-1">
@@ -221,23 +205,23 @@ function FormationCard({ formation, index, onInscrire }) {
         </div>
 
         {/* Titre */}
-        <h3 className="text-base font-bold text-gray-900 mb-2 leading-snug group-hover:text-brand-green transition-colors">
+        <h3 className="text-lg font-bold text-gray-900 mb-2 leading-snug group-hover:text-brand-green transition-colors">
           {formation.titre}
         </h3>
 
-        {/* Description tronquée */}
-        <p className="text-sm text-gray-500 leading-relaxed mb-5 flex-1 line-clamp-3">
+        {/* Description explicative complète */}
+        <p className="text-sm text-gray-600 leading-relaxed mb-6 flex-1">
           {formation.description}
         </p>
 
-        {/* Bouton */}
-        <button
-          onClick={onInscrire}
-          className="btn-primary w-full justify-center py-2.5 text-sm mt-auto"
+        {/* Bouton de demande d'information */}
+        <Link
+          to="/contact"
+          className="w-full inline-flex items-center justify-center gap-2 bg-gray-50 hover:bg-brand-green hover:text-white text-gray-700 font-semibold text-sm py-2.5 px-4 rounded-xl transition-all group/btn mt-auto"
         >
-          <GraduationCap size={16} />
-          S'inscrire
-        </button>
+          En savoir plus
+          <ArrowRight size={16} className="group-hover/btn:translate-x-1 transition-transform" />
+        </Link>
       </div>
     </motion.div>
   )
