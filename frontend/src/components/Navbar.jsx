@@ -47,11 +47,11 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-24 md:h-28">
 
           {/* Logo agrandi */}
-          <Link to="/" className="flex items-center shrink-0 py-2">
+          <Link to="/" className="flex items-center shrink-0 overflow-hidden py-1">
             <img
               src="/images/logo-full.jpeg"
               alt="SkillUp Consulting CI"
-              className="h-20 md:h-24 w-auto object-contain transition-all"
+              className="h-16 md:h-20 w-auto object-contain scale-[1.6] md:scale-[1.8] origin-left transition-all"
             />
           </Link>
 
