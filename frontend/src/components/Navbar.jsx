@@ -43,14 +43,15 @@ export default function Navbar() {
       }`}
     >
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20">
+        {/* Hauteur augmentée à h-24 md:h-28 pour accueillir le grand logo */}
+        <div className="flex items-center justify-between h-24 md:h-28">
 
-          {/* Logo */}
-          <Link to="/" className="flex items-center shrink-0">
+          {/* Logo agrandi */}
+          <Link to="/" className="flex items-center shrink-0 py-2">
             <img
               src="/images/logo-full.jpeg"
               alt="SkillUp Consulting CI"
-              className="h-14 md:h-16 w-auto object-contain"
+              className="h-20 md:h-24 w-auto object-contain transition-all"
             />
           </Link>
 
