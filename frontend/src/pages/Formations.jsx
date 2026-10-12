@@ -1,228 +1,340 @@
-import { useState } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import {
-  ServerCrash, Loader2, ArrowRight,
-  Monitor, FileSpreadsheet, Users, Calculator, Briefcase, BookOpen,
+  Monitor, FileSpreadsheet, Users, Calculator, Briefcase,
+  CheckCircle, ArrowRight,
 } from 'lucide-react'
-import { useFormations } from '../hooks/useFormations'
-import Toast from '../components/Toast'
 import FadeIn from '../components/FadeIn'
 
-// ─── Config catégories ────────────────────────────────────────────────────────
-
-const FILTRES = [
-  { label: 'Tout',        value: '' },
-  { label: 'SAARI',       value: 'SAARI' },
-  { label: 'Bureautique', value: 'BUREAUTIQUE' },
-  { label: 'Leadership',  value: 'LEADERSHIP' },
-  { label: 'Assistance',  value: 'COMPTABLE' },
-  { label: 'Projets',     value: 'PROJET' },
+/* ── Données des formations ────────────────────────── */
+const formations = [
+  {
+    id: 'saari',
+    icon: Monitor,
+    color: 'bg-brand-green',
+    badge: 'SAARI',
+    titre: 'Formations en Logiciels de Gestion SAARI',
+    intro: `Maîtrisez les logiciels Sage (SAARI), standards incontournables de la gestion d'entreprise en Côte d'Ivoire. Nos programmes pratiques couvrent de la prise en main jusqu'à l'utilisation avancée.`,
+    modules: [
+      {
+        label: 'Sage Comptabilité 100',
+        items: [
+          'Paramétrage du plan comptable SYSCOHADA',
+          'Saisie des pièces comptables (achat, vente, banque)',
+          'Lettrage et rapprochement bancaire',
+          'États financiers : bilan et compte de résultat',
+          'Clôtures mensuelles et annuelles',
+        ],
+      },
+      {
+        label: 'Sage Gestion Commerciale',
+        items: [
+          'Gestion des articles, familles et tarifs',
+          'Émission de devis, bons de commande et factures',
+          'Suivi des achats, fournisseurs et stocks',
+          'Réalisation des inventaires physiques',
+          'Tableaux de bord des ventes',
+        ],
+      },
+      {
+        label: 'Sage Paie & RH',
+        items: [
+          'Paramétrage des rubriques de paie',
+          'Calcul et impression des bulletins de salaire',
+          'Gestion des congés et absences',
+          'Déclarations sociales (CNPS, CMU)',
+          'États des charges patronales et virements',
+        ],
+      },
+    ],
+  },
+  {
+    id: 'bureautique',
+    icon: FileSpreadsheet,
+    color: 'bg-brand-teal',
+    badge: 'Bureautique',
+    titre: 'Formations en Outils Bureautiques Professionnels',
+    intro: `Optimisez votre temps et gagnez en productivité. Des modules sur-mesure pour maîtriser les outils bureautiques essentiels en milieu professionnel.`,
+    modules: [
+      {
+        label: 'Microsoft Excel (Tous Niveaux)',
+        items: [
+          'Formules avancées : RECHERCHEV, XLOOKUP, SI imbriqués',
+          'Tableaux croisés dynamiques et graphiques',
+          'Mises en forme conditionnelles et validation',
+          'Automatisation des tâches répétitives',
+          'Conception de tableaux de bord interactifs',
+        ],
+      },
+      {
+        label: 'Microsoft Word & PowerPoint',
+        items: [
+          'Création de modèles et styles de documents',
+          'Publipostage et documents complexes',
+          'Conception de présentations impactantes',
+          'Mise en page de rapports d’activité',
+          'Supports visuels et animations professionnelles',
+        ],
+      },
+      {
+        label: 'Collaboration & Cloud',
+        items: [
+          'Gestion optimisée des mails avec Outlook',
+          'Partage d’agendas et gestion du temps',
+          'Travail collaboratif sur Google Workspace',
+          'Gestion documentaire sécurisée sur le Cloud',
+          'Bonnes pratiques du travail à distance',
+        ],
+      },
+    ],
+  },
+  {
+    id: 'leadership',
+    icon: Users,
+    color: 'bg-brand-blue',
+    badge: 'Leadership',
+    titre: 'Formations en Leadership & Management',
+    intro: `Développez votre posture de leader et renforcez la cohésion de vos équipes grâce à des ateliers axés sur les réalités managériales en Côte d'Ivoire.`,
+    modules: [
+      {
+        label: 'Posture Managériale',
+        items: [
+          'Identification de son style de leadership',
+          'Fixation d’objectifs SMART et suivi',
+          'Délégation efficace et responsabilisation',
+          'Gestion du temps et des priorités',
+          'Prise de décision en situation de pression',
+        ],
+      },
+      {
+        label: 'Communication & Équipe',
+        items: [
+          'Techniques de communication assertive',
+          'Prise de parole en public et expression oral',
+          'Conduite de réunions efficaces',
+          'Gestion des conflits et médiation',
+          'Motivation et animation d’équipe',
+        ],
+      },
+      {
+        label: 'Gestion de Projet',
+        items: [
+          'Bases de la gestion de projet',
+          'Planification et suivi avec le diagramme de Gantt',
+          'Identification et maîtrise des risques',
+          'Gestion des délais, coûts et qualité',
+          'Rédaction de bilans et rapports de projet',
+        ],
+      },
+    ],
+  },
+  {
+    id: 'comptabilite',
+    icon: Calculator,
+    color: 'bg-brand-green-dark',
+    badge: 'Comptabilité',
+    titre: 'Formations en Pratique Comptable & Fiscale',
+    intro: `Renforcez vos connaissances théoriques et pratiques en comptabilité SYSCOHADA et fiscalité ivoirienne pour assurer la conformité de vos opérations.`,
+    modules: [
+      {
+        label: 'Pratique Comptable',
+        items: [
+          'Tenue de comptabilité générale SYSCOHADA',
+          'Analyse et contrôle des comptes',
+          'Élaboration de la balance et du grand livre',
+          'Travaux d’inventaire de fin d’exercice',
+          'Montage des états financiers annuels',
+        ],
+      },
+      {
+        label: 'Fiscalité Pratique',
+        items: [
+          'Mécanisme et déclarations de TVA',
+          'Impôts sur les salaires (ITS) et charges sociales',
+          'Impôt sur les Sociétés (IS) et BIC',
+          'Patentes, taxes foncières et obligations DGI',
+          'Gestion des contrôles et redressements fiscaux',
+        ],
+      },
+      {
+        label: 'Gestion de Trésorerie',
+        items: [
+          'Établissement du plan de trésorerie',
+          'Suivi des encaissements et décaissements',
+          'Gestion des relations bancaires',
+          'Prévisions de trésorerie à court et moyen terme',
+          'Réduction des risques de décalage de trésorerie',
+        ],
+      },
+    ],
+  },
+  {
+    id: 'projets',
+    icon: Briefcase,
+    color: 'bg-brand-blue-mid',
+    badge: 'Montage de Projets',
+    titre: 'Formations en Étude & Montage de Projets',
+    intro: `Acquérez la méthodologie complète pour structurer, rédiger et présenter des projets d'investissement crédibles aux banques et partenaires financiers.`,
+    modules: [
+      {
+        label: 'Études Préalables',
+        items: [
+          'Analyse de faisabilité technique et commerciale',
+          'Étude de marché et positionnement',
+          'Diagnostic SWOT et analyse de la concurrence',
+          'Évaluation des besoins d’investissement',
+          'Analyse des risques du projet',
+        ],
+      },
+      {
+        label: 'Business Plan & Modèle Financier',
+        items: [
+          'Rédaction narrative du Business Plan',
+          'Construction du compte de résultat prévisionnel',
+          'Plan de financement et tableau de trésorerie',
+          'Calcul des indicateurs de rentabilité (VAN, TRI)',
+          'Analyse du point d’équilibre (seuil de rentabilité)',
+        ],
+      },
+      {
+        label: 'Dossier de Financement',
+        items: [
+          'Constitution du dossier bancaire',
+          'Techniques de présentation devant un comité de crédit',
+          'Négociation des conditions de prêt',
+          'Suivi du déblocage et garanties',
+          'Suivi post-financement',
+        ],
+      },
+    ],
+  },
 ]
 
-const BADGE = {
-  SAARI:       { label: 'SAARI',        bg: 'bg-brand-green',    text: 'text-white' },
-  BUREAUTIQUE: { label: 'Bureautique',  bg: 'bg-brand-teal',     text: 'text-white' },
-  LEADERSHIP:  { label: 'Leadership',   bg: 'bg-brand-blue',     text: 'text-white' },
-  COMPTABLE:   { label: 'Comptabilité', bg: 'bg-amber-600',      text: 'text-white' },
-  PROJET:      { label: 'Projets',      bg: 'bg-brand-blue-mid', text: 'text-white' },
-}
-
-const ICON = {
-  SAARI:       Monitor,
-  BUREAUTIQUE: FileSpreadsheet,
-  LEADERSHIP:  Users,
-  COMPTABLE:   Calculator,
-  PROJET:      Briefcase,
-}
-
-// ─── Page principale ──────────────────────────────────────────────────────────
-
+/* ── Composant principal ───────────────────────────── */
 export default function Formations() {
-  const [activeCategorie, setActiveCategorie] = useState('')
-  const [toast, setToast] = useState(null)
-
-  const { formations, loading, error } = useFormations(activeCategorie)
-
   return (
     <div>
-      {/* ── Hero ── */}
-      <section className="bg-hero-gradient text-white py-16 md:py-20">
+
+      {/* ── Hero ──────────────────────────────────────── */}
+      <section className="bg-hero-gradient text-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <motion.span
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4 }}
-            className="inline-block bg-white/20 text-xs font-semibold px-4 py-1.5 rounded-full mb-5 uppercase tracking-widest"
-          >
-            Catalogue de formations
-          </motion.span>
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.08 }}
-            className="text-4xl md:text-5xl font-bold font-heading mb-4"
-          >
-            Nos Formations
-          </motion.h1>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.16 }}
-            className="text-lg text-white/80 max-w-2xl mx-auto"
-          >
-            Des programmes pratiques, animés par des experts du terrain, pour booster
-            vos compétences et accélérer votre carrière.
-          </motion.p>
-        </div>
-      </section>
-
-      {/* ── Filtres ── */}
-      <section className="sticky top-20 z-30 bg-white border-b border-gray-100 shadow-sm">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center gap-2 overflow-x-auto scrollbar-none">
-          {FILTRES.map((filtre) => (
-            <button
-              key={filtre.value}
-              onClick={() => setActiveCategorie(filtre.value)}
-              className={`shrink-0 px-4 py-2 rounded-full text-sm font-medium transition-all duration-200
-                ${activeCategorie === filtre.value
-                  ? 'bg-brand-green text-white shadow-md'
-                  : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
-                }`}
-            >
-              {filtre.label}
-            </button>
-          ))}
-        </div>
-      </section>
-
-      {/* ── Contenu ── */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-
-        {/* Spinner */}
-        {loading && (
-          <div className="flex flex-col items-center justify-center py-24 gap-4 text-gray-400">
-            <Loader2 size={40} className="animate-spin text-brand-green" />
-            <p className="text-sm">Chargement des formations…</p>
-          </div>
-        )}
-
-        {/* Erreur */}
-        {!loading && error && (
           <FadeIn>
-            <div className="flex flex-col items-center justify-center py-24 gap-4 text-center">
-              <ServerCrash size={48} className="text-red-400" />
-              <h3 className="text-lg font-semibold text-gray-700">Impossible de charger les formations</h3>
-              <p className="text-sm text-gray-500 max-w-md">{error}</p>
-              <button
-                onClick={() => setActiveCategorie(activeCategorie)}
-                className="btn-outline text-sm py-2"
-              >
-                Réessayer
-              </button>
+            <span className="inline-block bg-white/20 text-xs font-semibold px-4 py-1.5 rounded-full mb-5 uppercase tracking-wider">
+              Catalogue complet
+            </span>
+            <h1 className="text-4xl md:text-5xl font-bold font-heading mb-5 leading-tight">
+              Nos Programmes de Formation
+            </h1>
+            <p className="text-lg text-white/80 max-w-2xl mx-auto leading-relaxed">
+              Des formations 100% pratiques, dispensées par des professionnels du terrain pour développer des compétences directement applicables.
+            </p>
+            {/* Ancre de navigation */}
+            <div className="flex flex-wrap justify-center gap-3 mt-8">
+              {formations.map(f => (
+                <a
+                  key={f.id}
+                  href={`#${f.id}`}
+                  className="text-xs font-semibold px-4 py-2 bg-white/15 hover:bg-white/25 border border-white/30 rounded-full transition-colors"
+                >
+                  {f.badge}
+                </a>
+              ))}
             </div>
           </FadeIn>
-        )}
-
-        {/* Grille */}
-        {!loading && !error && (
-          <>
-            {formations.length === 0 ? (
-              <FadeIn>
-                <div className="flex flex-col items-center justify-center py-24 gap-3 text-center">
-                  <BookOpen size={48} className="text-gray-300" />
-                  <h3 className="text-lg font-semibold text-gray-600">Aucune formation dans cette catégorie</h3>
-                  <button
-                    onClick={() => setActiveCategorie('')}
-                    className="text-sm text-brand-green hover:underline"
-                  >
-                    Voir toutes les formations
-                  </button>
-                </div>
-              </FadeIn>
-            ) : (
-              <>
-                <p className="text-sm text-gray-500 mb-6">
-                  {formations.length} formation{formations.length > 1 ? 's' : ''} disponible{formations.length > 1 ? 's' : ''}
-                </p>
-                <AnimatePresence mode="popLayout">
-                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    {formations.map((formation, index) => (
-                      <FormationCard
-                        key={formation.id}
-                        formation={formation}
-                        index={index}
-                      />
-                    ))}
-                  </div>
-                </AnimatePresence>
-              </>
-            )}
-          </>
-        )}
+        </div>
       </section>
 
-      {/* ── Toast ── */}
-      {toast && (
-        <Toast
-          key={toast.key}
-          message={toast.message}
-          type={toast.type}
-          onClose={() => setToast(null)}
-        />
-      )}
-    </div>
-  )
-}
+      {/* ── Sections Formations ────────────────────────── */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 space-y-16">
+        {formations.map((formation, fi) => {
+          const Icon = formation.icon
+          const isEven = fi % 2 === 0
 
-// ─── Carte formation (Explicative) ────────────────────────────────────────────
+          return (
+            <FadeIn key={formation.id} delay={0.05}>
+              <section id={formation.id} className="scroll-mt-20">
+                {/* En-tête de la formation */}
+                <div className={`flex flex-col md:flex-row items-start gap-5 mb-8 ${!isEven ? 'md:flex-row-reverse' : ''}`}>
+                  <div className={`${formation.color} w-14 h-14 rounded-2xl flex items-center justify-center shrink-0 shadow-md`}>
+                    <Icon size={26} className="text-white" />
+                  </div>
+                  <div>
+                    <span className={`inline-block text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full mb-2 ${
+                      isEven
+                        ? 'bg-brand-green/10 text-brand-green'
+                        : 'bg-brand-blue/10 text-brand-blue'
+                    }`}>
+                      {formation.badge}
+                    </span>
+                    <h2 className="text-2xl md:text-3xl font-bold font-heading text-gray-900">
+                      {formation.titre}
+                    </h2>
+                    <p className="text-gray-500 mt-2 leading-relaxed max-w-2xl whitespace-pre-line">
+                      {formation.intro}
+                    </p>
+                  </div>
+                </div>
 
-function FormationCard({ formation, index }) {
-  const badge = BADGE[formation.categorie] ?? { label: formation.categorie, bg: 'bg-gray-500', text: 'text-white' }
-  const Icon = ICON[formation.categorie] ?? BookOpen
+                {/* Grille des modules */}
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+                  {formation.modules.map((mod) => (
+                    <div
+                      key={mod.label}
+                      className="bg-white rounded-2xl border border-gray-100 shadow-sm p-6 hover:shadow-md transition-shadow"
+                    >
+                      <h3 className="font-bold text-gray-800 mb-4 text-sm border-b border-gray-100 pb-3">
+                        {mod.label}
+                      </h3>
+                      <ul className="space-y-2.5">
+                        {mod.items.map(item => (
+                          <li key={item} className="flex items-start gap-2.5 text-sm text-gray-600">
+                            <CheckCircle size={14} className="text-brand-green shrink-0 mt-0.5" />
+                            <span>{item}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  ))}
+                </div>
 
-  return (
-    <motion.div
-      layout
-      initial={{ opacity: 0, y: 24 }}
-      animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, scale: 0.96 }}
-      transition={{ duration: 0.35, delay: index * 0.06, ease: [0.22, 1, 0.36, 1] }}
-      className="card flex flex-col group border border-gray-100 rounded-2xl bg-white shadow-sm hover:shadow-md transition-all"
-    >
-      {/* Bande de couleur supérieure */}
-      <div className={`h-2 ${badge.bg} rounded-t-2xl`} />
-
-      <div className="p-6 flex flex-col flex-1">
-        {/* Badge + icône */}
-        <div className="flex items-start justify-between mb-4">
-          <span className={`inline-flex items-center gap-1.5 text-xs font-semibold px-3 py-1 rounded-full ${badge.bg} ${badge.text}`}>
-            {badge.label}
-          </span>
-          <div className={`w-10 h-10 rounded-xl ${badge.bg} flex items-center justify-center`}>
-            <Icon size={18} className="text-white" strokeWidth={2} />
-          </div>
-        </div>
-
-        {/* Titre */}
-        <h3 className="text-lg font-bold text-gray-900 mb-2 leading-snug group-hover:text-brand-green transition-colors">
-          {formation.titre}
-        </h3>
-
-        {/* Description explicative complète */}
-        <p className="text-sm text-gray-600 leading-relaxed mb-6 flex-1">
-          {formation.description}
-        </p>
-
-        {/* Bouton de demande d'information */}
-        <Link
-          to="/contact"
-          className="w-full inline-flex items-center justify-center gap-2 bg-gray-50 hover:bg-brand-green hover:text-white text-gray-700 font-semibold text-sm py-2.5 px-4 rounded-xl transition-all group/btn mt-auto"
-        >
-          En savoir plus
-          <ArrowRight size={16} className="group-hover/btn:translate-x-1 transition-transform" />
-        </Link>
+                {/* Séparateur */}
+                {fi < formations.length - 1 && (
+                  <div className="mt-16 border-t border-gray-100" />
+                )}
+              </section>
+            </FadeIn>
+          )
+        })}
       </div>
-    </motion.div>
+
+      {/* ── Section Appel à l'action (CTA) ───────────────── */}
+      <section className="bg-gray-900 text-white py-16">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 text-center">
+          <FadeIn>
+            <h2 className="text-2xl md:text-3xl font-bold font-heading mb-4">
+              Besoin d'un programme de formation sur-mesure ?
+            </h2>
+            <p className="text-gray-400 mb-8 leading-relaxed">
+              Nous adaptons le contenu, le calendrier et le format (individuel ou intra-entreprise) aux besoins spécifiques de vos collaborateurs.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Link
+                to="/contact"
+                className="inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-brand-green rounded-xl font-semibold text-white hover:bg-brand-green-dark transition-colors"
+              >
+                Demander un devis
+                <ArrowRight size={16} />
+              </Link>
+              <Link
+                to="/services"
+                className="inline-flex items-center justify-center gap-2 px-8 py-3.5 border border-white/20 rounded-xl font-semibold text-white hover:bg-white/10 transition-colors"
+              >
+                Découvrir nos services
+              </Link>
+            </div>
+          </FadeIn>
+        </div>
+      </section>
+
+    </div>
   )
 }
