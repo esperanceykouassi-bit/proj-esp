@@ -1,4 +1,4 @@
-import { CheckCircle2 } from 'lucide-react'
+import { CheckCircle2, Quote } from 'lucide-react'
 import FadeIn from './FadeIn'
 
 const reasons = [
@@ -26,7 +26,7 @@ export default function WhySkillUp() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-start">
 
-          {/* Titre + image */}
+          {/* Titre + Carte Vision */}
           <FadeIn>
             <div>
               <span className="text-brand-green text-sm font-semibold uppercase tracking-wider">
@@ -37,17 +37,19 @@ export default function WhySkillUp() {
                 Des dizaines de professionnels et d'entreprises nous font confiance pour
                 développer leurs compétences et améliorer leurs performances. Voici pourquoi.
               </p>
-              <div className="bg-hero-gradient rounded-2xl p-8 text-white text-center">
-                <img
-                  src="/images/logo-full.jpeg"
-                  alt="SkillUp Consulting CI"
-                  className="h-16 mx-auto object-contain mb-4 brightness-0 invert"
-                />
-                <p className="text-white/85 text-sm leading-relaxed">
+              
+              <div className="bg-hero-gradient rounded-2xl p-8 text-white text-center flex flex-col items-center">
+                {/* Icône de citation à la place de l'image */}
+                <div className="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center mb-4 text-white/80">
+                  <Quote size={24} />
+                </div>
+
+                <p className="text-white/90 text-sm leading-relaxed max-w-md">
                   « Être le partenaire de référence pour la montée en compétences
                   et la performance durable des PME et des professionnels en Côte d'Ivoire. »
                 </p>
-                <p className="mt-3 text-xs text-white/60 uppercase tracking-wider font-semibold">
+                
+                <p className="mt-4 text-xs text-white/60 uppercase tracking-wider font-semibold">
                   Notre Vision
                 </p>
               </div>
@@ -72,6 +74,7 @@ export default function WhySkillUp() {
               </FadeIn>
             ))}
           </div>
+
         </div>
       </div>
     </section>
