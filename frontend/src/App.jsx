@@ -22,6 +22,7 @@ import Messages       from './pages/admin/Messages'
 function PublicLayout() {
   return (
     <div className="flex flex-col min-h-screen">
+      <ScrollToTop /> {/* <-- Placé ici pour capturer chaque changement de page publique */}
       <Navbar />
       <main className="flex-grow">
         <Outlet />
@@ -36,7 +37,6 @@ export default function App() {
   return (
     <AuthProvider>
       <Router>
-        <ScrollToTop /> {/* <-- Remonte automatiquement en haut de page lors d'un changement de route */}
         <Routes>
 
           {/* ── Routes publiques ── */}
