@@ -171,8 +171,8 @@ const formations = [
     id: 'projets',
     icon: Briefcase,
     color: 'bg-brand-blue-mid',
-    badge: 'Montage de Projets',
-    titre: 'Formations en Étude & Montage de Projets',
+    badge: 'Gestion de Projets',
+    titre: 'Formations en Étude & Gestion de Projets',
     intro: `Acquérez la méthodologie complète pour structurer, rédiger et présenter des projets d'investissement crédibles aux banques et partenaires financiers.`,
     modules: [
       {
