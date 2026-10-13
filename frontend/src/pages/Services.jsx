@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { Calculator, Briefcase, CheckCircle, ArrowRight } from 'lucide-react'
+import { Calculator, Briefcase, TrendingUp, CheckCircle, ArrowRight } from 'lucide-react'
 import FadeIn from '../components/FadeIn'
 
 /* ── Services (Conseil & Accompagnement uniquement) ────────────────── */
@@ -40,6 +40,26 @@ const services = [
           'Restructuration comptable des entreprises en difficulté',
           'Formation de vos collaborateurs comptables internes',
           'Accompagnement lors de contrôles fiscaux',
+        ],
+      },
+    ],
+  },
+  {
+    id: 'management',
+    icon: TrendingUp,
+    color: 'bg-brand-blue',
+    badge: 'Conseil en Management',
+    titre: 'Conseil en Management & Pilotage d\'Entreprise',
+    intro: `Optimisez le fonctionnement de votre organisation et sécurisez la prise de décision stratégique. Nos experts vous accompagnent dans le suivi budgétaire, l'audit interne et la mise en place d'outils de pilotage performants.`,
+    modules: [
+      {
+        label: 'Conseil de Gestion & Pilotage',
+        items: [
+          'Conseil de gestion au quotidien',
+          'Mise en place de tableaux de bord',
+          'Suivi budgétaire et contrôle de gestion',
+          'Audit interne et contrôle des procédures',
+          'Optimisation des coûts et rentabilité',
         ],
       },
     ],
@@ -102,7 +122,7 @@ export default function Services() {
               Nos Services &amp; Expertises
             </h1>
             <p className="text-lg text-white/80 max-w-2xl mx-auto leading-relaxed">
-              Deux pôle d'expertises stratégiques pour assurer la conformité, la performance et la croissance de votre organisation.
+              Trois domaines d'expertise stratégiques pour assurer la conformité, la performance et la croissance de votre organisation.
             </p>
             {/* Nav ancres */}
             <div className="flex flex-wrap justify-center gap-3 mt-8">
@@ -191,7 +211,7 @@ export default function Services() {
               Un besoin spécifique en conseil ou gestion ?
             </h2>
             <p className="text-gray-400 mb-8 leading-relaxed">
-              Nos consultants vous accompagnent pas à pas dans le suivi comptable, les déclarations fiscales ou la structuration de vos projets d'investissement.
+              Nos consultants vous accompagnent pas à pas dans le suivi comptable, le conseil en management ou la structuration de vos projets d'investissement.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
