@@ -78,7 +78,7 @@ export default function Footer() {
                     href="tel:+2252724427186"
                     className="block hover:text-white transition-colors text-xs text-gray-400"
                   >
-                    Fixe : +225 27 24 42 71 86
+                    +225 27 24 42 71 86
                   </a>
                 </div>
               </li>
