@@ -1,12 +1,12 @@
 import { Link } from 'react-router-dom'
-import { Mail, Phone, MapPin } from 'lucide-react'
+import { Mail, Phone, MapPin, Globe } from 'lucide-react'
 
 const quickLinks = [
-  { label: 'Accueil',         path: '/'           },
-  { label: 'À propos',        path: '/about'       },
-  { label: 'Nos formations',  path: '/formations'  },
-  { label: 'Services',        path: '/services'    },
-  { label: 'Contact',         path: '/contact'     },
+  { label: 'Accueil',        path: '/'          },
+  { label: 'À propos',       path: '/about'     },
+  { label: 'Nos formations', path: '/formations' },
+  { label: 'Services',       path: '/services'   },
+  { label: 'Contact',        path: '/contact'    },
 ]
 
 export default function Footer() {
@@ -30,7 +30,7 @@ export default function Footer() {
             </div>
             <p className="text-sm text-gray-400 leading-relaxed max-w-sm">
               Cabinet spécialisé en formation professionnelle pratique, assistance comptable
-              et fiscale, et montage de projets en Côte d'Ivoire.
+              et fiscale, conseil en management et gestion de projets en Côte d'Ivoire.
             </p>
             <p className="mt-4 text-xs text-gray-500 uppercase tracking-wider font-semibold">
               Votre partenaire de confiance pour la montée en compétences
@@ -59,8 +59,15 @@ export default function Footer() {
             <h4 className="text-white font-semibold mb-4">Contactez-nous</h4>
             <ul className="space-y-3.5 text-sm">
               <li className="flex items-start gap-2.5">
-                <Phone size={15} className="text-brand-green shrink-0 mt-0.5" />
-                <div>
+                <MapPin size={16} className="text-brand-green shrink-0 mt-0.5" />
+                <span className="text-gray-300">
+                  Angré 7ème Tranche, Immeuble Tchêpê vers Bluetooth — Abidjan
+                </span>
+              </li>
+
+              <li className="flex items-start gap-2.5">
+                <Phone size={16} className="text-brand-green shrink-0 mt-0.5" />
+                <div className="space-y-0.5">
                   <a
                     href="tel:+2250102211421"
                     className="block hover:text-white transition-colors"
@@ -68,33 +75,34 @@ export default function Footer() {
                     +225 01 02 21 14 21
                   </a>
                   <a
-                    href="tel:+2250576387676"
-                    className="block hover:text-white transition-colors"
+                    href="tel:+2252724427186"
+                    className="block hover:text-white transition-colors text-xs text-gray-400"
                   >
-                    +225 05 76 38 76 76
+                    Fixe : +225 27 24 42 71 86
                   </a>
                 </div>
               </li>
+
               <li className="flex items-start gap-2.5">
-                <Mail size={15} className="text-brand-green shrink-0 mt-0.5" />
-                <div>
-                  <a
-                    href="mailto:infos.skillup24@gmail.com"
-                    className="block hover:text-white transition-colors"
-                  >
-                    infos.skillup24@gmail.com
-                  </a>
-                  <a
-                    href="mailto:ci_consultskillup24@yahoo.com"
-                    className="block hover:text-white transition-colors"
-                  >
-                    ci_consultskillup24@yahoo.com
-                  </a>
-                </div>
+                <Mail size={16} className="text-brand-green shrink-0 mt-0.5" />
+                <a
+                  href="mailto:infos@skillupcci.net"
+                  className="block hover:text-white transition-colors"
+                >
+                  infos@skillupcci.net
+                </a>
               </li>
+
               <li className="flex items-start gap-2.5">
-                <MapPin size={15} className="text-brand-green shrink-0 mt-0.5" />
-                <span>Abidjan, Côte d'Ivoire</span>
+                <Globe size={16} className="text-brand-green shrink-0 mt-0.5" />
+                <a
+                  href="https://www.skillupcci.net"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block hover:text-white transition-colors"
+                >
+                  www.skillupcci.net
+                </a>
               </li>
             </ul>
           </div>
@@ -102,7 +110,7 @@ export default function Footer() {
 
         <div className="border-t border-gray-800 pt-6 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-gray-500">
           <p>© {new Date().getFullYear()} SkillUp Consulting CI. Tous droits réservés.</p>
-          <p>Formation · Comptabilité · Conseil · Montage de projets</p>
+          <p>Formation · Comptabilité · Conseil · Gestion de projets</p>
         </div>
       </div>
     </footer>
