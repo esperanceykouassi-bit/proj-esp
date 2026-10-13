@@ -76,7 +76,7 @@ export default function Footer() {
                   </a>
                   <a
                     href="tel:+2252724427186"
-                    className="block hover:text-white transition-colors text-xs text-gray-400"
+                    className="block hover:text-white transition-colors"
                   >
                     +225 27 24 42 71 86
                   </a>
