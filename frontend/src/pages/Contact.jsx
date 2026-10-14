@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { Mail, Phone, MapPin, MessageCircle } from 'lucide-react'
+import { Mail, Phone, MapPin, MessageCircle, Globe } from 'lucide-react'
 import FadeIn from '../components/FadeIn'
 
 // ─── Données statiques ────────────────────────────────────────────────────────
@@ -12,7 +12,7 @@ const COORDONNEES = [
     iconColor: 'text-brand-green',
     lines: [
       { text: '+225 01 02 21 14 21', href: 'tel:+2250102211421' },
-      { text: '+225 05 76 38 76 76', href: 'tel:+2250576387676' },
+      { text: '+225 27 24 42 71 86', href: 'tel:+2252724427186' },
     ],
   },
   {
@@ -21,8 +21,16 @@ const COORDONNEES = [
     color: 'bg-brand-blue/10',
     iconColor: 'text-brand-blue',
     lines: [
-      { text: 'infos.skillup24@gmail.com', href: 'mailto:infos.skillup24@gmail.com' },
-      { text: 'ci_consultskillup24@yahoo.com', href: 'mailto:ci_consultskillup24@yahoo.com' },
+      { text: 'infos@skillupcci.net', href: 'mailto:infos@skillupcci.net' },
+    ],
+  },
+  {
+    icon: Globe,
+    label: 'Site Web',
+    color: 'bg-brand-green/10',
+    iconColor: 'text-brand-green',
+    lines: [
+      { text: 'www.skillupcci.net', href: 'https://www.skillupcci.net' },
     ],
   },
   {
@@ -30,7 +38,7 @@ const COORDONNEES = [
     label: 'Localisation',
     color: 'bg-brand-teal/10',
     iconColor: 'text-brand-teal',
-    lines: [{ text: "Abidjan, Côte d'Ivoire" }],
+    lines: [{ text: "Angré 7ème Tranche, Immeuble Tchêpê vers Bluetooth — Abidjan" }],
   },
 ]
 
@@ -41,7 +49,7 @@ export default function Contact() {
   )
   const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`
   const callUrl = 'tel:+2250102211421'
-  const mailUrl = 'mailto:infos.skillup24@gmail.com?subject=Demande%20d%27information'
+  const mailUrl = 'mailto:infos@skillupcci.net?subject=Demande%20d%27information'
 
   return (
     <div>
@@ -98,12 +106,14 @@ export default function Contact() {
                         <a
                           key={text}
                           href={href}
+                          target={href.startsWith('http') ? '_blank' : undefined}
+                          rel={href.startsWith('http') ? 'noopener noreferrer' : undefined}
                           className="block text-sm text-gray-700 hover:text-brand-green transition-colors"
                         >
                           {text}
                         </a>
                       ) : (
-                        <p key={text} className="text-sm text-gray-700">{text}</p>
+                        <p key={text} className="text-sm text-gray-700 leading-relaxed">{text}</p>
                       )
                     )}
                   </div>
