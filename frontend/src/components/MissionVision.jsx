@@ -5,7 +5,9 @@ export default function MissionVision() {
     <section className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-14">
-          <span className="text-brand-green text-sm font-semibold uppercase tracking-wider">Qui sommes-nous</span>
+          <span className="text-brand-green text-sm font-semibold uppercase tracking-wider">
+            Qui sommes-nous
+          </span>
           <h2 className="section-title mt-2">Mission & Vision</h2>
           <p className="section-subtitle">
             SkillUp Consulting CI est un cabinet spécialisé dans la formation professionnelle
@@ -13,6 +15,7 @@ export default function MissionVision() {
           </p>
         </div>
 
+        {/* Bloc Mission & Vision */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div className="relative bg-gradient-to-br from-brand-green to-brand-teal text-white rounded-2xl p-8 overflow-hidden">
             <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/2" />
@@ -43,19 +46,19 @@ export default function MissionVision() {
           </div>
         </div>
 
-        <div className="mt-10 grid grid-cols-1 sm:grid-cols-3 md:grid-cols-5 gap-4">
+        {/* 4 Domaines d'intervention - Ordre exact et grille à 4 colonnes */}
+        <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {[
-            'Formation professionnelle pratique',
             'Assistance comptable et fiscale',
-            "Étude et montage de projets",
-            'Optimisation des performances des PME',
-            'Renforcement des compétences en gestion',
+            'Conseil en management et organisation',
+            'Étude, montage et gestion de projets',
+            'Formation professionnelle pratique',
           ].map((item, i) => (
             <div
               key={i}
-              className="flex items-center gap-3 bg-gray-50 rounded-xl p-4 border border-gray-100"
+              className="flex items-center gap-3 bg-gray-50 rounded-xl p-4 border border-gray-100 hover:bg-white hover:shadow-sm transition-all"
             >
-              <div className="w-2 h-2 bg-brand-green rounded-full shrink-0" />
+              <div className="w-2.5 h-2.5 bg-brand-green rounded-full shrink-0" />
               <span className="text-sm text-gray-700 font-medium">{item}</span>
             </div>
           ))}
