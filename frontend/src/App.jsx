@@ -6,9 +6,9 @@ import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 
 import Home        from './pages/Home'
-import About       from './pages/About'
-import Formations  from './pages/Formations'
 import Services    from './pages/Services'
+import Formations  from './pages/Formations'
+import About       from './pages/About'
 import Contact     from './pages/Contact'
 
 import AdminLayout    from './components/admin/AdminLayout'
@@ -22,7 +22,7 @@ import Messages       from './pages/admin/Messages'
 function PublicLayout() {
   return (
     <div className="flex flex-col min-h-screen">
-      <ScrollToTop /> {/* <-- Placé ici pour capturer chaque changement de page publique */}
+      <ScrollToTop />
       <Navbar />
       <main className="flex-grow">
         <Outlet />
@@ -39,12 +39,12 @@ export default function App() {
       <Router>
         <Routes>
 
-          {/* ── Routes publiques ── */}
+          {/* ── Routes publiques (Ordre réorganisé) ── */}
           <Route element={<PublicLayout />}>
             <Route path="/"           element={<Home />} />
-            <Route path="/about"      element={<About />} />
-            <Route path="/formations" element={<Formations />} />
             <Route path="/services"   element={<Services />} />
+            <Route path="/formations" element={<Formations />} />
+            <Route path="/about"      element={<About />} />
             <Route path="/contact"    element={<Contact />} />
           </Route>
 

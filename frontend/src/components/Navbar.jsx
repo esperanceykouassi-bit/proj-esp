@@ -2,12 +2,13 @@ import { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { Menu, X, Phone, MessageCircle } from 'lucide-react'
 
+// Ordre demandé : Accueil, Nos Services, Formations, À propos, Contact
 const navLinks = [
-  { label: 'Accueil',    path: '/' },
-  { label: 'À propos',   path: '/about' },
-  { label: 'Formations', path: '/formations' },
-  { label: 'Services',   path: '/services' },
-  { label: 'Contact',    path: '/contact' },
+  { label: 'Accueil',      path: '/' },
+  { label: 'Nos Services', path: '/services' },
+  { label: 'Formations',   path: '/formations' },
+  { label: 'À propos',     path: '/about' },
+  { label: 'Contact',      path: '/contact' },
 ]
 
 export default function Navbar() {
@@ -70,7 +71,7 @@ export default function Navbar() {
                 onClick={() => handleNavClick(link.path)}
                 className={`text-sm font-medium transition-colors duration-200 whitespace-nowrap ${
                   isActive(link.path)
-                    ? 'text-brand-green border-b-2 border-brand-green pb-0.5'
+                    ? 'text-brand-green border-b-2 border-brand-green pb-0.5 font-bold'
                     : 'text-gray-600 hover:text-brand-green'
                 }`}
               >
@@ -98,9 +99,8 @@ export default function Navbar() {
             </Link>
           </div>
 
-          {/* Actions Rapides Mobile (WhatsApp + Appeler + Burger) */}
+          {/* Actions Rapides Mobile */}
           <div className="flex items-center gap-2 md:hidden">
-            {/* WhatsApp Mobile */}
             <a
               href={whatsappUrl}
               target="_blank"
@@ -111,7 +111,6 @@ export default function Navbar() {
               <MessageCircle size={20} />
             </a>
 
-            {/* Appeler Mobile */}
             <a
               href={phoneUrl}
               aria-label="Appeler"
@@ -120,7 +119,6 @@ export default function Navbar() {
               <Phone size={20} />
             </a>
 
-            {/* Bouton Burger */}
             <button
               onClick={() => setIsOpen(!isOpen)}
               aria-label="Menu"
@@ -142,7 +140,7 @@ export default function Navbar() {
                 onClick={() => handleNavClick(link.path)}
                 className={`block px-4 py-3 rounded-lg text-sm font-medium transition-colors ${
                   isActive(link.path)
-                    ? 'bg-brand-green/10 text-brand-green'
+                    ? 'bg-brand-green/10 text-brand-green font-bold'
                     : 'text-gray-600 hover:bg-gray-50 hover:text-brand-green'
                 }`}
               >
