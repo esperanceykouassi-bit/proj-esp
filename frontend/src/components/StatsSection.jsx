@@ -1,25 +1,20 @@
 import { motion } from 'framer-motion'
-import { BookCheck, Users, ShieldCheck, MapPin } from 'lucide-react'
 
 const stats = [
   {
-    icon: BookCheck,
     value: '4',
     label: "Domaines d'intervention",
   },
   {
-    icon: Users,
     value: '6',
     label: 'Cibles stratégiques',
   },
   {
-    icon: ShieldCheck,
     value: 'SYSCOHADA, SYCEBNL, SAARI',
     isTextValue: true,
     label: 'Référentiels maîtrisés',
   },
   {
-    icon: MapPin,
     value: 'Présentiel & À distance',
     isTextValue: true,
     label: 'CIV, Abidjan, Angré',
@@ -40,17 +35,17 @@ export default function Stats() {
               transition={{ duration: 0.5, delay: index * 0.1 }}
               className="flex flex-col items-center justify-center p-4"
             >
-              <stat.icon className="w-8 h-8 mb-3 text-yellow-400 opacity-90" />
-              
+              {/* Valeurs principales entièrement en blanc */}
               <div
-                className={`font-bold font-heading mb-2 leading-tight ${
-                  stat.isTextValue ? 'text-xl sm:text-2xl text-yellow-400' : 'text-4xl sm:text-5xl text-white'
+                className={`font-bold font-heading mb-2 leading-tight text-white ${
+                  stat.isTextValue ? 'text-xl sm:text-2xl' : 'text-4xl sm:text-5xl'
                 }`}
               >
                 {stat.value}
               </div>
 
-              <div className="text-sm font-medium text-white/80 max-w-[220px]">
+              {/* Sous-titres en blanc légèrement adouci */}
+              <div className="text-sm font-medium text-white/90 max-w-[220px]">
                 {stat.label}
               </div>
             </motion.div>
