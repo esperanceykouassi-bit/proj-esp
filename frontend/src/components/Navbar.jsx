@@ -43,18 +43,15 @@ export default function Navbar() {
       }`}
     >
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Hauteur ajustée à h-20 pour un alignement parfait */}
         <div className="flex items-center justify-between h-20">
 
-          {/* Logo agrandi avec conteneur de découpe propre */}
+          {/* Logo réactif - Affiche l'image complète sans tronquage */}
           <Link to="/" className="flex items-center shrink-0 py-2">
-            <div className="w-48 sm:w-56 h-14 overflow-hidden flex items-center justify-start">
-              <img
-                src="/images/logo-full.jpeg"
-                alt="SkillUp Consulting CI"
-                className="w-[230px] max-w-none h-auto object-cover object-left"
-              />
-            </div>
+            <img
+              src="/images/logo-full.jpeg"
+              alt="SkillUp Consulting CI"
+              className="h-10 sm:h-12 md:h-14 w-auto object-contain max-w-[200px] xs:max-w-[240px] sm:max-w-none"
+            />
           </Link>
 
           {/* Desktop nav */}
