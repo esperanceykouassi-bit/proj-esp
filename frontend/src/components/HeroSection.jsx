@@ -25,7 +25,7 @@ export default function HeroSection() {
               transition={{ duration: 0.5, ease }}
               className="inline-block bg-white/20 text-white text-xs font-semibold px-4 py-1.5 rounded-full mb-6 uppercase tracking-widest"
             >
-              Cabinet de formartion et de Conseil
+              Cabinet de conseil, d'asistance comptable et de formation
             </motion.span>
 
             <motion.h1
@@ -34,8 +34,8 @@ export default function HeroSection() {
               transition={{ duration: 0.6, delay: 0.1, ease }}
               className="text-4xl md:text-5xl lg:text-6xl font-bold font-heading leading-tight mb-6"
             >
-              Votre partenaire de confiance pour la{' '}
-              <span className="text-yellow-300">montée en compétences</span>
+              Votre partenaire de confiance pour{' '}
+              <span className="text-yellow-300">gérer,structurer et développer votre activité</span>
             </motion.h1>
 
             <motion.p
@@ -44,9 +44,7 @@ export default function HeroSection() {
               transition={{ duration: 0.6, delay: 0.2, ease }}
               className="text-lg md:text-xl text-white/85 leading-relaxed mb-10"
             >
-              Nous réduisons l'écart entre la théorie académique et les exigences réelles
-              du monde professionnel grâce à des formations pratiques et un accompagnement
-              sur mesure.
+              Comptabilité et fiscalité, conseil en management, montage et suivi de projets : nous accompagnons les PME, les organisations et les porteurs de projets, et nous formons leurs équipes.
             </motion.p>
 
             <motion.div
