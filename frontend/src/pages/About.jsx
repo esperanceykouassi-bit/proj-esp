@@ -5,20 +5,18 @@ import {
   Eye, 
   CheckCircle2, 
   Users, 
-  Building2, 
   Award, 
   Calendar, 
-  ArrowRight,
   ShieldCheck,
   Compass,
-  Briefcase
+  Building2
 } from 'lucide-react'
 
 export default function About() {
   return (
     <div className="space-y-20 pb-16">
 
-      {/* 1. HÉROS DE LA PAGE */}
+      {/* 1. EN-TÊTE DE PAGE (HERO) */}
       <section className="bg-gradient-to-br from-[#1A237E] to-[#0D1250] text-white py-16 md:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.span
@@ -78,15 +76,15 @@ export default function About() {
             <div className="space-y-3">
               <div className="flex items-center gap-3 bg-white p-3.5 rounded-xl border border-gray-100">
                 <CheckCircle2 className="text-[#1B7A4B] shrink-0" size={18} />
-                <span className="text-xs font-medium text-gray-800">Intervention sur mesure à Abidjan et à l'intérieur</span>
+                <span className="text-xs font-medium text-gray-800">Intervention sur place chez nos clients et à distance</span>
               </div>
               <div className="flex items-center gap-3 bg-white p-3.5 rounded-xl border border-gray-100">
                 <CheckCircle2 className="text-[#1B7A4B] shrink-0" size={18} />
-                <span className="text-xs font-medium text-gray-800">Conformité SYSCOHADA révisé & SYCEBNL</span>
+                <span className="text-xs font-medium text-gray-800">Conformité au SYSCOHADA révisé & SYCEBNL</span>
               </div>
               <div className="flex items-center gap-3 bg-white p-3.5 rounded-xl border border-gray-100">
                 <CheckCircle2 className="text-[#1B7A4B] shrink-0" size={18} />
-                <span className="text-xs font-medium text-gray-800">Formations concrètes axées sur la pratique</span>
+                <span className="text-xs font-medium text-gray-800">Un interlocuteur unique pour vos 4 besoins clés</span>
               </div>
             </div>
           </div>
@@ -142,6 +140,7 @@ export default function About() {
               <li className="flex items-center gap-2"><CheckCircle2 size={14} className="text-[#1B7A4B]" /> Tenir des comptes fiables et conformes</li>
               <li className="flex items-center gap-2"><CheckCircle2 size={14} className="text-[#1B7A4B]" /> Aider les dirigeants à piloter leur activité</li>
               <li className="flex items-center gap-2"><CheckCircle2 size={14} className="text-[#1B7A4B]" /> Rendre les projets finançables</li>
+              <li className="flex items-center gap-2"><CheckCircle2 size={14} className="text-[#1B7A4B]" /> Former des équipes opérationnelles</li>
             </ul>
           </div>
 
@@ -160,6 +159,7 @@ export default function About() {
               <li className="flex items-center gap-2"><CheckCircle2 size={14} className="text-[#1B7A4B]" /> Premier choix des PME ivoiriennes pour leur gestion</li>
               <li className="flex items-center gap-2"><CheckCircle2 size={14} className="text-[#1B7A4B]" /> Contribuer à la structuration du tissu économique</li>
               <li className="flex items-center gap-2"><CheckCircle2 size={14} className="text-[#1B7A4B]" /> Étendre notre présence dans l’espace UEMOA</li>
+              <li className="flex items-center gap-2"><CheckCircle2 size={14} className="text-[#1B7A4B]" /> Bâtir un vivier de compétences durables</li>
             </ul>
           </div>
         </div>
@@ -191,7 +191,7 @@ export default function About() {
               </div>
               <h3 className="font-bold text-[#1A237E] text-base mb-2">Esprit d’équipe</h3>
               <p className="text-xs text-gray-600 leading-relaxed">
-                Une équipe pluridisciplinaire de consultants, de spécialistes de la comptabilité et de la fiscalité et de formateurs.
+                Une équipe pluridisciplinaire de consultants, de spécialistes de la comptabilité et de la fiscalité et de formateurs, unis par la réussite de nos clients.
               </p>
             </div>
 
@@ -211,7 +211,7 @@ export default function About() {
               </div>
               <h3 className="font-bold text-[#1A237E] text-base mb-2">Impact mesurable</h3>
               <p className="text-xs text-gray-600 leading-relaxed">
-                Un engagement axé sur les résultats réels obtenus par nos clients et la progression durable de leurs équipes.
+                Un engagement axé sur les résultats réels obtenus par nos clients et la progression de leurs équipes.
               </p>
             </div>
           </div>
@@ -231,32 +231,32 @@ export default function About() {
             <div className="flex gap-4">
               <CheckCircle2 className="text-[#8FD9AE] shrink-0" size={24} />
               <div>
-                <h3 className="font-bold text-base mb-1">Maîtrise du SYSCOHADA, SYCEBNL & fiscalité ivoirienne</h3>
-                <p className="text-xs text-white/80 leading-relaxed">Une expertise technique éprouvée et constamment mise à jour.</p>
+                <h3 className="font-bold text-base mb-1">Maîtrise du SYSCOHADA, du SYCEBNL et de la fiscalité ivoirienne</h3>
+                <p className="text-xs text-white/80 leading-relaxed">Une expertise technique éprouvée et parfaitement ancrée dans les textes en vigueur.</p>
               </div>
             </div>
 
             <div className="flex gap-4">
               <CheckCircle2 className="text-[#8FD9AE] shrink-0" size={24} />
               <div>
-                <h3 className="font-bold text-base mb-1">Interlocuteur unique pour l'entreprise</h3>
-                <p className="text-xs text-white/80 leading-relaxed">Un suivi intégré de la comptabilité jusqu'à la formation de vos équipes.</p>
+                <h3 className="font-bold text-base mb-1">Un interlocuteur unique</h3>
+                <p className="text-xs text-white/80 leading-relaxed">Un suivi intégré pour la comptabilité, le conseil, les projets et la formation.</p>
               </div>
             </div>
 
             <div className="flex gap-4">
               <CheckCircle2 className="text-[#8FD9AE] shrink-0" size={24} />
               <div>
-                <h3 className="font-bold text-base mb-1">Accompagnement de projets jusqu'au financement</h3>
-                <p className="text-xs text-white/80 leading-relaxed">Création de dossiers bancables et assistance pendant l'instruction.</p>
+                <h3 className="font-bold text-base mb-1">Accompagnement de projets jusqu'au dossier de financement</h3>
+                <p className="text-xs text-white/80 leading-relaxed">Montage de dossiers bancables et assistance lors de l'instruction.</p>
               </div>
             </div>
 
             <div className="flex gap-4">
               <CheckCircle2 className="text-[#8FD9AE] shrink-0" size={24} />
               <div>
-                <h3 className="font-bold text-base mb-1">Solutions adaptées aux réalités des PME</h3>
-                <p className="text-xs text-white/80 leading-relaxed">Procédures simples, adaptées au contexte économique local.</p>
+                <h3 className="font-bold text-base mb-1">Solutions adaptées aux réalités des PME ivoiriennes</h3>
+                <p className="text-xs text-white/80 leading-relaxed">Procédures simples, pragmatiques et adaptées aux contraintes opérationnelles locales.</p>
               </div>
             </div>
 
@@ -264,15 +264,15 @@ export default function About() {
               <CheckCircle2 className="text-[#8FD9AE] shrink-0" size={24} />
               <div>
                 <h3 className="font-bold text-base mb-1">Formations 100 % pratiques</h3>
-                <p className="text-xs text-white/80 leading-relaxed">En présentiel ou à distance, adaptées aux horaires d'entreprise (soir, week-end).</p>
+                <p className="text-xs text-white/80 leading-relaxed">En présentiel ou à distance, aux horaires adaptés (soir, week-end, intra-entreprise).</p>
               </div>
             </div>
 
             <div className="flex gap-4">
               <CheckCircle2 className="text-[#8FD9AE] shrink-0" size={24} />
               <div>
-                <h3 className="font-bold text-base mb-1">Suivi après mission ou formation</h3>
-                <p className="text-xs text-white/80 leading-relaxed">Accompagnement continu pour s'assurer de l'assimilation des acquis.</p>
+                <h3 className="font-bold text-base mb-1">Suivi après la mission ou la formation</h3>
+                <p className="text-xs text-white/80 leading-relaxed">Accompagnement continu pour s'assurer de l'assimilation et de l'application des acquis.</p>
               </div>
             </div>
           </div>
@@ -280,7 +280,7 @@ export default function About() {
       </section>
 
 
-      {/* 7. ÉQUIPE DIRIGEANTE */}
+      {/* 7. NOTRE ÉQUIPE */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <span className="text-[#1B7A4B] text-sm font-semibold uppercase tracking-wider">L'Équipe</span>
@@ -293,7 +293,7 @@ export default function About() {
             <div className="w-20 h-20 bg-[#1A237E]/10 text-[#1A237E] rounded-full flex items-center justify-center mx-auto mb-4 font-bold text-xl">
               YD
             </div>
-            <h3 className="font-bold text-[#1A237E] text-base">M. Yannick Wilfried DEGBEL</h3>
+            <h3 className="font-bold text-[#1A237E] text-base">M. Yannick Wilfried A. DEGBEL</h3>
             <p className="text-xs text-[#1B7A4B] font-semibold mb-2">Gérant & Directeur Général</p>
             <p className="text-xs text-gray-600 leading-relaxed">
               Finance, audit et contrôle de gestion ; comptabilité SYSCOHADA et SYCEBNL.
@@ -307,7 +307,7 @@ export default function About() {
             <h3 className="font-bold text-[#1A237E] text-base">M. Franck TETE</h3>
             <p className="text-xs text-[#1B7A4B] font-semibold mb-2">Consultant Spécialiste</p>
             <p className="text-xs text-gray-600 leading-relaxed">
-              Fiscalité des entreprises, déclarations et obligations sociales.
+              Fiscalité et obligations sociales des entreprises.
             </p>
           </div>
 
@@ -318,7 +318,7 @@ export default function About() {
             <h3 className="font-bold text-[#1A237E] text-base">M. Gilles AHI</h3>
             <p className="text-xs text-[#1B7A4B] font-semibold mb-2">Formateur Référent</p>
             <p className="text-xs text-gray-600 leading-relaxed">
-              Microsoft Excel avancé et outils de gestion bureautique.
+              Excel et outils bureautiques avancés.
             </p>
           </div>
 
@@ -329,7 +329,7 @@ export default function About() {
             <h3 className="font-bold text-[#1A237E] text-base">Mlle Charlotte DRA</h3>
             <p className="text-xs text-[#1B7A4B] font-semibold mb-2">Formatrice</p>
             <p className="text-xs text-gray-600 leading-relaxed">
-              Leadership, gestion d'équipe et posture managériale.
+              Leadership, posture managériale et gestion d'équipe.
             </p>
           </div>
 
@@ -372,7 +372,7 @@ export default function About() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               to="/contact"
-              className="bg-[#1B7A4B] hover:bg-[#155e39] text-white font-bold px-8 py-4 rounded-xl transition-colors inline-flex items-center justify-center gap-2"
+              className="bg-[#1B7A4B] hover:bg-[#155e39] text-white font-bold px-8 py-4 rounded-xl transition-colors inline-flex items-center justify-center gap-2 shadow-sm"
             >
               <Calendar size={20} />
               Prendre rendez-vous
