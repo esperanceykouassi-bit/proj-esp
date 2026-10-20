@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
-import { Menu, X } from 'lucide-react'
+import { Menu, X, Phone, MessageCircle } from 'lucide-react'
 
 const navLinks = [
   { label: 'Accueil',    path: '/' },
@@ -14,6 +14,11 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
   const location = useLocation()
+
+  const whatsappNumber = '2250102211421'
+  const whatsappMessage = encodeURIComponent("Bonjour, je souhaite obtenir des informations sur vos services et vos formations.")
+  const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`
+  const phoneUrl = 'tel:+2250102211421'
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12)
@@ -43,10 +48,9 @@ export default function Navbar() {
       }`}
     >
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Hauteur ajustée à h-20 pour un alignement parfait */}
         <div className="flex items-center justify-between h-20">
 
-          {/* Logo avec largeur ajustée spécifiquement pour mobile (w-52) */}
+          {/* Logo */}
           <Link to="/" className="flex items-center shrink-0 py-2">
             <div className="w-52 sm:w-60 h-14 overflow-hidden flex items-center justify-start">
               <img
@@ -57,7 +61,7 @@ export default function Navbar() {
             </div>
           </Link>
 
-          {/* Desktop nav */}
+          {/* Navigation Desktop */}
           <div className="hidden md:flex items-center gap-6">
             {navLinks.map((link) => (
               <Link
@@ -73,22 +77,59 @@ export default function Navbar() {
                 {link.label}
               </Link>
             ))}
+
+            {/* Icone WhatsApp Desktop */}
+            <a
+              href={whatsappUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="WhatsApp"
+              className="p-2 rounded-full text-emerald-600 bg-emerald-50 hover:bg-emerald-100 transition-colors"
+            >
+              <MessageCircle size={20} />
+            </a>
+
+            {/* Bouton Nous contacter */}
             <Link
               to="/contact"
-              className="ml-2 btn-primary text-sm py-2 px-5 whitespace-nowrap"
+              className="btn-primary text-sm py-2 px-5 whitespace-nowrap"
             >
               Nous contacter
             </Link>
           </div>
 
-          {/* Burger */}
-          <button
-            onClick={() => setIsOpen(!isOpen)}
-            aria-label="Menu"
-            className="md:hidden p-2 rounded-lg text-gray-600 hover:text-brand-green hover:bg-gray-50 transition-colors"
-          >
-            {isOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
+          {/* Actions Rapides Mobile (WhatsApp + Appeler + Burger) */}
+          <div className="flex items-center gap-2 md:hidden">
+            {/* WhatsApp Mobile */}
+            <a
+              href={whatsappUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Contact WhatsApp"
+              className="p-2 rounded-lg text-white bg-emerald-600 hover:bg-emerald-700 transition-colors shadow-sm"
+            >
+              <MessageCircle size={20} />
+            </a>
+
+            {/* Appeler Mobile */}
+            <a
+              href={phoneUrl}
+              aria-label="Appeler"
+              className="p-2 rounded-lg text-white bg-brand-green hover:bg-emerald-800 transition-colors shadow-sm"
+            >
+              <Phone size={20} />
+            </a>
+
+            {/* Bouton Burger */}
+            <button
+              onClick={() => setIsOpen(!isOpen)}
+              aria-label="Menu"
+              className="p-2 rounded-lg text-gray-600 hover:text-brand-green hover:bg-gray-50 transition-colors"
+            >
+              {isOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
+          </div>
+
         </div>
 
         {/* Mobile menu */}
