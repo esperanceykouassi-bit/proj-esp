@@ -45,12 +45,12 @@ export default function Navbar() {
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
 
-          {/* Logo réactif - Affiche l'image complète sans tronquage */}
-          <Link to="/" className="flex items-center shrink-0 py-2">
+          {/* Logo agrandi et parfaitement recadré */}
+          <Link to="/" className="flex items-center shrink-0 py-1 overflow-hidden">
             <img
               src="/images/logo-full.jpeg"
               alt="SkillUp Consulting CI"
-              className="h-10 sm:h-12 md:h-14 w-auto object-contain max-w-[200px] xs:max-w-[240px] sm:max-w-none"
+              className="h-14 sm:h-16 md:h-18 w-auto object-contain scale-125 origin-left"
             />
           </Link>
 
