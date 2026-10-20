@@ -43,15 +43,18 @@ export default function Navbar() {
       }`}
     >
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Hauteur ajustée à h-20 pour un alignement parfait */}
         <div className="flex items-center justify-between h-20">
 
-          {/* Logo agrandi et parfaitement recadré */}
-          <Link to="/" className="flex items-center shrink-0 py-1 overflow-hidden">
-            <img
-              src="/images/logo-full.jpeg"
-              alt="SkillUp Consulting CI"
-              className="h-14 sm:h-16 md:h-18 w-auto object-contain scale-125 origin-left"
-            />
+          {/* Logo avec largeur ajustée spécifiquement pour mobile (w-52) */}
+          <Link to="/" className="flex items-center shrink-0 py-2">
+            <div className="w-52 sm:w-60 h-14 overflow-hidden flex items-center justify-start">
+              <img
+                src="/images/logo-full.jpeg"
+                alt="SkillUp Consulting CI"
+                className="w-[205px] sm:w-[230px] max-w-none h-auto object-cover object-left"
+              />
+            </div>
           </Link>
 
           {/* Desktop nav */}
