@@ -1,303 +1,390 @@
+import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
-import {
-  Target, Eye, Award, Users, TrendingUp, Shield,
-  CheckCircle, BookOpen, HeartHandshake, Lightbulb,
+import { 
+  Target, 
+  Eye, 
+  CheckCircle2, 
+  Users, 
+  Building2, 
+  Award, 
+  Calendar, 
+  ArrowRight,
+  ShieldCheck,
+  Compass,
+  Briefcase
 } from 'lucide-react'
-import FadeIn from '../components/FadeIn'
 
-/* ── data ───────────────────────────────────────────── */
-const valeurs = [
-  {
-    icon: Award,
-    titre: 'Excellence',
-    desc: 'Nous nous engageons à offrir des formations et prestations de la plus haute qualité, adaptées aux standards professionnels internationaux.',
-    color: 'bg-brand-green',
-  },
-  {
-    icon: HeartHandshake,
-    titre: 'Proximité',
-    desc: `Chaque client est unique. Nous bâtissons des relations de confiance durables fondées sur l'écoute, la réactivité et la personnalisation.`,
-    color: 'bg-brand-teal',
-  },
-  {
-    icon: Lightbulb,
-    titre: 'Innovation pédagogique',
-    desc: 'Nos méthodes combinent théorie et pratique intense pour une montée en compétences rapide et durable, ancrée dans le contexte ivoirien.',
-    color: 'bg-brand-blue',
-  },
-  {
-    icon: Shield,
-    titre: 'Intégrité',
-    desc: `Transparence dans nos tarifs, honnêteté dans nos diagnostics et rigueur dans l'exécution de nos missions, sans compromis.`,
-    color: 'bg-brand-blue-mid',
-  },
-  {
-    icon: TrendingUp,
-    titre: 'Impact mesurable',
-    desc: 'Nous mesurons notre succès à travers les progrès concrets de nos apprenants et les résultats tangibles obtenus par nos clients.',
-    color: 'bg-brand-green-dark',
-  },
-  {
-    icon: Users,
-    titre: `Esprit d'équipe`,
-    desc: 'Une équipe pluridisciplinaire de consultants, formateurs et experts comptables unis par la passion du développement des compétences.',
-    color: 'bg-purple-600',
-  },
-]
-
-const atouts = [
-  'Formateurs certifiés avec une expérience terrain en entreprise',
-  'Programmes 100 % pratiques ancrés dans le contexte ivoirien',
-  'Petits groupes pour un suivi individualisé (max 10 participants)',
-  'Attestations de formation reconnues par les entreprises partenaires',
-  'Accompagnement post-formation : support et ressources inclus',
-  'Adaptation aux contraintes horaires (soir, week-end, intra)',
-  'Maîtrise du SYSCOHADA et de la fiscalité CI',
-  'Réseau de partenaires financiers et institutionnels établis',
-]
-
-/* ── component ──────────────────────────────────────── */
 export default function About() {
   return (
-    <div>
+    <div className="space-y-20 pb-16">
 
-      {/* ── Hero ────────────────────────────────────── */}
-      <section className="bg-hero-gradient text-white py-20">
+      {/* 1. HÉROS DE LA PAGE */}
+      <section className="bg-gradient-to-br from-[#1A237E] to-[#0D1250] text-white py-16 md:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <FadeIn>
-            <span className="inline-block bg-white/20 text-xs font-semibold px-4 py-1.5 rounded-full mb-5 uppercase tracking-wider">
-              Qui sommes-nous ?
-            </span>
-            <h1 className="text-4xl md:text-5xl font-bold font-heading mb-5 leading-tight">
-              À propos de<br className="hidden sm:block" /> SkillUp Consulting CI
-            </h1>
-            <p className="text-lg text-white/80 max-w-2xl mx-auto leading-relaxed">
-              Un cabinet ivoirien engagé à transformer les compétences professionnelles
-              en leviers de croissance pour les individus et les organisations.
-            </p>
-          </FadeIn>
+          <motion.span
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="inline-block bg-white/10 backdrop-blur-md px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider text-[#8FD9AE] mb-4 border border-white/20"
+          >
+            QUI SOMMES-NOUS ?
+          </motion.span>
+          <motion.h1
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.1 }}
+            className="text-3xl sm:text-5xl font-extrabold font-heading mb-6"
+          >
+            À propos de SkillUp Consulting CI
+          </motion.h1>
+          <motion.p
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
+            className="text-base sm:text-lg text-white/90 max-w-3xl mx-auto leading-relaxed"
+          >
+            Un cabinet ivoirien de conseil et d’accompagnement qui aide les PME, les organisations et les porteurs de projets à tenir leurs comptes, structurer leur gestion, réussir leurs projets et former leurs équipes.
+          </motion.p>
         </div>
       </section>
 
-      {/* ── Histoire / Présentation ─────────────────── */}
-      <section className="py-16 md:py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
 
-            <FadeIn>
-              <div className="space-y-5">
-                <span className="text-brand-green text-sm font-semibold uppercase tracking-wider">
-                  Notre histoire
-                </span>
-                <h2 className="text-3xl md:text-4xl font-bold font-heading text-gray-900">
-                  Un cabinet né d'une vision claire
-                </h2>
-                <p className="text-gray-600 leading-relaxed">
-                  SkillUp Consulting CI a été fondé par des professionnels passionnés par le
-                  développement du capital humain en Côte d'Ivoire. Face au constat que de
-                  nombreuses entreprises peinent à trouver des collaborateurs immédiatement
-                  opérationnels sur des outils clés (SAARI, Excel avancé, gestion de projets)
-                  nous avons décidé de créer une réponse concrète et locale.
-                </p>
-                <p className="text-gray-600 leading-relaxed">
-                  Depuis notre création, nous accompagnons aussi bien les jeunes diplômés en
-                  quête d'employabilité que les professionnels en reconversion, les PME qui
-                  veulent structurer leur gestion, et les porteurs de projets qui ont besoin
-                  d'un plan solide pour accéder au financement.
-                </p>
-                <p className="text-gray-600 leading-relaxed">
-                  Basés à Abidjan, nous rayonnons sur l'ensemble du territoire ivoirien et
-                  offrons également des sessions à distance pour les participants en région
-                  ou à l'étranger.
-                </p>
-              </div>
-            </FadeIn>
-
-            <FadeIn delay={0.15}>
-              <div className="grid grid-cols-2 gap-4">
-                {[
-                  { value: '500+',  label: 'Apprenants formés' },
-                  { value: '5',     label: 'Domaines d\'expertise' },
-                  { value: '98 %',  label: 'Taux de satisfaction' },
-                  { value: '3 ans', label: 'D\'expérience' },
-                ].map(({ value, label }) => (
-                  <div
-                    key={label}
-                    className="bg-gray-50 rounded-2xl p-6 text-center border border-gray-100"
-                  >
-                    <p className="text-3xl font-bold text-brand-green mb-1">{value}</p>
-                    <p className="text-sm text-gray-500 leading-tight">{label}</p>
-                  </div>
-                ))}
-              </div>
-            </FadeIn>
-
-          </div>
-        </div>
-      </section>
-
-      {/* ── Mission & Vision ────────────────────────── */}
-      <section className="py-16 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <FadeIn className="text-center mb-12">
-            <span className="text-brand-green text-sm font-semibold uppercase tracking-wider">
-              Notre boussole
-            </span>
-            <h2 className="text-3xl md:text-4xl font-bold font-heading text-gray-900 mt-2">
-              Mission & Vision
-            </h2>
-          </FadeIn>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-
-            <FadeIn delay={0.1}>
-              <div className="bg-white rounded-2xl p-8 border border-gray-100 shadow-sm h-full">
-                <div className="w-12 h-12 bg-brand-green rounded-xl flex items-center justify-center mb-5">
-                  <Target size={22} className="text-white" />
-                </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-4">Notre Mission</h3>
-                <p className="text-gray-600 leading-relaxed mb-4">
-                  Offrir des formations professionnelles pratiques et accessibles qui permettent
-                  à chaque apprenant de maîtriser les outils et compétences stratégiques
-                  exigés par le marché du travail ivoirien et africain.
-                </p>
-                <ul className="space-y-2.5">
-                  {[
-                    'Rendre les formations professionnelles accessibles à tous',
-                    'Proposer un enseignement 100 % ancré dans la pratique',
-                    'Accompagner les PME dans leur structuration et leur croissance',
-                    'Favoriser l\'insertion et la reconversion professionnelle',
-                  ].map(item => (
-                    <li key={item} className="flex items-start gap-2.5 text-sm text-gray-700">
-                      <CheckCircle size={15} className="text-brand-green shrink-0 mt-0.5" />
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </FadeIn>
-
-            <FadeIn delay={0.2}>
-              <div className="bg-white rounded-2xl p-8 border border-gray-100 shadow-sm h-full">
-                <div className="w-12 h-12 bg-brand-blue rounded-xl flex items-center justify-center mb-5">
-                  <Eye size={22} className="text-white" />
-                </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-4">Notre Vision</h3>
-                <p className="text-gray-600 leading-relaxed mb-4">
-                  Devenir le cabinet de référence en Côte d'Ivoire et dans la sous-région
-                  pour la formation professionnelle pratique, l'assistance aux entreprises
-                  et le montage de projets à fort impact économique.
-                </p>
-                <ul className="space-y-2.5">
-                  {[
-                    'Être le premier choix des entreprises et des particuliers en CI',
-                    'Contribuer activement à la transformation économique de la Côte d\'Ivoire',
-                    'Étendre notre présence dans toute la sous-région UEMOA',
-                    'Créer un écosystème de compétences durable et valorisant',
-                  ].map(item => (
-                    <li key={item} className="flex items-start gap-2.5 text-sm text-gray-700">
-                      <CheckCircle size={15} className="text-brand-blue shrink-0 mt-0.5" />
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </FadeIn>
-
-          </div>
-        </div>
-      </section>
-
-      {/* ── Nos Valeurs ─────────────────────────────── */}
-      <section className="py-16 md:py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <FadeIn className="text-center mb-12">
-            <span className="text-brand-green text-sm font-semibold uppercase tracking-wider">
-              Ce qui nous guide
-            </span>
-            <h2 className="text-3xl md:text-4xl font-bold font-heading text-gray-900 mt-2">
-              Nos valeurs fondamentales
-            </h2>
-            <p className="text-gray-500 mt-3 max-w-xl mx-auto">
-              Six principes qui orientent chacune de nos décisions et définissent notre
-              manière d'accompagner nos clients.
-            </p>
-          </FadeIn>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {valeurs.map((v, i) => {
-              const Icon = v.icon
-              return (
-                <FadeIn key={v.titre} delay={i * 0.07}>
-                  <div className="bg-gray-50 rounded-2xl p-6 border border-gray-100 hover:shadow-md transition-shadow h-full">
-                    <div className={`w-11 h-11 ${v.color} rounded-xl flex items-center justify-center mb-4`}>
-                      <Icon size={20} className="text-white" />
-                    </div>
-                    <h3 className="text-base font-bold text-gray-900 mb-2">{v.titre}</h3>
-                    <p className="text-sm text-gray-600 leading-relaxed">{v.desc}</p>
-                  </div>
-                </FadeIn>
-              )
-            })}
-          </div>
-        </div>
-      </section>
-
-      {/* ── Pourquoi nous choisir ───────────────────── */}
-      <section className="py-16 bg-gray-900 text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <FadeIn className="text-center mb-12">
-            <span className="text-brand-green-light text-sm font-semibold uppercase tracking-wider">
-              Nos différenciateurs
-            </span>
-            <h2 className="text-3xl md:text-4xl font-bold font-heading mt-2">
-              Pourquoi choisir SkillUp Consulting CI ?
-            </h2>
-            <p className="text-gray-400 mt-3 max-w-xl mx-auto">
-              Ce qui distingue notre approche et justifie la confiance que nos clients nous accordent.
-            </p>
-          </FadeIn>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-4xl mx-auto">
-            {atouts.map((atout, i) => (
-              <FadeIn key={atout} delay={i * 0.06}>
-                <div className="flex items-start gap-3 bg-white/5 border border-white/10 rounded-xl px-5 py-4">
-                  <CheckCircle size={18} className="text-brand-green-light shrink-0 mt-0.5" />
-                  <p className="text-sm text-gray-300 leading-snug">{atout}</p>
-                </div>
-              </FadeIn>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── CTA ─────────────────────────────────────── */}
-      <section className="py-16 bg-white text-center">
-        <FadeIn>
-          <div className="max-w-2xl mx-auto px-4">
-            <BookOpen size={36} className="text-brand-green mx-auto mb-4" />
-            <h2 className="text-2xl md:text-3xl font-bold font-heading text-gray-900 mb-3">
-              Prêt à développer vos compétences ?
-            </h2>
-            <p className="text-gray-500 mb-7">
-              Découvrez notre catalogue de formations ou contactez-nous pour un accompagnement
-              personnalisé.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link to="/formations" className="btn-primary">
-                Voir nos formations
-              </Link>
-              <Link
-                to="/contact"
-                className="inline-flex items-center justify-center gap-2 px-6 py-3 border-2
-                  border-brand-green text-brand-green rounded-xl font-semibold hover:bg-brand-green
-                  hover:text-white transition-colors duration-200"
-              >
-                Nous contacter
-              </Link>
+      {/* 2. NOTRE HISTOIRE */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+          <div>
+            <span className="text-[#1B7A4B] text-sm font-semibold uppercase tracking-wider">Origine</span>
+            <h2 className="text-3xl font-bold text-[#1A237E] mt-2 mb-6">Un cabinet né d’un constat de terrain</h2>
+            <div className="space-y-4 text-gray-700 text-sm sm:text-base leading-relaxed">
+              <p>
+                <strong>SkillUp Consulting CI</strong> est né d’un constat simple : beaucoup de PME et d’organisations ivoiriennes manquent d’un accompagnement de proximité pour tenir leur comptabilité, respecter leurs obligations fiscales, piloter leur activité et monter des projets finançables. Leurs équipes manquent aussi de formations pratiques sur les outils du quotidien (SAARI, Excel, SYSCOHADA).
+              </p>
+              <p>
+                Nous avons donc réuni dans un même cabinet l’assistance comptable et fiscale, le conseil en management, l’étude et la gestion de projets, et la formation professionnelle. Nos clients ont ainsi un seul interlocuteur, de la tenue de leurs comptes à la montée en compétences de leurs équipes.
+              </p>
+              <p>
+                Basés à Angré (Abidjan), nous intervenons sur place chez nos clients et proposons nos formations en présentiel ou à distance.
+              </p>
             </div>
           </div>
-        </FadeIn>
+
+          <div className="bg-[#EEF0F8] p-8 rounded-3xl border border-gray-100">
+            <h3 className="text-xl font-bold text-[#1A237E] mb-4 flex items-center gap-2">
+              <Compass className="text-[#1B7A4B]" size={24} />
+              Notre engagement
+            </h3>
+            <p className="text-gray-600 text-sm leading-relaxed mb-6">
+              Offrir aux dirigeants et professionnels une expertise locale ancrée dans la réalité du tissu économique ivoirien et conforme à la réglementation en vigueur.
+            </p>
+            <div className="space-y-3">
+              <div className="flex items-center gap-3 bg-white p-3.5 rounded-xl border border-gray-100">
+                <CheckCircle2 className="text-[#1B7A4B] shrink-0" size={18} />
+                <span className="text-xs font-medium text-gray-800">Intervention sur mesure à Abidjan et à l'intérieur</span>
+              </div>
+              <div className="flex items-center gap-3 bg-white p-3.5 rounded-xl border border-gray-100">
+                <CheckCircle2 className="text-[#1B7A4B] shrink-0" size={18} />
+                <span className="text-xs font-medium text-gray-800">Conformité SYSCOHADA révisé & SYCEBNL</span>
+              </div>
+              <div className="flex items-center gap-3 bg-white p-3.5 rounded-xl border border-gray-100">
+                <CheckCircle2 className="text-[#1B7A4B] shrink-0" size={18} />
+                <span className="text-xs font-medium text-gray-800">Formations concrètes axées sur la pratique</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      {/* 3. BANDEAU PREUVES & CHIFFRES */}
+      <section className="bg-[#1B7A4B] py-10 text-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+            <div className="p-2">
+              <div className="text-3xl font-extrabold font-heading text-white">4</div>
+              <div className="text-xs sm:text-sm text-white/80 mt-1">Métiers complémentaires</div>
+            </div>
+            <div className="p-2">
+              <div className="text-3xl font-extrabold font-heading text-white">100 %</div>
+              <div className="text-xs sm:text-sm text-white/80 mt-1">Pratique & Opérationnel</div>
+            </div>
+            <div className="p-2">
+              <div className="text-3xl font-extrabold font-heading text-white">2</div>
+              <div className="text-xs sm:text-sm text-white/80 mt-1">Référentiels (SYSCOHADA & SYCEBNL)</div>
+            </div>
+            <div className="p-2">
+              <div className="text-3xl font-extrabold font-heading text-white">Abidjan</div>
+              <div className="text-xs sm:text-sm text-white/80 mt-1">Siège social à Angré 7è Tranche</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      {/* 4. NOTRE BOUSSOLE (MISSION & VISION) */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-12">
+          <span className="text-[#1B7A4B] text-sm font-semibold uppercase tracking-wider">Orientation</span>
+          <h2 className="text-3xl font-bold text-[#1A237E] mt-2">Notre Boussole</h2>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {/* Mission */}
+          <div className="bg-[#EEF0F8] p-8 rounded-3xl border border-gray-100 flex flex-col justify-between">
+            <div>
+              <div className="w-12 h-12 bg-[#1A237E] text-white rounded-2xl flex items-center justify-center mb-6">
+                <Target size={24} />
+              </div>
+              <h3 className="text-2xl font-bold text-[#1A237E] mb-4">Notre Mission</h3>
+              <p className="text-gray-700 text-sm sm:text-base leading-relaxed mb-6">
+                Accompagner les entreprises, les organisations et les porteurs de projets dans la maîtrise de leur gestion comptable et fiscale, l’amélioration de leur organisation et la réussite de leurs projets, tout en renforçant les compétences de leurs équipes par une formation pratique.
+              </p>
+            </div>
+            <ul className="space-y-2 pt-4 border-t border-gray-200 text-xs text-gray-600">
+              <li className="flex items-center gap-2"><CheckCircle2 size={14} className="text-[#1B7A4B]" /> Tenir des comptes fiables et conformes</li>
+              <li className="flex items-center gap-2"><CheckCircle2 size={14} className="text-[#1B7A4B]" /> Aider les dirigeants à piloter leur activité</li>
+              <li className="flex items-center gap-2"><CheckCircle2 size={14} className="text-[#1B7A4B]" /> Rendre les projets finançables</li>
+            </ul>
+          </div>
+
+          {/* Vision */}
+          <div className="bg-[#E8F3ED] p-8 rounded-3xl border border-gray-100 flex flex-col justify-between">
+            <div>
+              <div className="w-12 h-12 bg-[#1B7A4B] text-white rounded-2xl flex items-center justify-center mb-6">
+                <Eye size={24} />
+              </div>
+              <h3 className="text-2xl font-bold text-[#1A237E] mb-4">Notre Vision</h3>
+              <p className="text-gray-700 text-sm sm:text-base leading-relaxed mb-6">
+                Être, en Côte d’Ivoire, le cabinet de référence en assistance comptable et fiscale, en conseil en management et en gestion de projet, au service de la performance durable des PME, des institutions et des professionnels.
+              </p>
+            </div>
+            <ul className="space-y-2 pt-4 border-t border-gray-200 text-xs text-gray-600">
+              <li className="flex items-center gap-2"><CheckCircle2 size={14} className="text-[#1B7A4B]" /> Premier choix des PME ivoiriennes pour leur gestion</li>
+              <li className="flex items-center gap-2"><CheckCircle2 size={14} className="text-[#1B7A4B]" /> Contribuer à la structuration du tissu économique</li>
+              <li className="flex items-center gap-2"><CheckCircle2 size={14} className="text-[#1B7A4B]" /> Étendre notre présence dans l’espace UEMOA</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+
+      {/* 5. NOS VALEURS */}
+      <section className="bg-gray-50 py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <span className="text-[#1B7A4B] text-sm font-semibold uppercase tracking-wider">Principes</span>
+            <h2 className="text-3xl font-bold text-[#1A237E] mt-2">Nos Valeurs</h2>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm">
+              <div className="w-10 h-10 bg-[#1A237E]/10 text-[#1A237E] rounded-xl flex items-center justify-center mb-4">
+                <ShieldCheck size={20} />
+              </div>
+              <h3 className="font-bold text-[#1A237E] text-base mb-2">Pragmatisme</h3>
+              <p className="text-xs text-gray-600 leading-relaxed">
+                Des solutions concrètes et applicables tout de suite, qu’il s’agisse d’une mission comptable, d’un conseil ou d’une formation.
+              </p>
+            </div>
+
+            <div className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm">
+              <div className="w-10 h-10 bg-[#1B7A4B]/10 text-[#1B7A4B] rounded-xl flex items-center justify-center mb-4">
+                <Users size={20} />
+              </div>
+              <h3 className="font-bold text-[#1A237E] text-base mb-2">Esprit d’équipe</h3>
+              <p className="text-xs text-gray-600 leading-relaxed">
+                Une équipe pluridisciplinaire de consultants, de spécialistes de la comptabilité et de la fiscalité et de formateurs.
+              </p>
+            </div>
+
+            <div className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm">
+              <div className="w-10 h-10 bg-[#1A237E]/10 text-[#1A237E] rounded-xl flex items-center justify-center mb-4">
+                <Award size={20} />
+              </div>
+              <h3 className="font-bold text-[#1A237E] text-base mb-2">Excellence</h3>
+              <p className="text-xs text-gray-600 leading-relaxed">
+                Des prestations conformes au SYSCOHADA révisé, au SYCEBNL et à la réglementation fiscale ivoirienne.
+              </p>
+            </div>
+
+            <div className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm">
+              <div className="w-10 h-10 bg-[#1B7A4B]/10 text-[#1B7A4B] rounded-xl flex items-center justify-center mb-4">
+                <Target size={20} />
+              </div>
+              <h3 className="font-bold text-[#1A237E] text-base mb-2">Impact mesurable</h3>
+              <p className="text-xs text-gray-600 leading-relaxed">
+                Un engagement axé sur les résultats réels obtenus par nos clients et la progression durable de leurs équipes.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      {/* 6. POURQUOI CHOISIR SKILLUP CONSULTING CI ? */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="bg-[#1A237E] text-white rounded-3xl p-8 md:p-12">
+          <div className="max-w-3xl mb-10">
+            <span className="text-[#8FD9AE] text-sm font-semibold uppercase tracking-wider">Atouts majeurs</span>
+            <h2 className="text-3xl font-bold mt-2">Pourquoi choisir SkillUp Consulting CI ?</h2>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="flex gap-4">
+              <CheckCircle2 className="text-[#8FD9AE] shrink-0" size={24} />
+              <div>
+                <h3 className="font-bold text-base mb-1">Maîtrise du SYSCOHADA, SYCEBNL & fiscalité ivoirienne</h3>
+                <p className="text-xs text-white/80 leading-relaxed">Une expertise technique éprouvée et constamment mise à jour.</p>
+              </div>
+            </div>
+
+            <div className="flex gap-4">
+              <CheckCircle2 className="text-[#8FD9AE] shrink-0" size={24} />
+              <div>
+                <h3 className="font-bold text-base mb-1">Interlocuteur unique pour l'entreprise</h3>
+                <p className="text-xs text-white/80 leading-relaxed">Un suivi intégré de la comptabilité jusqu'à la formation de vos équipes.</p>
+              </div>
+            </div>
+
+            <div className="flex gap-4">
+              <CheckCircle2 className="text-[#8FD9AE] shrink-0" size={24} />
+              <div>
+                <h3 className="font-bold text-base mb-1">Accompagnement de projets jusqu'au financement</h3>
+                <p className="text-xs text-white/80 leading-relaxed">Création de dossiers bancables et assistance pendant l'instruction.</p>
+              </div>
+            </div>
+
+            <div className="flex gap-4">
+              <CheckCircle2 className="text-[#8FD9AE] shrink-0" size={24} />
+              <div>
+                <h3 className="font-bold text-base mb-1">Solutions adaptées aux réalités des PME</h3>
+                <p className="text-xs text-white/80 leading-relaxed">Procédures simples, adaptées au contexte économique local.</p>
+              </div>
+            </div>
+
+            <div className="flex gap-4">
+              <CheckCircle2 className="text-[#8FD9AE] shrink-0" size={24} />
+              <div>
+                <h3 className="font-bold text-base mb-1">Formations 100 % pratiques</h3>
+                <p className="text-xs text-white/80 leading-relaxed">En présentiel ou à distance, adaptées aux horaires d'entreprise (soir, week-end).</p>
+              </div>
+            </div>
+
+            <div className="flex gap-4">
+              <CheckCircle2 className="text-[#8FD9AE] shrink-0" size={24} />
+              <div>
+                <h3 className="font-bold text-base mb-1">Suivi après mission ou formation</h3>
+                <p className="text-xs text-white/80 leading-relaxed">Accompagnement continu pour s'assurer de l'assimilation des acquis.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      {/* 7. ÉQUIPE DIRIGEANTE */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-12">
+          <span className="text-[#1B7A4B] text-sm font-semibold uppercase tracking-wider">L'Équipe</span>
+          <h2 className="text-3xl font-bold text-[#1A237E] mt-2">Nos Consultants & Formateurs</h2>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+
+          <div className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm text-center">
+            <div className="w-20 h-20 bg-[#1A237E]/10 text-[#1A237E] rounded-full flex items-center justify-center mx-auto mb-4 font-bold text-xl">
+              YD
+            </div>
+            <h3 className="font-bold text-[#1A237E] text-base">M. Yannick Wilfried DEGBEL</h3>
+            <p className="text-xs text-[#1B7A4B] font-semibold mb-2">Gérant & Directeur Général</p>
+            <p className="text-xs text-gray-600 leading-relaxed">
+              Finance, audit et contrôle de gestion ; comptabilité SYSCOHADA et SYCEBNL.
+            </p>
+          </div>
+
+          <div className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm text-center">
+            <div className="w-20 h-20 bg-[#1B7A4B]/10 text-[#1B7A4B] rounded-full flex items-center justify-center mx-auto mb-4 font-bold text-xl">
+              FT
+            </div>
+            <h3 className="font-bold text-[#1A237E] text-base">M. Franck TETE</h3>
+            <p className="text-xs text-[#1B7A4B] font-semibold mb-2">Consultant Spécialiste</p>
+            <p className="text-xs text-gray-600 leading-relaxed">
+              Fiscalité des entreprises, déclarations et obligations sociales.
+            </p>
+          </div>
+
+          <div className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm text-center">
+            <div className="w-20 h-20 bg-[#1A237E]/10 text-[#1A237E] rounded-full flex items-center justify-center mx-auto mb-4 font-bold text-xl">
+              GA
+            </div>
+            <h3 className="font-bold text-[#1A237E] text-base">M. Gilles AHI</h3>
+            <p className="text-xs text-[#1B7A4B] font-semibold mb-2">Formateur Référent</p>
+            <p className="text-xs text-gray-600 leading-relaxed">
+              Microsoft Excel avancé et outils de gestion bureautique.
+            </p>
+          </div>
+
+          <div className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm text-center">
+            <div className="w-20 h-20 bg-[#1B7A4B]/10 text-[#1B7A4B] rounded-full flex items-center justify-center mx-auto mb-4 font-bold text-xl">
+              CD
+            </div>
+            <h3 className="font-bold text-[#1A237E] text-base">Mlle Charlotte DRA</h3>
+            <p className="text-xs text-[#1B7A4B] font-semibold mb-2">Formatrice</p>
+            <p className="text-xs text-gray-600 leading-relaxed">
+              Leadership, gestion d'équipe et posture managériale.
+            </p>
+          </div>
+
+        </div>
+      </section>
+
+
+      {/* 8. FICHE D'IDENTITÉ LÉGALE */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="bg-[#EEF0F8] p-8 rounded-3xl border border-gray-200">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+            <div>
+              <span className="text-[#1B7A4B] text-xs font-semibold uppercase tracking-wider">Identité Institutionnelle</span>
+              <h3 className="text-xl font-bold text-[#1A237E] mt-1 mb-2">SkillUp Consulting CI</h3>
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs text-gray-700 mt-4">
+                <div><strong>Forme juridique :</strong> SARLU</div>
+                <div><strong>N° CC (NCC) :</strong> 2603534P</div>
+                <div><strong>IDU :</strong> CI-2026-0063319T</div>
+              </div>
+            </div>
+            <div className="text-xs text-gray-600 md:text-right border-t md:border-t-0 md:border-l border-gray-300 pt-4 md:pt-0 md:pl-6 shrink-0">
+              <div className="font-bold text-[#1A237E] mb-1">Siège social Abidjan</div>
+              <div>Angré 7ème Tranche, non loin du carrefour Bluetooth</div>
+              <div>Immeuble Tchêpê, porte B2, Abidjan</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      {/* 9. APPEL À L'ACTION FINAL */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div className="bg-[#E8F3ED] rounded-3xl p-10 md:p-14 border border-[#1B7A4B]/20">
+          <h2 className="text-2xl sm:text-3xl font-bold text-[#1A237E] mb-4">
+            Travaillons ensemble
+          </h2>
+          <p className="text-gray-700 max-w-xl mx-auto mb-8 text-sm sm:text-base leading-relaxed">
+            Une comptabilité à reprendre, une organisation à structurer, un projet à financer ou une équipe à former ? Parlons-en.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link
+              to="/contact"
+              className="bg-[#1B7A4B] hover:bg-[#155e39] text-white font-bold px-8 py-4 rounded-xl transition-colors inline-flex items-center justify-center gap-2"
+            >
+              <Calendar size={20} />
+              Prendre rendez-vous
+            </Link>
+            <Link
+              to="/services"
+              className="bg-white hover:bg-gray-50 text-[#1A237E] font-semibold px-8 py-4 rounded-xl border border-gray-300 transition-colors inline-flex items-center justify-center gap-2"
+            >
+              Découvrir nos services
+            </Link>
+          </div>
+        </div>
       </section>
 
     </div>
