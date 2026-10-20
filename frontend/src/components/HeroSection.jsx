@@ -1,89 +1,88 @@
-import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { ArrowRight, GraduationCap } from 'lucide-react'
-
-const ease = [0.22, 1, 0.36, 1]
+import { Link } from 'react-router-dom'
+import { Calendar, ArrowRight, BookOpen } from 'lucide-react'
 
 export default function HeroSection() {
   return (
-    <section className="relative overflow-hidden bg-hero-gradient text-white">
-      {/* Cercles décoratifs */}
-      <div aria-hidden className="absolute inset-0 pointer-events-none">
-        <div className="absolute -top-32 -right-32 w-[420px] h-[420px] bg-white/10 rounded-full" />
-        <div className="absolute -bottom-28 -left-28 w-80 h-80 bg-white/10 rounded-full" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-white/5 rounded-full" />
-      </div>
+    <section className="relative bg-hero-gradient text-white py-20 md:py-28 overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="max-w-3xl">
 
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-36">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
+          {/* Badge du haut */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md px-4 py-2 rounded-full border border-white/20 mb-6"
+          >
+            <span className="text-xs font-semibold uppercase tracking-wider text-white">
+              CABINET DE FORMATION ET DE CONSEIL
+            </span>
+          </motion.div>
 
-          {/* Texte */}
-          <div>
-            <motion.span
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, ease }}
-              className="inline-block bg-white/20 text-white text-xs font-semibold px-4 py-1.5 rounded-full mb-6 uppercase tracking-widest"
-            >
-              Cabinet de conseil, d'asistance comptable et de formation
-            </motion.span>
+          {/* Titre principal */}
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="text-4xl md:text-6xl font-extrabold font-heading leading-tight mb-6"
+          >
+            Votre partenaire de confiance pour la{' '}
+            <span className="text-yellow-400">montée en compétences</span>
+          </motion.h1>
 
-            <motion.h1
-              initial={{ opacity: 0, y: 24 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.1, ease }}
-              className="text-4xl md:text-5xl lg:text-6xl font-bold font-heading leading-tight mb-6"
-            >
-              Votre partenaire de confiance pour{' '}
-              <span className="text-yellow-300">gérer,structurer et développer votre activité</span>
-            </motion.h1>
+          {/* Sous-titre */}
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="text-lg md:text-xl text-white/90 leading-relaxed mb-8 max-w-2xl"
+          >
+            Nous réduisons l'écart entre la théorie académique et les exigences
+            réelles du monde professionnel grâce à des formations pratiques et un
+            accompagnement sur mesure.
+          </motion.p>
 
-            <motion.p
-              initial={{ opacity: 0, y: 24 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2, ease }}
-              className="text-lg md:text-xl text-white/85 leading-relaxed mb-10"
-            >
-              Comptabilité et fiscalité, conseil en management, montage et suivi de projets : nous accompagnons les PME, les organisations et les porteurs de projets, et nous formons leurs équipes.
-            </motion.p>
-
-            <motion.div
-              initial={{ opacity: 0, y: 24 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.3, ease }}
-              className="flex flex-col sm:flex-row gap-4"
-            >
-              <Link
-                to="/services"
-                className="inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-white text-brand-green font-semibold rounded-lg hover:bg-gray-100 transition-colors shadow-lg text-base"
-              >
-                <GraduationCap size={20} />
-                Découvrir nos formations
-              </Link>
+          {/* Bloc d'actions (Boutons + Lien texte) */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.3 }}
+            className="flex flex-col gap-4 items-start"
+          >
+            {/* Rangee des deux boutons principaux */}
+            <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
+              {/* Bouton principal : Prendre rendez-vous */}
               <Link
                 to="/contact"
-                className="inline-flex items-center justify-center gap-2 px-7 py-3.5 border-2 border-white text-white font-semibold rounded-lg hover:bg-white/10 transition-colors text-base"
+                className="inline-flex items-center justify-center gap-2 bg-white text-brand-green hover:bg-gray-100 font-bold px-8 py-4 rounded-xl transition-all shadow-lg hover:scale-105"
               >
-                Nous contacter <ArrowRight size={18} />
+                <Calendar size={20} />
+                Prendre rendez-vous
               </Link>
-            </motion.div>
-          </div>
 
-          {/* Logo flottant */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.88 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.7, delay: 0.25, ease }}
-            className="hidden lg:flex justify-center"
-          >
-            <div className="bg-white/15 backdrop-blur-sm rounded-3xl p-10 border border-white/25 shadow-2xl">
-              <img
-                src="/images/logo-icon.jpeg"
-                alt="SkillUp Consulting CI"
-                className="w-56 h-56 object-contain rounded-2xl"
-              />
+              {/* Bouton secondaire : Découvrir nos services */}
+              <Link
+                to="/services"
+                className="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 text-white font-semibold px-8 py-4 rounded-xl border border-white/30 backdrop-blur-md transition-all"
+              >
+                Découvrir nos services
+                <ArrowRight size={20} />
+              </Link>
+            </div>
+
+            {/* Lien texte en dessous : Voir nos formations */}
+            <div className="pt-2">
+              <Link
+                to="/formations"
+                className="inline-flex items-center gap-1.5 text-sm font-medium text-white/80 hover:text-yellow-400 transition-colors underline underline-offset-4"
+              >
+                <BookOpen size={16} />
+                Voir nos formations
+              </Link>
             </div>
           </motion.div>
+
         </div>
       </div>
     </section>
