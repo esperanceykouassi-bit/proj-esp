@@ -1,194 +1,309 @@
 import { motion } from 'framer-motion'
-import { Mail, Phone, MapPin, MessageCircle, Globe } from 'lucide-react'
-import FadeIn from '../components/FadeIn'
-
-// ─── Données statiques ────────────────────────────────────────────────────────
-
-const COORDONNEES = [
-  {
-    icon: Phone,
-    label: 'Téléphone',
-    color: 'bg-brand-green/10',
-    iconColor: 'text-brand-green',
-    lines: [
-      { text: '+225 01 02 21 14 21', href: 'tel:+2250102211421' },
-      { text: '+225 27 24 42 71 86', href: 'tel:+2252724427186' },
-    ],
-  },
-  {
-    icon: Mail,
-    label: 'Email',
-    color: 'bg-brand-blue/10',
-    iconColor: 'text-brand-blue',
-    lines: [
-      { text: 'infos@skillupcci.net', href: 'mailto:infos@skillupcci.net' },
-    ],
-  },
-  {
-    icon: Globe,
-    label: 'Site Web',
-    color: 'bg-brand-green/10',
-    iconColor: 'text-brand-green',
-    lines: [
-      { text: 'www.skillupcci.net', href: 'https://www.skillupcci.net' },
-    ],
-  },
-  {
-    icon: MapPin,
-    label: 'Localisation',
-    color: 'bg-brand-teal/10',
-    iconColor: 'text-brand-teal',
-    lines: [{ text: "Angré 7ème Tranche, Immeuble Tchêpê vers Bluetooth — Abidjan" }],
-  },
-]
+import { useState } from 'react'
+import { 
+  Phone, 
+  Mail, 
+  MapPin, 
+  Clock, 
+  Send, 
+  MessageSquare, 
+  CheckCircle2, 
+  Building2, 
+  Calendar 
+} from 'lucide-react'
 
 export default function Contact() {
-  const whatsappNumber = '2250102211421'
-  const whatsappMessage = encodeURIComponent(
-    "Bonjour, je souhaite obtenir des informations sur vos services et vos formations."
-  )
-  const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`
-  const callUrl = 'tel:+2250102211421'
-  const mailUrl = 'mailto:infos@skillupcci.net?subject=Demande%20d%27information'
+  const [submitted, setSubmitted] = useState(false)
+  const [formData, setFormData] = useState({
+    nom: '',
+    structure: '',
+    telephone: '',
+    email: '',
+    besoin: 'Assistance comptable, financière & fiscale',
+    message: ''
+  })
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    // Simulation d'envoi du formulaire
+    setSubmitted(true)
+  }
 
   return (
-    <div>
-      {/* ── Hero ── */}
-      <section className="bg-hero-gradient text-white py-16 md:py-20">
+    <div className="space-y-20 pb-16">
+
+      {/* 1. HÉROS DE LA PAGE */}
+      <section className="bg-gradient-to-br from-[#1A237E] to-[#0D1250] text-white py-16 md:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.span
-            initial={{ opacity: 0, y: 12 }}
+            initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4 }}
-            className="inline-block bg-white/20 text-xs font-semibold px-4 py-1.5 rounded-full mb-5 uppercase tracking-widest"
+            className="inline-block bg-white/10 backdrop-blur-md px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider text-[#8FD9AE] mb-4 border border-white/20"
           >
-            Prenons contact
+            CONTACTEZ-NOUS
           </motion.span>
           <motion.h1
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.08 }}
-            className="text-4xl md:text-5xl font-bold font-heading mb-4"
+            transition={{ delay: 0.1 }}
+            className="text-3xl sm:text-5xl font-extrabold font-heading mb-6"
           >
-            Contactez-nous
+            Échangeons sur votre projet
           </motion.h1>
           <motion.p
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.16 }}
-            className="text-lg text-white/80 max-w-xl mx-auto"
+            transition={{ delay: 0.2 }}
+            className="text-base sm:text-lg text-white/90 max-w-3xl mx-auto leading-relaxed"
           >
-            Choisissez le canal de communication qui vous convient le mieux pour échanger avec notre équipe.
+            Comptabilité à jour, déclarations fiscales, organisation de votre structure, projet à financer ou formation de vos équipes : dites-nous où vous en êtes. Un conseiller vous répond et vous propose un premier rendez-vous.
           </motion.p>
         </div>
       </section>
 
-      {/* ── Contenu ── */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 items-start">
 
-          {/* ── Colonne gauche : coordonnées ── */}
-          <FadeIn className="space-y-6">
-            <h2 className="text-2xl font-bold text-gray-900">Nos coordonnées</h2>
+      {/* 2. BLOC D'ACTION RAPIDE (WhatsApp, Appel, E-mail) */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="bg-[#EEF0F8] rounded-3xl p-8 border border-gray-200">
+          <div className="text-center mb-8">
+            <h2 className="text-2xl font-bold text-[#1A237E]">Contact direct & Prise de rendez-vous</h2>
+            <p className="text-xs sm:text-sm text-gray-600 mt-1">Choisissez le canal qui vous convient le mieux pour échanger avec notre équipe.</p>
+          </div>
 
-            <div className="space-y-4">
-              {COORDONNEES.map(({ icon: Icon, label, color, iconColor, lines }) => (
-                <div key={label} className="flex items-start gap-4">
-                  <div className={`${color} w-11 h-11 rounded-xl flex items-center justify-center shrink-0`}>
-                    <Icon size={18} className={iconColor} />
-                  </div>
-                  <div>
-                    <p className="text-xs text-gray-400 uppercase font-semibold tracking-wider mb-1">
-                      {label}
-                    </p>
-                    {lines.map(({ text, href }) =>
-                      href ? (
-                        <a
-                          key={text}
-                          href={href}
-                          target={href.startsWith('http') ? '_blank' : undefined}
-                          rel={href.startsWith('http') ? 'noopener noreferrer' : undefined}
-                          className="block text-sm text-gray-700 hover:text-brand-green transition-colors"
-                        >
-                          {text}
-                        </a>
-                      ) : (
-                        <p key={text} className="text-sm text-gray-700 leading-relaxed">{text}</p>
-                      )
-                    )}
-                  </div>
-                </div>
-              ))}
-            </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
 
-            {/* Horaires */}
-            <div className="bg-gray-50 border border-gray-100 rounded-2xl p-6">
-              <h3 className="font-semibold text-gray-900 mb-3">Disponibilité</h3>
-              <ul className="space-y-1.5 text-sm text-gray-500">
-                <li className="flex justify-between">
-                  <span>Lundi – Vendredi</span>
-                  <span className="font-medium text-gray-700">08h00 – 17h00</span>
-                </li>
-                <li className="flex justify-between">
-                  <span>Samedi</span>
-                  <span className="font-medium text-gray-700">09h00 – 15h30</span>
-                </li>
-                <li className="flex justify-between">
-                  <span>Dimanche et jours fériés</span>
-                  <span className="text-gray-400">Fermé</span>
-                </li>
-              </ul>
-            </div>
-          </FadeIn>
+            {/* Canal WhatsApp */}
+            <a
+              href="https://wa.me/2250102211421?text=Bonjour%20SkillUp,%20je%20souhaite%20un%20rendez-vous."
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-[#25D366] hover:bg-[#20bd5a] text-white p-6 rounded-2xl flex flex-col items-center text-center transition-transform hover:scale-105 shadow-md"
+            >
+              <MessageSquare size={32} className="mb-3" />
+              <div className="font-bold text-lg mb-1">WhatsApp</div>
+              <p className="text-xs text-white/90 mb-3">Message direct pour une réponse rapide</p>
+              <span className="text-xs bg-white/20 font-semibold px-3 py-1 rounded-full">+225 01 02 21 14 21</span>
+            </a>
 
-          {/* ── Colonne droite : Carte d'actions multiples ── */}
-          <FadeIn delay={0.1} className="lg:col-span-2">
-            <div className="card p-8 md:p-12 text-center space-y-8 bg-white rounded-2xl border border-gray-100 shadow-sm">
-              <div>
-                <h2 className="text-2xl font-bold text-gray-900 mb-3">
-                  Échangeons sur votre projet
-                </h2>
-                <p className="text-gray-600 max-w-lg mx-auto text-sm leading-relaxed">
-                  Vous avez un projet ou souhaitez découvrir nos services ? Contactez-nous pour obtenir des informations sur nos formations, notre assistance comptable et notre accompagnement personnalisé.
+            {/* Canal Appel */}
+            <a
+              href="tel:+2250102211421"
+              className="bg-white hover:bg-gray-50 text-[#1B7A4B] border-2 border-[#1B7A4B] p-6 rounded-2xl flex flex-col items-center text-center transition-transform hover:scale-105 shadow-sm"
+            >
+              <Phone size={32} className="mb-3" />
+              <div className="font-bold text-lg mb-1">Nous appeler</div>
+              <p className="text-xs text-gray-600 mb-3">Bureau & Secrétariat exécutif</p>
+              <span className="text-xs bg-[#1B7A4B]/10 font-bold px-3 py-1 rounded-full text-[#1B7A4B]">
+                01 02 21 14 21 / 27 24 42 71 86
+              </span>
+            </a>
+
+            {/* Canal E-mail */}
+            <a
+              href="mailto:infos@skillupcci.net?subject=Demande%20de%20rendez-vous"
+              className="bg-[#1A237E] hover:bg-[#0D1250] text-white p-6 rounded-2xl flex flex-col items-center text-center transition-transform hover:scale-105 shadow-md"
+            >
+              <Mail size={32} className="mb-3 text-[#8FD9AE]" />
+              <div className="font-bold text-lg mb-1">Envoyer un e-mail</div>
+              <p className="text-xs text-white/80 mb-3">Demandes officielles & Devis sur mesure</p>
+              <span className="text-xs bg-white/10 font-semibold px-3 py-1 rounded-full text-[#8FD9AE]">infos@skillupcci.net</span>
+            </a>
+
+          </div>
+        </div>
+      </section>
+
+
+      {/* 3. FORMULAIRE DE CONTACT & COORDONNÉES */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
+
+          {/* Formulaire de demande (7 cols) */}
+          <div className="lg:col-span-7 bg-white p-8 rounded-3xl border border-gray-200 shadow-sm">
+            <h3 className="text-2xl font-bold text-[#1A237E] mb-2">Envoyez-nous un message</h3>
+            <p className="text-xs text-gray-600 mb-6">Remplissez ce formulaire et nous vous recontacterons sous 24 heures ouvrées.</p>
+
+            {submitted ? (
+              <div className="bg-[#E8F3ED] border border-[#1B7A4B]/30 rounded-2xl p-8 text-center text-[#1B7A4B]">
+                <CheckCircle2 size={48} className="mx-auto mb-3" />
+                <h4 className="font-bold text-lg mb-2">Message bien reçu !</h4>
+                <p className="text-xs leading-relaxed">
+                  Merci de nous avoir contactés. Un conseiller de SkillUp Consulting CI examinera votre demande et vous répondra sous 24h ouvrées.
                 </p>
               </div>
+            ) : (
+              <form onSubmit={handleSubmit} className="space-y-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-xs font-semibold text-gray-700 mb-1">Nom & Prénoms *</label>
+                    <input
+                      type="text"
+                      required
+                      value={formData.nom}
+                      onChange={(e) => setFormData({...formData, nom: e.target.value})}
+                      placeholder="Ex: Kouassi Jean"
+                      className="w-full text-xs p-3 rounded-xl border border-gray-300 focus:outline-none focus:border-[#1A237E]"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-xs font-semibold text-gray-700 mb-1">Entreprise / Structure</label>
+                    <input
+                      type="text"
+                      value={formData.structure}
+                      onChange={(e) => setFormData({...formData, structure: e.target.value})}
+                      placeholder="Ex: PME Sarl ou Indépendant"
+                      className="w-full text-xs p-3 rounded-xl border border-gray-300 focus:outline-none focus:border-[#1A237E]"
+                    />
+                  </div>
+                </div>
 
-              {/* Boutons d'action */}
-              <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-2">
-                {/* Bouton WhatsApp */}
-                <a
-                  href={whatsappUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-sm px-6 py-3.5 rounded-xl shadow-lg shadow-emerald-600/20 transition-all hover:scale-105 active:scale-95"
-                >
-                  <MessageCircle size={20} />
-                  WhatsApp
-                </a>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-xs font-semibold text-gray-700 mb-1">Téléphone *</label>
+                    <input
+                      type="tel"
+                      required
+                      value={formData.telephone}
+                      onChange={(e) => setFormData({...formData, telephone: e.target.value})}
+                      placeholder="Ex: +225 07 00 00 00 00"
+                      className="w-full text-xs p-3 rounded-xl border border-gray-300 focus:outline-none focus:border-[#1A237E]"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-xs font-semibold text-gray-700 mb-1">Adresse e-mail *</label>
+                    <input
+                      type="email"
+                      required
+                      value={formData.email}
+                      onChange={(e) => setFormData({...formData, email: e.target.value})}
+                      placeholder="Ex: contact@votre-entreprise.ci"
+                      className="w-full text-xs p-3 rounded-xl border border-gray-300 focus:outline-none focus:border-[#1A237E]"
+                    />
+                  </div>
+                </div>
 
-                {/* Bouton Appeler */}
-                <a
-                  href={callUrl}
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 bg-brand-green hover:bg-emerald-800 text-white font-semibold text-sm px-6 py-3.5 rounded-xl shadow-lg shadow-brand-green/20 transition-all hover:scale-105 active:scale-95"
-                >
-                  <Phone size={20} />
-                  Appeler
-                </a>
+                <div>
+                  <label className="block text-xs font-semibold text-gray-700 mb-1">Votre besoin principal *</label>
+                  <select
+                    value={formData.besoin}
+                    onChange={(e) => setFormData({...formData, besoin: e.target.value})}
+                    className="w-full text-xs p-3 rounded-xl border border-gray-300 focus:outline-none focus:border-[#1A237E] bg-white"
+                  >
+                    <option value="Assistance comptable, financière & fiscale">Assistance comptable, financière & fiscale</option>
+                    <option value="Conseil en management & organisation">Conseil en management & organisation</option>
+                    <option value="Étude, montage & gestion de projets">Étude, montage & gestion de projets</option>
+                    <option value="Formation professionnelle pratique">Formation professionnelle pratique</option>
+                    <option value="Autre demande / Diagnostic">Autre demande / Demande de diagnostic</option>
+                  </select>
+                </div>
 
-                {/* Bouton Email */}
-                <a
-                  href={mailUrl}
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 bg-gray-900 hover:bg-gray-800 text-white font-semibold text-sm px-6 py-3.5 rounded-xl shadow-lg shadow-gray-900/20 transition-all hover:scale-105 active:scale-95"
+                <div>
+                  <label className="block text-xs font-semibold text-gray-700 mb-1">Message / Précisions *</label>
+                  <textarea
+                    required
+                    rows="4"
+                    value={formData.message}
+                    onChange={(e) => setFormData({...formData, message: e.target.value})}
+                    placeholder="Décrivez brièvement votre situation ou la formation souhaitée..."
+                    className="w-full text-xs p-3 rounded-xl border border-gray-300 focus:outline-none focus:border-[#1A237E]"
+                  ></textarea>
+                </div>
+
+                <button
+                  type="submit"
+                  className="w-full bg-[#1B7A4B] hover:bg-[#155e39] text-white font-bold py-3.5 rounded-xl transition-colors inline-flex items-center justify-center gap-2 text-sm"
                 >
-                  <Mail size={20} />
-                  Envoyer un email
-                </a>
-              </div>
+                  <Send size={18} />
+                  Envoyer ma demande
+                </button>
+              </form>
+            )}
+          </div>
+
+          {/* Coordonnées & Horaires (5 cols) */}
+          <div className="lg:col-span-5 space-y-6">
+
+            {/* Carte Adresse */}
+            <div className="bg-[#EEF0F8] p-6 rounded-3xl border border-gray-200">
+              <h4 className="font-bold text-[#1A237E] text-lg mb-4 flex items-center gap-2">
+                <MapPin className="text-[#1B7A4B]" size={22} />
+                Siège Social
+              </h4>
+              <p className="text-xs text-gray-700 leading-relaxed mb-4">
+                <strong>SkillUp Consulting CI</strong><br />
+                Angré 7ème Tranche, non loin du carrefour Bluetooth<br />
+                Immeuble Tchêpê, porte B2, Abidjan<br />
+                Côte d'Ivoire
+              </p>
+              <a
+                href="https://maps.google.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 text-xs font-bold text-[#1A237E] hover:underline"
+              >
+                Voir la localisation sur Google Maps →
+              </a>
             </div>
-          </FadeIn>
+
+            {/* Carte Horaires d'ouverture */}
+            <div className="bg-[#E8F3ED] p-6 rounded-3xl border border-gray-200">
+              <h4 className="font-bold text-[#1A237E] text-lg mb-4 flex items-center gap-2">
+                <Clock className="text-[#1B7A4B]" size={22} />
+                Horaires d'ouverture
+              </h4>
+              <div className="space-y-2 text-xs text-gray-700">
+                <div className="flex justify-between pb-1 border-b border-gray-200">
+                  <span className="font-medium">Bureau (Lundi — Vendredi) :</span>
+                  <span className="font-bold">08h00 — 18h00</span>
+                </div>
+                <div className="flex justify-between pb-1 border-b border-gray-200">
+                  <span className="font-medium">Formations (Soir & Samedi) :</span>
+                  <span className="font-bold">Selon planning</span>
+                </div>
+                <div className="flex justify-between text-gray-500">
+                  <span>Dimanche & Jours fériés :</span>
+                  <span>Fermé</span>
+                </div>
+              </div>
+              <p className="text-[11px] text-[#1B7A4B] font-semibold mt-4">
+                * Réponse garantie sous 24 heures ouvrées.
+              </p>
+            </div>
+
+            {/* Carte Mentions légales */}
+            <div className="bg-white p-6 rounded-3xl border border-gray-200 text-xs text-gray-600">
+              <h4 className="font-bold text-[#1A237E] text-sm mb-2 flex items-center gap-2">
+                <Building2 size={18} className="text-[#1B7A4B]" />
+                Identité légale
+              </h4>
+              <p className="leading-relaxed">
+                SkillUp Consulting CI · SARLU<br />
+                N° CC (NCC) : 2603534P<br />
+                IDU : CI-2026-0063319T
+              </p>
+            </div>
+
+          </div>
 
         </div>
       </section>
+
+
+      {/* 4. CARTE GOOGLE MAPS D'ACCÈS */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="bg-gray-100 rounded-3xl overflow-hidden border border-gray-200 h-80 shadow-inner relative">
+          <iframe
+            title="Localisation SkillUp Consulting CI"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15888.636652425515!2d-3.985!3d5.385!2m3!1f0!2f0!3f0!2m3!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNcKwMjMnMDYuMCJOIDPCsDU5JzA2LjAiVw!5e0!3m2!1sfr!2sci!4v1620000000000!5m2!1sfr!2sci"
+            width="100%"
+            height="100%"
+            style={{ border: 0 }}
+            allowFullScreen=""
+            loading="lazy"
+          ></iframe>
+        </div>
+      </section>
+
     </div>
   )
 }
