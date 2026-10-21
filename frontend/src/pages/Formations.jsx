@@ -1,337 +1,437 @@
+import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
-import {
-  Monitor, FileSpreadsheet, Users, Calculator, Briefcase,
-  CheckCircle, ArrowRight,
+import { 
+  Calculator, 
+  Database, 
+  FolderKanban, 
+  Users, 
+  FileSpreadsheet, 
+  CheckCircle2, 
+  Clock, 
+  MapPin, 
+  GraduationCap, 
+  Send, 
+  Calendar, 
+  Award,
+  ArrowRight,
+  HelpCircle
 } from 'lucide-react'
-import FadeIn from '../components/FadeIn'
 
-/* ── Données des formations ────────────────────────── */
-const formations = [
-  {
-    id: 'saari',
-    icon: Monitor,
-    color: 'bg-brand-green',
-    badge: 'SAARI',
-    titre: 'Formations en Logiciels de Gestion SAARI',
-    intro: `Maîtrisez les logiciels Sage (SAARI), standards incontournables de la gestion d'entreprise en Côte d'Ivoire. Nos programmes pratiques couvrent de la prise en main jusqu'à l'utilisation avancée.`,
-    modules: [
-      {
-        label: 'Sage Comptabilité 100',
-        items: [
-          'Paramétrage du plan comptable SYSCOHADA',
-          'Saisie des pièces comptables (achat, vente, banque)',
-          'Lettrage et rapprochement bancaire',
-          'États financiers : bilan et compte de résultat',
-          'Clôtures mensuelles et annuelles',
-        ],
-      },
-      {
-        label: 'Sage Gestion Commerciale',
-        items: [
-          'Gestion des articles, familles et tarifs',
-          'Émission de devis, bons de commande et factures',
-          'Suivi des achats, fournisseurs et stocks',
-          'Réalisation des inventaires physiques',
-          'Tableaux de bord des ventes',
-        ],
-      },
-      {
-        label: 'Sage Paie & RH',
-        items: [
-          'Paramétrage des rubriques de paie',
-          'Calcul et impression des bulletins de salaire',
-          'Gestion des congés et absences',
-          'Déclarations sociales (CNPS, CMU)',
-          'États des charges patronales et virements',
-        ],
-      },
-    ],
-  },
-  {
-    id: 'bureautique',
-    icon: FileSpreadsheet,
-    color: 'bg-brand-teal',
-    badge: 'Bureautique',
-    titre: 'Formations en Outils Bureautiques Professionnels',
-    intro: `Optimisez votre temps et gagnez en productivité. Des modules sur-mesure pour maîtriser les outils bureautiques essentiels en milieu professionnel.`,
-    modules: [
-      {
-        label: 'Microsoft Excel (Tous Niveaux)',
-        items: [
-          'Formules avancées : RECHERCHEV, XLOOKUP, SI imbriqués',
-          'Tableaux croisés dynamiques et graphiques',
-          'Mises en forme conditionnelles et validation',
-          'Automatisation des tâches répétitives',
-          'Conception de tableaux de bord interactifs',
-        ],
-      },
-      {
-        label: 'Microsoft Word & PowerPoint',
-        items: [
-          'Création de modèles et styles de documents',
-          'Publipostage et documents complexes',
-          'Conception de présentations impactantes',
-          'Mise en page de rapports d’activité',
-          'Supports visuels et animations professionnelles',
-        ],
-      },
-      {
-        label: 'Collaboration & Cloud',
-        items: [
-          'Gestion optimisée des mails avec Outlook',
-          'Partage d’agendas et gestion du temps',
-          'Travail collaboratif sur Google Workspace',
-          'Gestion documentaire sécurisée sur le Cloud',
-          'Bonnes pratiques du travail à distance',
-        ],
-      },
-    ],
-  },
-  {
-    id: 'leadership',
-    icon: Users,
-    color: 'bg-brand-blue',
-    badge: 'Leadership & Management',
-    titre: 'Formations en Leadership & Management',
-    intro: `Développez votre posture de leader et renforcez la cohésion de vos équipes grâce à des ateliers axés sur les réalités managériales en Côte d'Ivoire.`,
-    modules: [
-      {
-        label: 'Posture Managériale',
-        items: [
-          'Identification de son style de leadership',
-          'Fixation d’objectifs SMART et suivi',
-          'Délégation efficace et responsabilisation',
-          'Gestion du temps et des priorités',
-          'Prise de décision en situation de pression',
-        ],
-      },
-      {
-        label: 'Communication & Équipe',
-        items: [
-          'Techniques de communication assertive',
-          'Prise de parole en public et expression orale',
-          'Conduite de réunions efficaces',
-          'Gestion des conflits et médiation',
-          'Motivation et animation d’équipe',
-        ],
-      },
-      {
-        label: 'Gestion d’Équipe & Performance',
-        items: [
-          'Coaching et accompagnement individuel',
-          'Évaluation des performances et feedbacks',
-          'Gestion de la diversité et du climat social',
-          'Animation d’ateliers collaboratifs',
-          'Accompagnement du changement organisationnel',
-        ],
-      },
-    ],
-  },
-  {
-    id: 'comptabilite',
-    icon: Calculator,
-    color: 'bg-brand-green-dark',
-    badge: 'Comptabilité',
-    titre: 'Formations en Pratique Comptable & Fiscale',
-    intro: `Renforcez vos connaissances théoriques et pratiques en comptabilité SYSCOHADA et fiscalité ivoirienne pour assurer la conformité de vos opérations.`,
-    modules: [
-      {
-        label: 'Pratique Comptable',
-        items: [
-          'Tenue de comptabilité générale SYSCOHADA',
-          'Analyse et contrôle des comptes',
-          'Élaboration de la balance et du grand livre',
-          'Travaux d’inventaire de fin d’exercice',
-          'Montage des états financiers annuels',
-        ],
-      },
-      {
-        label: 'Fiscalité Pratique',
-        items: [
-          'Mécanisme et déclarations de TVA',
-          'Impôts sur les salaires (ITS) et charges sociales',
-          'Impôt sur les Sociétés (IS) et BIC',
-          'Patentes, taxes foncières et obligations DGI',
-          'Gestion des contrôles et redressements fiscaux',
-        ],
-      },
-      {
-        label: 'Gestion de Trésorerie',
-        items: [
-          'Établissement du plan de trésorerie',
-          'Suivi des encaissements et décaissements',
-          'Gestion des relations bancaires',
-          'Prévisions de trésorerie à court et moyen terme',
-          'Réduction des risques de décalage de trésorerie',
-        ],
-      },
-    ],
-  },
-  {
-    id: 'projets',
-    icon: Briefcase,
-    color: 'bg-brand-blue-mid',
-    badge: 'Gestion de Projet',
-    titre: 'Formations en Gestion de Projet',
-    intro: `Acquérez la méthodologie complète pour cadrer, planifier, piloter et évaluer efficacement vos projets professionnels de bout en bout.`,
-    modules: [
-      {
-        label: 'Cadrage & Préparation',
-        items: [
-          'Définition des objectifs et du périmètre du projet',
-          'Analyse des besoins et identification des opportunités',
-          'Constitution de la charte de projet',
-          'Cartographie et gestion des risques',
-          'Analyse des parties prenantes (Stakeholders)',
-        ],
-      },
-      {
-        label: 'Planification & Budget',
-        items: [
-          'Découpage du projet (WBS / OTP)',
-          'Planification des tâches et calendrier (Diagramme de Gantt)',
-          'Estimation des ressources et budgétisation',
-          'Définition des jalons et livrables clé',
-          'Organisation et rôles au sein de l’équipe projet',
-        ],
-      },
-      {
-        label: 'Pilotage & Clôture',
-        items: [
-          'Suivi de l’avancement et tableaux de bord',
-          'Gestion des coûts, délais et qualité',
-          'Méthodes de gestion de projet (Agile & Traditionnel)',
-          'Reporting auprès du comité de pilotage',
-          'Bilan de fin de projet et retours d’expérience (REX)',
-        ],
-      },
-    ],
-  },
-]
-
-/* ── Composant principal ───────────────────────────── */
 export default function Formations() {
   return (
-    <div>
+    <div className="space-y-20 pb-16">
 
-      {/* ── Hero ──────────────────────────────────────── */}
-      <section className="bg-hero-gradient text-white py-20">
+      {/* 1. HÉROS DE LA PAGE */}
+      <section className="bg-gradient-to-br from-[#1A237E] to-[#0D1250] text-white py-16 md:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <FadeIn>
-            <span className="inline-block bg-white/20 text-xs font-semibold px-4 py-1.5 rounded-full mb-5 uppercase tracking-wider">
-              Catalogue complet
-            </span>
-            <h1 className="text-4xl md:text-5xl font-bold font-heading mb-5 leading-tight">
-              Nos Programmes de Formation
-            </h1>
-            <p className="text-lg text-white/80 max-w-2xl mx-auto leading-relaxed">
-              Des formations 100% pratiques, dispensées par des professionnels du terrain pour développer des compétences directement applicables.
-            </p>
-            {/* Ancre de navigation */}
-            <div className="flex flex-wrap justify-center gap-3 mt-8">
-              {formations.map(f => (
-                <a
-                  key={f.id}
-                  href={`#${f.id}`}
-                  className="text-xs font-semibold px-4 py-2 bg-white/15 hover:bg-white/25 border border-white/30 rounded-full transition-colors"
-                >
-                  {f.badge}
-                </a>
-              ))}
-            </div>
-          </FadeIn>
+          <motion.span
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="inline-block bg-white/10 backdrop-blur-md px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider text-[#8FD9AE] mb-4 border border-white/20"
+          >
+            CATALOGUE DE FORMATIONS
+          </motion.span>
+          <motion.h1
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.1 }}
+            className="text-3xl sm:text-5xl font-extrabold font-heading mb-6"
+          >
+            Nos formations professionnelles pratiques
+          </motion.h1>
+          <motion.p
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
+            className="text-base sm:text-lg text-white/90 max-w-3xl mx-auto leading-relaxed mb-8"
+          >
+            Des formations 100 % pratiques, animées par des professionnels du terrain, pour des compétences que vous appliquez dès le lendemain.
+          </motion.p>
+
+          <p className="text-xs sm:text-sm text-[#8FD9AE] font-medium mb-8">
+            En présentiel à Abidjan ou à distance · Pour les entreprises, les professionnels et les étudiants · Attestation de fin de formation
+          </p>
+
+          {/* Pastilles interactives dans l'ordre exact */}
+          <div className="flex flex-wrap justify-center gap-3 max-w-4xl mx-auto">
+            <a href="#comptabilite" className="bg-white/10 hover:bg-white/20 border border-white/20 text-xs sm:text-sm font-medium px-4 py-2 rounded-full transition-colors">
+              Comptabilité & Fiscalité
+            </a>
+            <a href="#sage" className="bg-white/10 hover:bg-white/20 border border-white/20 text-xs sm:text-sm font-medium px-4 py-2 rounded-full transition-colors">
+              Sage 100 (ex-SAARI)
+            </a>
+            <a href="#projets" className="bg-white/10 hover:bg-white/20 border border-white/20 text-xs sm:text-sm font-medium px-4 py-2 rounded-full transition-colors">
+              Gestion de projet
+            </a>
+            <a href="#leadership" className="bg-white/10 hover:bg-white/20 border border-white/20 text-xs sm:text-sm font-medium px-4 py-2 rounded-full transition-colors">
+              Leadership & Management
+            </a>
+            <a href="#bureautique" className="bg-white/10 hover:bg-white/20 border border-white/20 text-xs sm:text-sm font-medium px-4 py-2 rounded-full transition-colors">
+              Bureautique (Excel)
+            </a>
+          </div>
         </div>
       </section>
 
-      {/* ── Sections Formations ────────────────────────── */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 space-y-16">
-        {formations.map((formation, fi) => {
-          const Icon = formation.icon
-          const isEven = fi % 2 === 0
 
-          return (
-            <FadeIn key={formation.id} delay={0.05}>
-              <section id={formation.id} className="scroll-mt-20">
-                {/* En-tête de la formation */}
-                <div className={`flex flex-col md:flex-row items-start gap-5 mb-8 ${!isEven ? 'md:flex-row-reverse' : ''}`}>
-                  <div className={`${formation.color} w-14 h-14 rounded-2xl flex items-center justify-center shrink-0 shadow-md`}>
-                    <Icon size={26} className="text-white" />
-                  </div>
-                  <div>
-                    <span className={`inline-block text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full mb-2 ${
-                      isEven
-                        ? 'bg-brand-green/10 text-brand-green'
-                        : 'bg-brand-blue/10 text-brand-blue'
-                    }`}>
-                      {formation.badge}
-                    </span>
-                    <h2 className="text-2xl md:text-3xl font-bold font-heading text-gray-900">
-                      {formation.titre}
-                    </h2>
-                    <p className="text-gray-500 mt-2 leading-relaxed max-w-2xl whitespace-pre-line">
-                      {formation.intro}
-                    </p>
-                  </div>
-                </div>
-
-                {/* Grille des modules */}
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-                  {formation.modules.map((mod) => (
-                    <div
-                      key={mod.label}
-                      className="bg-white rounded-2xl border border-gray-100 shadow-sm p-6 hover:shadow-md transition-shadow"
-                    >
-                      <h3 className="font-bold text-gray-800 mb-4 text-sm border-b border-gray-100 pb-3">
-                        {mod.label}
-                      </h3>
-                      <ul className="space-y-2.5">
-                        {mod.items.map(item => (
-                          <li key={item} className="flex items-start gap-2.5 text-sm text-gray-600">
-                            <CheckCircle size={14} className="text-brand-green shrink-0 mt-0.5" />
-                            <span>{item}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  ))}
-                </div>
-
-                {/* Séparateur */}
-                {fi < formations.length - 1 && (
-                  <div className="mt-16 border-t border-gray-100" />
-                )}
-              </section>
-            </FadeIn>
-          )
-        })}
-      </div>
-
-      {/* ── Section Appel à l'action (CTA) ───────────────── */}
-      <section className="bg-gray-900 text-white py-16">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 text-center">
-          <FadeIn>
-            <h2 className="text-2xl md:text-3xl font-bold font-heading mb-4">
-              Besoin d'un programme de formation sur-mesure ?
-            </h2>
-            <p className="text-gray-400 mb-8 leading-relaxed">
-              Nous adaptons le contenu, le calendrier et le format (individuel ou intra-entreprise) aux besoins spécifiques de vos collaborateurs.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link
-                to="/contact"
-                className="inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-brand-green rounded-xl font-semibold text-white hover:bg-brand-green-dark transition-colors"
-              >
-                Demander un devis
-                <ArrowRight size={16} />
-              </Link>
-              <Link
-                to="/services"
-                className="inline-flex items-center justify-center gap-2 px-8 py-3.5 border border-white/20 rounded-xl font-semibold text-white hover:bg-white/10 transition-colors"
-              >
-                Découvrir nos services
-              </Link>
+      {/* 2. CALENDRIER : PROCHAINES SESSIONS */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="bg-white rounded-3xl p-6 sm:p-8 border border-gray-200 shadow-sm">
+          <div className="flex items-center gap-3 mb-6">
+            <Calendar className="text-[#1B7A4B]" size={26} />
+            <div>
+              <h2 className="text-xl sm:text-2xl font-bold text-[#1A237E]">Prochaines sessions au calendrier</h2>
+              <p className="text-xs text-gray-600">Inscrivez-vous directement ou demandez une session intra-entreprise sur mesure.</p>
             </div>
-          </FadeIn>
+          </div>
+
+          <div className="overflow-x-auto">
+            <table className="w-full text-left text-xs sm:text-sm text-gray-700">
+              <thead className="bg-[#EEF0F8] text-[#1A237E] font-bold uppercase text-[11px]">
+                <tr>
+                  <th className="p-3.5 rounded-l-xl">Domaine / Formation</th>
+                  <th className="p-3.5">Format</th>
+                  <th className="p-3.5">Horaires</th>
+                  <th className="p-3.5 text-right rounded-r-xl">Action</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-gray-100">
+                <tr>
+                  <td className="p-3.5 font-semibold text-gray-900">Comptabilité SYSCOHADA & Pratique Fiscale</td>
+                  <td className="p-3.5"><span className="bg-green-100 text-green-800 text-[11px] px-2 py-0.5 rounded-full font-medium">Présentiel (Angré)</span></td>
+                  <td className="p-3.5 text-gray-600">Soir & Week-end</td>
+                  <td className="p-3.5 text-right">
+                    <Link to="/contact" className="text-xs font-bold text-[#1B7A4B] hover:underline">S'inscrire →</Link>
+                  </td>
+                </tr>
+                <tr>
+                  <td className="p-3.5 font-semibold text-gray-900">Sage 100 Comptabilité & Gestion Commerciale</td>
+                  <td className="p-3.5"><span className="bg-blue-100 text-blue-800 text-[11px] px-2 py-0.5 rounded-full font-medium">Présentiel / À distance</span></td>
+                  <td className="p-3.5 text-gray-600">Sessions du soir</td>
+                  <td className="p-3.5 text-right">
+                    <Link to="/contact" className="text-xs font-bold text-[#1B7A4B] hover:underline">S'inscrire →</Link>
+                  </td>
+                </tr>
+                <tr>
+                  <td className="p-3.5 font-semibold text-gray-900">Microsoft Excel : Perfectionnement & Tableaux de bord</td>
+                  <td className="p-3.5"><span className="bg-green-100 text-green-800 text-[11px] px-2 py-0.5 rounded-full font-medium">Présentiel & En ligne</span></td>
+                  <td className="p-3.5 text-gray-600">Samedi intensif</td>
+                  <td className="p-3.5 text-right">
+                    <Link to="/contact" className="text-xs font-bold text-[#1B7A4B] hover:underline">S'inscrire →</Link>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+
+      {/* 3. FAMILLE 1 : COMPTABILITÉ & FISCALITÉ */}
+      <section id="comptabilite" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 scroll-mt-28">
+        <div className="bg-[#EEF0F8] p-8 rounded-3xl border border-gray-100">
+          <div className="flex items-center gap-3 mb-4">
+            <div className="w-12 h-12 bg-[#1A237E] text-white rounded-xl flex items-center justify-center shrink-0">
+              <Calculator size={24} />
+            </div>
+            <div>
+              <span className="text-[#1B7A4B] text-xs font-semibold uppercase tracking-wider">Famille 1</span>
+              <h2 className="text-2xl sm:text-3xl font-bold text-[#1A237E]">Formations en comptabilité & fiscalité</h2>
+            </div>
+          </div>
+
+          <p className="text-gray-700 text-sm sm:text-base leading-relaxed mb-6">
+            Maîtrisez la comptabilité SYSCOHADA et la fiscalité ivoirienne à partir de cas réels, pour tenir des comptes justes et déclarer dans les délais.
+          </p>
+
+          <div className="flex flex-wrap gap-4 text-xs font-medium text-gray-700 bg-white p-3.5 rounded-xl mb-8 border border-gray-200/60">
+            <span className="flex items-center gap-1.5"><Clock size={15} className="text-[#1B7A4B]" /> <strong>Durée :</strong> 3 à 5 jours</span>
+            <span className="flex items-center gap-1.5"><MapPin size={15} className="text-[#1B7A4B]" /> <strong>Format :</strong> Présentiel ou à distance</span>
+            <span className="flex items-center gap-1.5"><Users size={15} className="text-[#1B7A4B]" /> <strong>Public :</strong> Comptables, assistants, gestionnaires, étudiants</span>
+            <span className="flex items-center gap-1.5"><Award size={15} className="text-[#1B7A4B]" /> Attestation de fin de formation</span>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+            <div className="bg-white p-5 rounded-xl border border-gray-100 shadow-sm">
+              <h3 className="font-bold text-[#1A237E] text-sm mb-2">Pratique comptable SYSCOHADA</h3>
+              <p className="text-xs text-gray-600 leading-relaxed">Organisation comptable, saisie des opérations, travaux de fin d'exercice et bilan.</p>
+            </div>
+            <div className="bg-white p-5 rounded-xl border border-gray-100 shadow-sm">
+              <h3 className="font-bold text-[#1A237E] text-sm mb-2">Pratique fiscale ivoirienne</h3>
+              <p className="text-xs text-gray-600 leading-relaxed">Calcul et déclaration de la TVA, ITS, patente, CNPS et préparation aux contrôles fiscaux.</p>
+            </div>
+            <div className="bg-white p-5 rounded-xl border border-gray-100 shadow-sm">
+              <h3 className="font-bold text-[#1A237E] text-sm mb-2">Gestion de trésorerie</h3>
+              <p className="text-xs text-gray-600 leading-relaxed">Établissement du plan de trésorerie, suivi des encaissements et décaissements au quotidien.</p>
+            </div>
+            <div className="bg-white p-5 rounded-xl border border-gray-100 shadow-sm">
+              <h3 className="font-bold text-[#1A237E] text-sm mb-2">Comptabilité des ONG (SYCEBNL)</h3>
+              <p className="text-xs text-gray-600 leading-relaxed">Spécificités SYCEBNL, gestion des subventions, suivi budgétaire bailleurs et rapports financiers.</p>
+            </div>
+          </div>
+
+          <div className="text-right">
+            <Link to="/contact" className="inline-flex items-center gap-2 bg-[#1A237E] hover:bg-[#0D1250] text-white text-xs sm:text-sm font-semibold px-6 py-3 rounded-xl transition-colors">
+              <Send size={16} />
+              Demander le programme détaillé
+            </Link>
+          </div>
+        </div>
+      </section>
+
+
+      {/* 4. FAMILLE 2 : LOGICIELS SAGE 100 (EX-SAARI) */}
+      <section id="sage" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 scroll-mt-28">
+        <div className="bg-[#E8F3ED] p-8 rounded-3xl border border-gray-100">
+          <div className="flex items-center gap-3 mb-4">
+            <div className="w-12 h-12 bg-[#1B7A4B] text-white rounded-xl flex items-center justify-center shrink-0">
+              <Database size={24} />
+            </div>
+            <div>
+              <span className="text-[#1B7A4B] text-xs font-semibold uppercase tracking-wider">Famille 2</span>
+              <h2 className="text-2xl sm:text-3xl font-bold text-[#1A237E]">Formations aux logiciels Sage 100 (ex-SAARI)</h2>
+            </div>
+          </div>
+
+          <p className="text-gray-700 text-sm sm:text-base leading-relaxed mb-6">
+            Prenez en main les logiciels Sage 100 (anciennement SAARI), très répandus dans les entreprises ivoiriennes, de l'installation jusqu'à l'utilisation avancée, sur des dossiers concrets.
+          </p>
+
+          <div className="flex flex-wrap gap-4 text-xs font-medium text-gray-700 bg-white p-3.5 rounded-xl mb-8 border border-gray-200/60">
+            <span className="flex items-center gap-1.5"><Clock size={15} className="text-[#1B7A4B]" /> <strong>Durée :</strong> 3 à 4 jours par module</span>
+            <span className="flex items-center gap-1.5"><MapPin size={15} className="text-[#1B7A4B]" /> <strong>Format :</strong> En laboratoire informatique ou à distance</span>
+            <span className="flex items-center gap-1.5"><Users size={15} className="text-[#1B7A4B]" /> <strong>Public :</strong> Comptables, gestionnaires de stock, RH</span>
+            <span className="flex items-center gap-1.5"><Award size={15} className="text-[#1B7A4B]" /> Attestation de fin de formation</span>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+            <div className="bg-white p-5 rounded-xl border border-gray-100 shadow-sm">
+              <h3 className="font-bold text-[#1A237E] text-sm mb-2">Sage 100 Comptabilité</h3>
+              <p className="text-xs text-gray-600 leading-relaxed">Création du plan comptable, saisie des journaux, rapprochement bancaire, lettrage et états financiers.</p>
+            </div>
+            <div className="bg-white p-5 rounded-xl border border-gray-100 shadow-sm">
+              <h3 className="font-bold text-[#1A237E] text-sm mb-2">Sage 100 Gestion commerciale</h3>
+              <p className="text-xs text-gray-600 leading-relaxed">Facturation, devis, commandes, gestion des stocks, inventaires et suivi du fichier clients/fournisseurs.</p>
+            </div>
+            <div className="bg-white p-5 rounded-xl border border-gray-100 shadow-sm">
+              <h3 className="font-bold text-[#1A237E] text-sm mb-2">Sage 100 Paie & RH</h3>
+              <p className="text-xs text-gray-600 leading-relaxed">Paramétrage des rubriques, calcul des bulletins de paie, calcul de l'ITS, cotisations CNPS et fiches individuelles.</p>
+            </div>
+          </div>
+
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p className="text-[11px] text-gray-500 italic">
+              * Sage et SAARI sont des marques de leurs propriétaires respectifs. SkillUp Consulting CI est un organisme de formation indépendant.
+            </p>
+            <Link to="/contact" className="inline-flex items-center gap-2 bg-[#1B7A4B] hover:bg-[#155e39] text-white text-xs sm:text-sm font-semibold px-6 py-3 rounded-xl transition-colors whitespace-nowrap">
+              <Send size={16} />
+              Demander le programme détaillé
+            </Link>
+          </div>
+        </div>
+      </section>
+
+
+      {/* 5. FAMILLE 3 : GESTION DE PROJET */}
+      <section id="projets" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 scroll-mt-28">
+        <div className="bg-[#EEF0F8] p-8 rounded-3xl border border-gray-100">
+          <div className="flex items-center gap-3 mb-4">
+            <div className="w-12 h-12 bg-[#1A237E] text-white rounded-xl flex items-center justify-center shrink-0">
+              <FolderKanban size={24} />
+            </div>
+            <div>
+              <span className="text-[#1B7A4B] text-xs font-semibold uppercase tracking-wider">Famille 3</span>
+              <h2 className="text-2xl sm:text-3xl font-bold text-[#1A237E]">Formations en gestion de projet</h2>
+            </div>
+          </div>
+
+          <p className="text-gray-700 text-sm sm:text-base leading-relaxed mb-6">
+            Acquérez les outils et méthodologies pour structurer, planifier, exécuter et évaluer vos projets avec rigueur.
+          </p>
+
+          <div className="flex flex-wrap gap-4 text-xs font-medium text-gray-700 bg-white p-3.5 rounded-xl mb-8 border border-gray-200/60">
+            <span className="flex items-center gap-1.5"><Clock size={15} className="text-[#1B7A4B]" /> <strong>Durée :</strong> 3 à 5 jours</span>
+            <span className="flex items-center gap-1.5"><MapPin size={15} className="text-[#1B7A4B]" /> <strong>Format :</strong> Présentiel ou à distance</span>
+            <span className="flex items-center gap-1.5"><Users size={15} className="text-[#1B7A4B]" /> <strong>Public :</strong> Chefs de projets, responsables d'ONG, entrepreneurs</span>
+            <span className="flex items-center gap-1.5"><Award size={15} className="text-[#1B7A4B]" /> Attestation de fin de formation</span>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+            <div className="bg-white p-5 rounded-xl border border-gray-100 shadow-sm">
+              <h3 className="font-bold text-[#1A237E] text-sm mb-2">Cadrage & Conception de projet</h3>
+              <p className="text-xs text-gray-600 leading-relaxed">Définition des objectifs, analyse des parties prenantes, étude de faisabilité et gouvernance.</p>
+            </div>
+            <div className="bg-white p-5 rounded-xl border border-gray-100 shadow-sm">
+              <h3 className="font-bold text-[#1A237E] text-sm mb-2">Planification & Pilotage</h3>
+              <p className="text-xs text-gray-600 leading-relaxed">Découpage WBS, diagramme de Gantt, gestion du budget, des risques et livrables clés.</p>
+            </div>
+            <div className="bg-white p-5 rounded-xl border border-gray-100 shadow-sm">
+              <h3 className="font-bold text-[#1A237E] text-sm mb-2">Méthodes Agile & traditionnel</h3>
+              <p className="text-xs text-gray-600 leading-relaxed">Compréhension des cycles en cascade et principes agiles adaptés aux PME locales.</p>
+            </div>
+            <div className="bg-white p-5 rounded-xl border border-gray-100 shadow-sm">
+              <h3 className="font-bold text-[#1A237E] text-sm mb-2">Suivi-évaluation des projets</h3>
+              <p className="text-xs text-gray-600 leading-relaxed">Cadre logique, indicateurs de performance, collecte de données et rapports bailleurs.</p>
+            </div>
+          </div>
+
+          <div className="text-right">
+            <Link to="/contact" className="inline-flex items-center gap-2 bg-[#1A237E] hover:bg-[#0D1250] text-white text-xs sm:text-sm font-semibold px-6 py-3 rounded-xl transition-colors">
+              <Send size={16} />
+              Demander le programme détaillé
+            </Link>
+          </div>
+        </div>
+      </section>
+
+
+      {/* 6. FAMILLE 4 : LEADERSHIP & MANAGEMENT */}
+      <section id="leadership" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 scroll-mt-28">
+        <div className="bg-[#E8F3ED] p-8 rounded-3xl border border-gray-100">
+          <div className="flex items-center gap-3 mb-4">
+            <div className="w-12 h-12 bg-[#1B7A4B] text-white rounded-xl flex items-center justify-center shrink-0">
+              <Users size={24} />
+            </div>
+            <div>
+              <span className="text-[#1B7A4B] text-xs font-semibold uppercase tracking-wider">Famille 4</span>
+              <h2 className="text-2xl sm:text-3xl font-bold text-[#1A237E]">Formations en leadership & management</h2>
+            </div>
+          </div>
+
+          <p className="text-gray-700 text-sm sm:text-base leading-relaxed mb-6">
+            Développez vos compétences managériales et apprenez à mobiliser vos équipes autour d'objectifs de performance clairs.
+          </p>
+
+          <div className="flex flex-wrap gap-4 text-xs font-medium text-gray-700 bg-white p-3.5 rounded-xl mb-8 border border-gray-200/60">
+            <span className="flex items-center gap-1.5"><Clock size={15} className="text-[#1B7A4B]" /> <strong>Durée :</strong> 2 à 3 jours</span>
+            <span className="flex items-center gap-1.5"><MapPin size={15} className="text-[#1B7A4B]" /> <strong>Format :</strong> Présentiel ou séminaire d'entreprise</span>
+            <span className="flex items-center gap-1.5"><Users size={15} className="text-[#1B7A4B]" /> <strong>Public :</strong> Chefs d'équipe, managers, responsables d'association</span>
+            <span className="flex items-center gap-1.5"><Award size={15} className="text-[#1B7A4B]" /> Attestation de fin de formation</span>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+            <div className="bg-white p-5 rounded-xl border border-gray-100 shadow-sm">
+              <h3 className="font-bold text-[#1A237E] text-sm mb-2">Posture managériale</h3>
+              <p className="text-xs text-gray-600 leading-relaxed">Adopter un leadership affirmé, communiquer efficacement et gérer l'autorité au quotidien.</p>
+            </div>
+            <div className="bg-white p-5 rounded-xl border border-gray-100 shadow-sm">
+              <h3 className="font-bold text-[#1A237E] text-sm mb-2">Gestion d'équipe & performance</h3>
+              <p className="text-xs text-gray-600 leading-relaxed">Fixer des objectifs mesurables, déléguer avec confiance et évaluer la contribution de chacun.</p>
+            </div>
+            <div className="bg-white p-5 rounded-xl border border-gray-100 shadow-sm">
+              <h3 className="font-bold text-[#1A237E] text-sm mb-2">Gestion des conflits & motivation</h3>
+              <p className="text-xs text-gray-600 leading-relaxed">Désamorcer les tensions relationnelles, motiver ses collaborateurs et maintenir un bon climat social.</p>
+            </div>
+          </div>
+
+          <div className="text-right">
+            <Link to="/contact" className="inline-flex items-center gap-2 bg-[#1B7A4B] hover:bg-[#155e39] text-white text-xs sm:text-sm font-semibold px-6 py-3 rounded-xl transition-colors">
+              <Send size={16} />
+              Demander le programme détaillé
+            </Link>
+          </div>
+        </div>
+      </section>
+
+
+      {/* 7. FAMILLE 5 : BUREAUTIQUE (EXCEL) */}
+      <section id="bureautique" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 scroll-mt-28">
+        <div className="bg-[#EEF0F8] p-8 rounded-3xl border border-gray-100">
+          <div className="flex items-center gap-3 mb-4">
+            <div className="w-12 h-12 bg-[#1A237E] text-white rounded-xl flex items-center justify-center shrink-0">
+              <FileSpreadsheet size={24} />
+            </div>
+            <div>
+              <span className="text-[#1B7A4B] text-xs font-semibold uppercase tracking-wider">Famille 5</span>
+              <h2 className="text-2xl sm:text-3xl font-bold text-[#1A237E]">Formations bureautiques (Microsoft Excel)</h2>
+            </div>
+          </div>
+
+          <p className="text-gray-700 text-sm sm:text-base leading-relaxed mb-6">
+            Gagnez un temps précieux au quotidien en maîtrisant Microsoft Excel : initiation, niveau intermédiaire et fonctions avancées.
+          </p>
+
+          <div className="flex flex-wrap gap-4 text-xs font-medium text-gray-700 bg-white p-3.5 rounded-xl mb-8 border border-gray-200/60">
+            <span className="flex items-center gap-1.5"><Clock size={15} className="text-[#1B7A4B]" /> <strong>Durée :</strong> 2 à 4 jours</span>
+            <span className="flex items-center gap-1.5"><MapPin size={15} className="text-[#1B7A4B]" /> <strong>Format :</strong> Pratique sur ordinateur (Présentiel ou distanciel)</span>
+            <span className="flex items-center gap-1.5"><Users size={15} className="text-[#1B7A4B]" /> <strong>Public :</strong> Tout public professionnel, étudiants</span>
+            <span className="flex items-center gap-1.5"><Award size={15} className="text-[#1B7A4B]" /> Attestation de fin de formation</span>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+            <div className="bg-white p-5 rounded-xl border border-gray-100 shadow-sm">
+              <h3 className="font-bold text-[#1A237E] text-sm mb-2">Excel Initiation</h3>
+              <p className="text-xs text-gray-600 leading-relaxed">Prise en main de l'interface, création de tableaux simples, formules de base (SOMME, MOYENNE) et mise en forme.</p>
+            </div>
+            <div className="bg-white p-5 rounded-xl border border-gray-100 shadow-sm">
+              <h3 className="font-bold text-[#1A237E] text-sm mb-2">Excel Intermédiaire</h3>
+              <p className="text-xs text-gray-600 leading-relaxed">Fonctions logiques (SI, ET, OU), recherche de données (RECHERCHEV, RECHERCHEX) et tableaux croisés dynamiques.</p>
+            </div>
+            <div className="bg-white p-5 rounded-xl border border-gray-100 shadow-sm">
+              <h3 className="font-bold text-[#1A237E] text-sm mb-2">Excel Avancé & Tableaux de bord</h3>
+              <p className="text-xs text-gray-600 leading-relaxed">Conception de tableaux de bord interactifs, automatisation simple, graphiques dynamiques et analyse de données.</p>
+            </div>
+          </div>
+
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
+            <Link to="/contact" className="inline-flex items-center gap-2 bg-white hover:bg-gray-50 text-[#1A237E] border border-gray-300 text-xs sm:text-sm font-semibold px-5 py-2.5 rounded-xl transition-colors">
+              <HelpCircle size={16} />
+              Tester mon niveau Excel
+            </Link>
+            <Link to="/contact" className="inline-flex items-center gap-2 bg-[#1A237E] hover:bg-[#0D1250] text-white text-xs sm:text-sm font-semibold px-6 py-3 rounded-xl transition-colors">
+              <Send size={16} />
+              Demander le programme détaillé
+            </Link>
+          </div>
+        </div>
+      </section>
+
+
+      {/* 8. ENCART DÉDIÉ : ÉTUDIANTS & JEUNES DIPLÔMÉS */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="bg-[#E8F3ED] border border-[#1B7A4B]/30 rounded-3xl p-8 flex flex-col md:flex-row items-center justify-between gap-6">
+          <div className="flex items-start gap-4">
+            <div className="w-12 h-12 bg-[#1B7A4B] text-white rounded-2xl flex items-center justify-center shrink-0">
+              <GraduationCap size={26} />
+            </div>
+            <div>
+              <h3 className="text-xl font-bold text-[#1A237E] mb-1">Offre Étudiants & Jeunes diplômés</h3>
+              <p className="text-xs sm:text-sm text-gray-700 leading-relaxed max-w-2xl">
+                Boostez votre employabilité avec un parcours pratique recommandé : <strong>SYSCOHADA → Sage 100 → Excel Avancé</strong>. Profitez de nos conditions tarifaires adaptées aux étudiants.
+              </p>
+            </div>
+          </div>
+          <Link to="/contact" className="bg-[#1B7A4B] hover:bg-[#155e39] text-white text-xs sm:text-sm font-bold px-6 py-3 rounded-xl transition-colors whitespace-nowrap">
+            Se renseigner sur le tarif étudiant
+          </Link>
+        </div>
+      </section>
+
+
+      {/* 9. BLOC SUR MESURE ET APPEL À L'ACTION FINAL */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div className="bg-gradient-to-br from-[#1A237E] to-[#0D1250] text-white rounded-3xl p-10 md:p-14 shadow-xl">
+          <h2 className="text-2xl sm:text-4xl font-bold mb-4">
+            Besoin d'un programme de formation sur mesure ?
+          </h2>
+          <p className="text-white/80 max-w-xl mx-auto mb-8 text-sm sm:text-base leading-relaxed">
+            Formations intra-entreprise, en groupe ou en individuel, en présentiel dans vos locaux ou à distance. Nous concevons le programme adapté à vos équipes.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link
+              to="/contact"
+              className="bg-[#1B7A4B] hover:bg-[#155e39] text-white font-bold px-8 py-4 rounded-xl transition-all shadow-lg hover:scale-105 inline-flex items-center justify-center gap-2"
+            >
+              <Send size={18} />
+              Demander un devis de formation
+            </Link>
+            <Link
+              to="/services"
+              className="bg-transparent hover:bg-white/10 text-white font-semibold px-8 py-4 rounded-xl border border-white/30 transition-colors inline-flex items-center justify-center gap-2"
+            >
+              Découvrir nos services de conseil
+            </Link>
+          </div>
         </div>
       </section>
 
