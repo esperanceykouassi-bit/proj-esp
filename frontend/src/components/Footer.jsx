@@ -1,116 +1,156 @@
 import { Link } from 'react-router-dom'
-import { Mail, Phone, MapPin, Globe } from 'lucide-react'
-
-const quickLinks = [
-  { label: 'Accueil',        path: '/'          },
-  { label: 'À propos',       path: '/about'     },
-  { label: 'Nos formations', path: '/formations' },
-  { label: 'Services',       path: '/services'   },
-  { label: 'Contact',        path: '/contact'    },
-]
+import { MapPin, Phone, Mail, Globe, Facebook, Linkedin, Instagram, MessageSquare } from 'lucide-react'
 
 export default function Footer() {
   return (
-    <footer className="bg-gray-900 text-gray-300">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-14 pb-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-10">
-
-          {/* Branding */}
-          <div className="lg:col-span-2">
-            <div className="flex items-center gap-3 mb-4">
-              <img
-                src="/images/logo-icon.jpeg"
-                alt="SkillUp Consulting CI"
-                className="h-12 w-12 object-contain rounded-lg"
+    <footer className="bg-[#0D1250] text-white font-sans pt-16 pb-8 border-t border-white/10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-12 border-b border-white/10">
+          
+          {/* COLONNE 1 : LOGO, SOUS-TITRE & MENTIONS (5 cols) */}
+          <div className="lg:col-span-5 space-y-4">
+            <Link to="/" className="inline-block">
+              {/* Logo complet adapté aux mobiles et écrans de bureau */}
+              <img 
+                src="/logo.png" 
+                alt="SkillUp Consulting CI" 
+                className="h-12 w-auto object-contain bg-white/95 p-1.5 rounded-lg"
               />
-              <div>
-                <p className="text-white font-bold text-base leading-tight">SkillUp Consulting CI</p>
-                <p className="text-gray-400 text-xs uppercase tracking-widest">Formation · Conseil</p>
-              </div>
+            </Link>
+            
+            <div className="text-xs font-bold uppercase tracking-wider text-[#8FD9AE]">
+              CONSEIL · COMPTABILITÉ · FORMATION
             </div>
-            <p className="text-sm text-gray-400 leading-relaxed max-w-sm">
-              Cabinet spécialisé en formation professionnelle pratique, assistance comptable
-              et fiscale, conseil en management et gestion de projets en Côte d'Ivoire.
+
+            <p className="text-xs sm:text-sm text-white/80 leading-relaxed max-w-md">
+              Cabinet spécialisé en assistance comptable et fiscale, conseil en management, gestion de projets et formation professionnelle pratique, à Abidjan.
             </p>
-            <p className="mt-4 text-xs text-gray-500 uppercase tracking-wider font-semibold">
-              Votre partenaire de confiance pour la montée en compétences
+
+            <p className="text-xs font-semibold italic text-[#8FD9AE]">
+              « Votre partenaire de confiance. »
             </p>
+
+            {/* Mentions légales légales et fiscales */}
+            <div className="pt-2 text-[11px] text-white/60 leading-relaxed border-t border-white/10 max-w-md">
+              SkillUp Consulting CI · SARLU · NCC 2603534P · IDU CI-2026-0063319T
+            </div>
           </div>
 
-          {/* Liens rapides */}
-          <div>
-            <h4 className="text-white font-semibold mb-4">Liens rapides</h4>
-            <ul className="space-y-2.5 text-sm">
-              {quickLinks.map((link) => (
-                <li key={link.label}>
-                  <Link
-                    to={link.path}
-                    className="text-gray-400 hover:text-brand-green-light transition-colors"
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
+          {/* COLONNE 2 : LIENS RAPIDES & NOS MÉTIERS (3 cols) */}
+          <div className="lg:col-span-3 space-y-3">
+            <h4 className="text-sm font-bold uppercase tracking-wider text-[#8FD9AE] mb-4">
+              Navigation
+            </h4>
+            <ul className="space-y-2.5 text-xs font-medium text-white/80">
+              <li>
+                <Link to="/" className="hover:text-[#8FD9AE] transition-colors">Accueil</Link>
+              </li>
+              <li>
+                <Link to="/services" className="hover:text-[#8FD9AE] transition-colors">Nos services</Link>
+              </li>
+              <li>
+                <Link to="/formations" className="hover:text-[#8FD9AE] transition-colors">Formations</Link>
+              </li>
+              <li>
+                <Link to="/about" className="hover:text-[#8FD9AE] transition-colors">À propos</Link>
+              </li>
+              <li>
+                <Link to="/contact" className="hover:text-[#8FD9AE] transition-colors">Contact</Link>
+              </li>
             </ul>
           </div>
 
-          {/* Contact */}
-          <div>
-            <h4 className="text-white font-semibold mb-4">Contactez-nous</h4>
-            <ul className="space-y-3.5 text-sm">
+          {/* COLONNE 3 : COORDONNÉES EXACTES DU SIÈGE (4 cols) */}
+          <div className="lg:col-span-4 space-y-3">
+            <h4 className="text-sm font-bold uppercase tracking-wider text-[#8FD9AE] mb-4">
+              Contact & Siège
+            </h4>
+            
+            <ul className="space-y-3 text-xs text-white/80">
               <li className="flex items-start gap-2.5">
-                <MapPin size={16} className="text-brand-green shrink-0 mt-0.5" />
-                <span className="text-gray-300">
-                  Angré 7ème Tranche, Immeuble Tchêpê vers Bluetooth — Abidjan
+                <MapPin size={16} className="text-[#8FD9AE] shrink-0 mt-0.5" />
+                <span>
+                  <strong>Angré 7ème Tranche</strong>, non loin du carrefour Bluetooth, Immeuble Tchêpê, porte B2, Abidjan<br />
+                  <a 
+                    href="https://maps.google.com" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="text-[#8FD9AE] hover:underline font-medium inline-block mt-0.5"
+                  >
+                    Voir la localisation sur Google Maps →
+                  </a>
                 </span>
               </li>
 
-              <li className="flex items-start gap-2.5">
-                <Phone size={16} className="text-brand-green shrink-0 mt-0.5" />
-                <div className="space-y-0.5">
-                  <a
-                    href="tel:+2250102211421"
-                    className="block hover:text-white transition-colors"
-                  >
-                    +225 01 02 21 14 21
-                  </a>
-                  <a
-                    href="tel:+2252724427186"
-                    className="block hover:text-white transition-colors"
-                  >
-                    +225 27 24 42 71 86
-                  </a>
-                </div>
+              <li className="flex items-center gap-2.5">
+                <Phone size={16} className="text-[#8FD9AE] shrink-0" />
+                <span>
+                  Bureau : <a href="tel:+2250102211421" className="hover:text-[#8FD9AE] font-semibold">+225 01 02 21 14 21</a> · Fixe : <a href="tel:+2252724427186" className="hover:text-[#8FD9AE]">+225 27 24 42 71 86</a>
+                </span>
               </li>
 
-              <li className="flex items-start gap-2.5">
-                <Mail size={16} className="text-brand-green shrink-0 mt-0.5" />
-                <a
-                  href="mailto:infos@skillupcci.net"
-                  className="block hover:text-white transition-colors"
-                >
+              <li className="flex items-center gap-2.5">
+                <Mail size={16} className="text-[#8FD9AE] shrink-0" />
+                <a href="mailto:infos@skillupcci.net" className="hover:text-[#8FD9AE] font-semibold">
                   infos@skillupcci.net
                 </a>
               </li>
 
-              <li className="flex items-start gap-2.5">
-                <Globe size={16} className="text-brand-green shrink-0 mt-0.5" />
-                <a
-                  href="https://www.skillupcci.net"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="block hover:text-white transition-colors"
-                >
+              <li className="flex items-center gap-2.5">
+                <Globe size={16} className="text-[#8FD9AE] shrink-0" />
+                <a href="https://www.skillupcci.net" target="_blank" rel="noopener noreferrer" className="hover:text-[#8FD9AE]">
                   www.skillupcci.net
                 </a>
               </li>
             </ul>
+
+            {/* Réseaux sociaux */}
+            <div className="pt-2 flex items-center gap-3">
+              <a 
+                href="https://wa.me/2250102211421" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                aria-label="WhatsApp"
+                className="w-8 h-8 rounded-full bg-white/10 hover:bg-[#1B7A4B] flex items-center justify-center transition-colors text-white"
+              >
+                <MessageSquare size={16} />
+              </a>
+              <a 
+                href="#" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                aria-label="Facebook"
+                className="w-8 h-8 rounded-full bg-white/10 hover:bg-[#1B7A4B] flex items-center justify-center transition-colors text-white"
+              >
+                <Facebook size={16} />
+              </a>
+              <a 
+                href="#" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                aria-label="LinkedIn"
+                className="w-8 h-8 rounded-full bg-white/10 hover:bg-[#1B7A4B] flex items-center justify-center transition-colors text-white"
+              >
+                <Linkedin size={16} />
+              </a>
+              <a 
+                href="#" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                aria-label="Instagram"
+                className="w-8 h-8 rounded-full bg-white/10 hover:bg-[#1B7A4B] flex items-center justify-center transition-colors text-white"
+              >
+                <Instagram size={16} />
+              </a>
+            </div>
           </div>
+
         </div>
 
-        <div className="border-t border-gray-800 pt-6 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-gray-500">
+        {/* BAS DE FOOTER : COPYRIGHT */}
+        <div className="pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-white/60">
           <p>© {new Date().getFullYear()} SkillUp Consulting CI. Tous droits réservés.</p>
-          <p>Formation · Comptabilité · Conseil · Gestion de projets</p>
+          <p className="text-right">Cabinet de conseil, d'assistance comptable et de formation professionnelle.</p>
         </div>
       </div>
     </footer>
