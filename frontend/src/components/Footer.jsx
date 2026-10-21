@@ -10,9 +10,9 @@ export default function Footer() {
           {/* COLONNE 1 : LOGO, SOUS-TITRE & MENTIONS (5 cols) */}
           <div className="lg:col-span-5 space-y-4">
             <Link to="/" className="inline-block">
-              {/* Logo complet adapté aux mobiles et écrans de bureau */}
+              {/* Chemin vers l'image du logo corrigé : /images/logo-full.jpeg */}
               <img 
-                src="/logo.png" 
+                src="/images/logo-full.jpeg" 
                 alt="SkillUp Consulting CI" 
                 className="h-12 w-auto object-contain bg-white/95 p-1.5 rounded-lg"
               />
@@ -30,13 +30,13 @@ export default function Footer() {
               « Votre partenaire de confiance. »
             </p>
 
-            {/* Mentions légales légales et fiscales */}
+            {/* Mentions légales et fiscales */}
             <div className="pt-2 text-[11px] text-white/60 leading-relaxed border-t border-white/10 max-w-md">
               SkillUp Consulting CI · SARLU · NCC 2603534P · IDU CI-2026-0063319T
             </div>
           </div>
 
-          {/* COLONNE 2 : LIENS RAPIDES & NOS MÉTIERS (3 cols) */}
+          {/* COLONNE 2 : LIENS RAPIDES (3 cols) */}
           <div className="lg:col-span-3 space-y-3">
             <h4 className="text-sm font-bold uppercase tracking-wider text-[#8FD9AE] mb-4">
               Navigation
