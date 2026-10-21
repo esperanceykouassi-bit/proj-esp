@@ -1,6 +1,5 @@
 import { motion } from 'framer-motion'
-import { Link } from 'react-[#1A237E]' // Assurez-vous d'utiliser react-router-dom pour Link
-import { Link as RouterLink } from 'react-router-dom'
+import { Link, Link as RouterLink } from 'react-router-dom'
 import { 
   Calculator, 
   TrendingUp, 
