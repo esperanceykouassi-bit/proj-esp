@@ -279,62 +279,69 @@ export default function About() {
         </div>
       </section>
 
+{/* 7. NOTRE ÉQUIPE */}
+<section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  <div className="text-center mb-12">
+    <span className="text-[#1B7A4B] text-sm font-semibold uppercase tracking-wider">L'Équipe</span>
+    <h2 className="text-3xl font-bold text-[#1A237E] mt-2">Nos Consultants & Formateurs</h2>
+  </div>
 
-      {/* 7. NOTRE ÉQUIPE */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
-          <span className="text-[#1B7A4B] text-sm font-semibold uppercase tracking-wider">L'Équipe</span>
-          <h2 className="text-3xl font-bold text-[#1A237E] mt-2">Nos Consultants & Formateurs</h2>
-        </div>
+  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+    {/* Membre 1 : M. DEGBEL (Avec Photo) */}
+    <div className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm text-center">
+      <div className="w-24 h-24 rounded-full overflow-hidden mx-auto mb-4 border-2 border-[#1A237E] shadow-sm">
+        <img 
+          src="/images/team/degbel.jpg" 
+          alt="M. Yannick Wilfried A. DEGBEL" 
+          className="w-full h-full object-cover object-top"
+        />
+      </div>
+      <h3 className="font-bold text-[#1A237E] text-base">M. Yannick Wilfried A. DEGBEL</h3>
+      <p className="text-xs text-[#1B7A4B] font-semibold mb-2">Gérant & Directeur Général</p>
+      <p className="text-xs text-gray-600 leading-relaxed">
+        Finance, audit et contrôle de gestion ; comptabilité SYSCOHADA et SYCEBNL.
+      </p>
+    </div>
 
-          <div className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm text-center">
-            <div className="w-20 h-20 bg-[#1A237E]/10 text-[#1A237E] rounded-full flex items-center justify-center mx-auto mb-4 font-bold text-xl">
-              YD
-            </div>
-            <h3 className="font-bold text-[#1A237E] text-base">M. Yannick Wilfried A. DEGBEL</h3>
-            <p className="text-xs text-[#1B7A4B] font-semibold mb-2">Gérant & Directeur Général</p>
-            <p className="text-xs text-gray-600 leading-relaxed">
-              Finance, audit et contrôle de gestion ; comptabilité SYSCOHADA et SYCEBNL.
-            </p>
-          </div>
+    {/* Membre 2 : M. TETE (Initiale FT) */}
+    <div className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm text-center">
+      <div className="w-24 h-24 rounded-full bg-[#1B7A4B]/10 text-[#1B7A4B] border-2 border-[#1B7A4B]/20 flex items-center justify-center mx-auto mb-4 font-bold text-xl">
+        FT
+      </div>
+      <h3 className="font-bold text-[#1A237E] text-base">M. Franck TETE</h3>
+      <p className="text-xs text-[#1B7A4B] font-semibold mb-2">Consultant Spécialiste</p>
+      <p className="text-xs text-gray-600 leading-relaxed">
+        Fiscalité et obligations sociales des entreprises.
+      </p>
+    </div>
 
-          <div className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm text-center">
-            <div className="w-20 h-20 bg-[#1B7A4B]/10 text-[#1B7A4B] rounded-full flex items-center justify-center mx-auto mb-4 font-bold text-xl">
-              FT
-            </div>
-            <h3 className="font-bold text-[#1A237E] text-base">M. Franck TETE</h3>
-            <p className="text-xs text-[#1B7A4B] font-semibold mb-2">Consultant Spécialiste</p>
-            <p className="text-xs text-gray-600 leading-relaxed">
-              Fiscalité et obligations sociales des entreprises.
-            </p>
-          </div>
+    {/* Membre 3 : M. AHI (Initiale GA) */}
+    <div className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm text-center">
+      <div className="w-24 h-24 rounded-full bg-[#1A237E]/10 text-[#1A237E] border-2 border-[#1A237E]/20 flex items-center justify-center mx-auto mb-4 font-bold text-xl">
+        GA
+      </div>
+      <h3 className="font-bold text-[#1A237E] text-base">M. Gilles AHI</h3>
+      <p className="text-xs text-[#1B7A4B] font-semibold mb-2">Formateur Référent</p>
+      <p className="text-xs text-gray-600 leading-relaxed">
+        Excel et outils bureautiques avancés.
+      </p>
+    </div>
 
-          <div className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm text-center">
-            <div className="w-20 h-20 bg-[#1A237E]/10 text-[#1A237E] rounded-full flex items-center justify-center mx-auto mb-4 font-bold text-xl">
-              GA
-            </div>
-            <h3 className="font-bold text-[#1A237E] text-base">M. Gilles AHI</h3>
-            <p className="text-xs text-[#1B7A4B] font-semibold mb-2">Formateur Référent</p>
-            <p className="text-xs text-gray-600 leading-relaxed">
-              Excel et outils bureautiques avancés.
-            </p>
-          </div>
+    {/* Membre 4 : Mlle DRA (Initiale CD) */}
+    <div className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm text-center">
+      <div className="w-24 h-24 rounded-full bg-[#1B7A4B]/10 text-[#1B7A4B] border-2 border-[#1B7A4B]/20 flex items-center justify-center mx-auto mb-4 font-bold text-xl">
+        CD
+      </div>
+      <h3 className="font-bold text-[#1A237E] text-base">Mlle Charlotte DRA</h3>
+      <p className="text-xs text-[#1B7A4B] font-semibold mb-2">Formatrice</p>
+      <p className="text-xs text-gray-600 leading-relaxed">
+        Leadership, posture managériale et gestion d'équipe.
+      </p>
+    </div>
 
-          <div className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm text-center">
-            <div className="w-20 h-20 bg-[#1B7A4B]/10 text-[#1B7A4B] rounded-full flex items-center justify-center mx-auto mb-4 font-bold text-xl">
-              CD
-            </div>
-            <h3 className="font-bold text-[#1A237E] text-base">Mlle Charlotte DRA</h3>
-            <p className="text-xs text-[#1B7A4B] font-semibold mb-2">Formatrice</p>
-            <p className="text-xs text-gray-600 leading-relaxed">
-              Leadership, posture managériale et gestion d'équipe.
-            </p>
-          </div>
-
-        </div>
-      </section>
+  </div>
+</section>
 
 
       {/* 8. FICHE D'IDENTITÉ LÉGALE */}
