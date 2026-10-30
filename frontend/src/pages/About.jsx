@@ -298,7 +298,7 @@ export default function About() {
         />
       </div>
       <h3 className="font-bold text-[#1A237E] text-base">M. Yannick Wilfried A. DEGBEL</h3>
-      <p className="text-xs text-[#1B7A4B] font-semibold mb-2">Gérant & Directeur Général</p>
+      <p className="text-xs text-[#1B7A4B] font-semibold mb-2">Directeur Général & Formateur consultant en logiciels de gestion SAARI</p>
       <p className="text-xs text-gray-600 leading-relaxed">
         Finance, audit et contrôle de gestion ; comptabilité SYSCOHADA et SYCEBNL.
       </p>
@@ -314,7 +314,7 @@ export default function About() {
         />
       </div>
       <h3 className="font-bold text-[#1A237E] text-base">M. Franck TETE</h3>
-      <p className="text-xs text-[#1B7A4B] font-semibold mb-2">Consultant Spécialiste</p>
+      <p className="text-xs text-[#1B7A4B] font-semibold mb-2">Formateur consultant en fiscalité et obligations sociales</p>
       <p className="text-xs text-gray-600 leading-relaxed">
         Fiscalité et obligations sociales des entreprises.
       </p>
@@ -330,9 +330,9 @@ export default function About() {
         />
       </div>
       <h3 className="font-bold text-[#1A237E] text-base">M. Gilles AHI</h3>
-      <p className="text-xs text-[#1B7A4B] font-semibold mb-2">Formateur Référent</p>
+      <p className="text-xs text-[#1B7A4B] font-semibold mb-2">Formateur consultant en informatique et outils professionnels</p>
       <p className="text-xs text-gray-600 leading-relaxed">
-        Excel et outils bureautiques avancés.
+        Outils bureautiques avancés.
       </p>
     </div>
 
