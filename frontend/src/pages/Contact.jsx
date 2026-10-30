@@ -121,7 +121,7 @@ export default function Contact() {
           {/* Formulaire de demande (7 cols) */}
           <div id="formulaire-contact" className="lg:col-span-7 bg-white p-8 rounded-3xl border border-gray-200 shadow-sm scroll-mt-28">
   <h3 className="text-2xl font-bold text-[#1A237E] mb-2">Envoyez-nous un message</h3>
-            <p className="text-xs text-gray-600 mb-6">Remplissez ce formulaire et nous vous recontacterons sous 24 heures ouvrées.</p>
+  <p className="text-xs text-gray-600 mb-6">Remplissez ce formulaire et nous vous recontacterons sous 24 heures ouvrées.</p>
 
             {submitted ? (
               <div className="bg-[#E8F3ED] border border-[#1B7A4B]/30 rounded-2xl p-8 text-center text-[#1B7A4B]">

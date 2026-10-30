@@ -9,27 +9,22 @@ export default function ScrollToTop() {
       const id = hash.replace('#', '')
       let attempts = 0
 
-      // Fonction qui attend que l'élément soit réellement dans le DOM
-      const scrollToElement = () => {
+      const scrollToTarget = () => {
         const element = document.getElementById(id)
         if (element) {
           element.scrollIntoView({ behavior: 'smooth', block: 'start' })
-        } else if (attempts < 10) {
+        } else if (attempts < 15) {
           attempts++
-          setTimeout(scrollToElement, 50) // Réessaye toutes les 50ms (max 500ms)
+          setTimeout(scrollToTarget, 50)
         }
       }
 
-      scrollToElement()
+      // Petit délai pour laisser React Router terminer le chargement de la route
+      setTimeout(scrollToTarget, 100)
     } else {
-      window.scrollTo({ top: 0, left: 0, behavior: 'instant' })
+      window.scrollTo(0, 0)
       document.documentElement.scrollTop = 0
       document.body.scrollTop = 0
-
-      const mainElement = document.querySelector('main')
-      if (mainElement) {
-        mainElement.scrollTop = 0
-      }
     }
   }, [pathname, hash])
 

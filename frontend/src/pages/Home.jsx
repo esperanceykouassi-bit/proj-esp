@@ -232,10 +232,10 @@ export default function Home() {
             </div>
           </div>
           <Link
-            to="/contact"
+            to="/contact#formulaire-contact"
             className="bg-[#1A237E] hover:bg-[#0D1250] text-white text-sm font-semibold px-5 py-2.5 rounded-lg transition-colors"
           >
-            Demander un diagnostic
+             Demander un diagnostic
           </Link>
         </div>
       </section>
