@@ -71,7 +71,7 @@ export default function Footer() {
                 <span>
                   <strong>Angré 7ème Tranche</strong>, non loin du carrefour Bluetooth, Immeuble Tchêpê, porte B2, Abidjan<br />
                   <a 
-                    href="https://maps.google.com" 
+                    href="https://maps.google.com/maps?q=5.3944283%2C-3.9894654&z=17&hl=fr" 
                     target="_blank" 
                     rel="noopener noreferrer" 
                     className="text-[#8FD9AE] hover:underline font-medium inline-block mt-0.5"

@@ -236,7 +236,7 @@ export default function Contact() {
                 Côte d'Ivoire
               </p>
               <a
-                href="https://maps.google.com"
+                href="https://maps.google.com/maps?q=5.3944283%2C-3.9894654&z=17&hl=fr"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-1.5 text-xs font-bold text-[#1A237E] hover:underline"
@@ -294,7 +294,7 @@ export default function Contact() {
         <div className="bg-gray-100 rounded-3xl overflow-hidden border border-gray-200 h-80 shadow-inner relative">
           <iframe
             title="Localisation SkillUp Consulting CI"
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15888.636652425515!2d-3.985!3d5.385!2m3!1f0!2f0!3f0!2m3!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNcKwMjMnMDYuMCJOIDPCsDU5JzA2LjAiVw!5e0!3m2!1sfr!2sci!4v1620000000000!5m2!1sfr!2sci"
+            src="https://maps.google.com/maps?q=5.3944283,-3.9894654&z=17&output=embed&hl=fr"
             width="100%"
             height="100%"
             style={{ border: 0 }}
