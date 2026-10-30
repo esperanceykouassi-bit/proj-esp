@@ -10,7 +10,6 @@ export default function Footer() {
           {/* COLONNE 1 : LOGO, SOUS-TITRE & MENTIONS (5 cols) */}
           <div className="lg:col-span-5 space-y-4">
             <Link to="/" className="inline-block">
-              {/* Chemin vers l'image du logo corrigé : /images/logo-full.jpeg */}
               <img 
                 src="/images/logo-full.jpeg" 
                 alt="SkillUp Consulting CI" 
@@ -84,8 +83,8 @@ export default function Footer() {
 
               <li className="flex items-center gap-2.5">
                 <Phone size={16} className="text-[#8FD9AE] shrink-0" />
-                <span>
-                  Bureau : <a href="tel:+2250102211421" className="hover:text-[#8FD9AE] font-semibold">+225 01 02 21 14 21</a> · Fixe : <a href="tel:+2252724427186" className="hover:text-[#8FD9AE]">+225 27 24 42 71 86</a>
+                <span className="text-[11px] sm:text-xs">
+                  Bur. <a href="tel:+2250102211421" className="hover:text-[#8FD9AE] font-semibold whitespace-nowrap">+225 01 02 21 14 21</a> · Fixe <a href="tel:+2252724427186" className="hover:text-[#8FD9AE] whitespace-nowrap">+225 27 24 42 71 86</a>
                 </span>
               </li>
 
@@ -104,7 +103,7 @@ export default function Footer() {
               </li>
             </ul>
 
-            {/* Réseaux sociaux */}
+            {/* Réseaux sociaux avec liens officiels */}
             <div className="pt-2 flex items-center gap-3">
               <a 
                 href="https://wa.me/2250102211421" 
@@ -116,7 +115,7 @@ export default function Footer() {
                 <MessageSquare size={16} />
               </a>
               <a 
-                href="#" 
+                href="https://www.facebook.com/share/1CkxJRnSnn/" 
                 target="_blank" 
                 rel="noopener noreferrer" 
                 aria-label="Facebook"
@@ -125,22 +124,22 @@ export default function Footer() {
                 <Facebook size={16} />
               </a>
               <a 
-                href="#" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                aria-label="LinkedIn"
-                className="w-8 h-8 rounded-full bg-white/10 hover:bg-[#1B7A4B] flex items-center justify-center transition-colors text-white"
-              >
-                <Linkedin size={16} />
-              </a>
-              <a 
-                href="#" 
+                href="https://www.instagram.com/skill_upconsulting?utm_source=qr&cplk=bzFla3NvNWdrYnRs" 
                 target="_blank" 
                 rel="noopener noreferrer" 
                 aria-label="Instagram"
                 className="w-8 h-8 rounded-full bg-white/10 hover:bg-[#1B7A4B] flex items-center justify-center transition-colors text-white"
               >
                 <Instagram size={16} />
+              </a>
+              <a 
+                href="https://www.linkedin.com/in/skillup-consulting-côte-d-ivoire-157a982b2?utm_source=share_via&utm_content=profile&utm_medium=member_android" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                aria-label="LinkedIn"
+                className="w-8 h-8 rounded-full bg-white/10 hover:bg-[#1B7A4B] flex items-center justify-center transition-colors text-white"
+              >
+                <Linkedin size={16} />
               </a>
             </div>
           </div>
