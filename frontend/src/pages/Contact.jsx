@@ -119,8 +119,8 @@ export default function Contact() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
 
           {/* Formulaire de demande (7 cols) */}
-          <div className="lg:col-span-7 bg-white p-8 rounded-3xl border border-gray-200 shadow-sm">
-            <h3 className="text-2xl font-bold text-[#1A237E] mb-2">Envoyez-nous un message</h3>
+          <div id="formulaire-contact" className="lg:col-span-7 bg-white p-8 rounded-3xl border border-gray-200 shadow-sm scroll-mt-28">
+  <h3 className="text-2xl font-bold text-[#1A237E] mb-2">Envoyez-nous un message</h3>
             <p className="text-xs text-gray-600 mb-6">Remplissez ce formulaire et nous vous recontacterons sous 24 heures ouvrées.</p>
 
             {submitted ? (

@@ -6,18 +6,22 @@ export default function ScrollToTop() {
 
   useEffect(() => {
     if (hash) {
-      // S'il y a une ancre dans l'URL (ex: #comptabilite), on cible l'élément
       const id = hash.replace('#', '')
-      const timer = setTimeout(() => {
+      let attempts = 0
+
+      // Fonction qui attend que l'élément soit réellement dans le DOM
+      const scrollToElement = () => {
         const element = document.getElementById(id)
         if (element) {
           element.scrollIntoView({ behavior: 'smooth', block: 'start' })
+        } else if (attempts < 10) {
+          attempts++
+          setTimeout(scrollToElement, 50) // Réessaye toutes les 50ms (max 500ms)
         }
-      }, 100)
+      }
 
-      return () => clearTimeout(timer)
+      scrollToElement()
     } else {
-      // Sinon, on remonte tout en haut de la page normalement
       window.scrollTo({ top: 0, left: 0, behavior: 'instant' })
       document.documentElement.scrollTop = 0
       document.body.scrollTop = 0
