@@ -139,7 +139,7 @@ export default function Services() {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
 
-          <div className="bg-[#E8F3ED] p-6 rounded-2xl border border border-gray-100">
+          <div className="bg-[#E8F3ED] p-6 rounded-2xl border border-gray-100">
             <h3 className="font-bold text-[#1A237E] text-base mb-2">Conseil de gestion & organisation</h3>
             <p className="text-xs text-gray-600 leading-relaxed">
               Mise en place de rôles clairs, réorganisation des services et définition de procédures simples et efficaces.
