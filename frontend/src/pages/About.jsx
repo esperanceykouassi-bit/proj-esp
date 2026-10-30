@@ -286,9 +286,9 @@ export default function About() {
     <h2 className="text-3xl font-bold text-[#1A237E] mt-2">Nos Consultants & Formateurs</h2>
   </div>
 
-  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
 
-    {/* Membre 1 : M. DEGBEL (Avec Photo) */}
+    {/* Membre 1 : M. DEGBEL */}
     <div className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm text-center">
       <div className="w-24 h-24 rounded-full overflow-hidden mx-auto mb-4 border-2 border-[#1A237E] shadow-sm">
         <img 
@@ -304,10 +304,15 @@ export default function About() {
       </p>
     </div>
 
-    {/* Membre 2 : M. TETE (Initiale FT) */}
+    {/* Membre 2 : M. TETE */}
     <div className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm text-center">
-      <div className="w-24 h-24 rounded-full bg-[#1B7A4B]/10 text-[#1B7A4B] border-2 border-[#1B7A4B]/20 flex items-center justify-center mx-auto mb-4 font-bold text-xl">
-        FT
+      <div className="w-24 h-24 rounded-full overflow-hidden mx-auto mb-4 border-2 border-[#1B7A4B] shadow-sm bg-[#1B7A4B]/10">
+        <img 
+          src="/images/team/tete.jpg" 
+          alt="M. Franck TETE" 
+          className="w-full h-full object-cover object-top"
+          onError={(e) => { e.target.style.display = 'none' }} 
+        />
       </div>
       <h3 className="font-bold text-[#1A237E] text-base">M. Franck TETE</h3>
       <p className="text-xs text-[#1B7A4B] font-semibold mb-2">Consultant Spécialiste</p>
@@ -316,10 +321,15 @@ export default function About() {
       </p>
     </div>
 
-    {/* Membre 3 : M. AHI (Initiale GA) */}
+    {/* Membre 3 : M. AHI */}
     <div className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm text-center">
-      <div className="w-24 h-24 rounded-full bg-[#1A237E]/10 text-[#1A237E] border-2 border-[#1A237E]/20 flex items-center justify-center mx-auto mb-4 font-bold text-xl">
-        GA
+      <div className="w-24 h-24 rounded-full overflow-hidden mx-auto mb-4 border-2 border-[#1A237E] shadow-sm bg-[#1A237E]/10">
+        <img 
+          src="/images/team/ahi.jpg" 
+          alt="M. Gilles AHI" 
+          className="w-full h-full object-cover object-top"
+          onError={(e) => { e.target.style.display = 'none' }} 
+        />
       </div>
       <h3 className="font-bold text-[#1A237E] text-base">M. Gilles AHI</h3>
       <p className="text-xs text-[#1B7A4B] font-semibold mb-2">Formateur Référent</p>
@@ -328,21 +338,8 @@ export default function About() {
       </p>
     </div>
 
-    {/* Membre 4 : Mlle DRA (Initiale CD) */}
-    <div className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm text-center">
-      <div className="w-24 h-24 rounded-full bg-[#1B7A4B]/10 text-[#1B7A4B] border-2 border-[#1B7A4B]/20 flex items-center justify-center mx-auto mb-4 font-bold text-xl">
-        CD
-      </div>
-      <h3 className="font-bold text-[#1A237E] text-base">Mlle Charlotte DRA</h3>
-      <p className="text-xs text-[#1B7A4B] font-semibold mb-2">Formatrice</p>
-      <p className="text-xs text-gray-600 leading-relaxed">
-        Leadership, posture managériale et gestion d'équipe.
-      </p>
-    </div>
-
   </div>
 </section>
-
 
       {/* 8. FICHE D'IDENTITÉ LÉGALE */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
