@@ -304,10 +304,14 @@ export default function About() {
       </p>
     </div>
 
-    {/* Membre 2 : M. TETE (Avec initiales en attendant la photo) */}
+    {/* Membre 2 : M. TETE */}
     <div className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm text-center">
-      <div className="w-24 h-24 rounded-full bg-[#1B7A4B]/10 text-[#1B7A4B] border-2 border-[#1B7A4B]/30 flex items-center justify-center mx-auto mb-4 font-bold text-xl shadow-sm">
-        FT
+      <div className="w-24 h-24 rounded-full overflow-hidden mx-auto mb-4 border-2 border-[#1B7A4B] shadow-sm bg-[#1B7A4B]/10">
+        <img 
+          src="/images/team/tete.jpeg" 
+          alt="M. Franck TETE" 
+          className="w-full h-full object-cover object-top"
+        />
       </div>
       <h3 className="font-bold text-[#1A237E] text-base">M. Franck TETE</h3>
       <p className="text-xs text-[#1B7A4B] font-semibold mb-2">Consultant Spécialiste</p>
@@ -316,10 +320,14 @@ export default function About() {
       </p>
     </div>
 
-    {/* Membre 3 : M. AHI (Avec initiales en attendant la photo) */}
+    {/* Membre 3 : M. AHI */}
     <div className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm text-center">
-      <div className="w-24 h-24 rounded-full bg-[#1A237E]/10 text-[#1A237E] border-2 border-[#1A237E]/30 flex items-center justify-center mx-auto mb-4 font-bold text-xl shadow-sm">
-        GA
+      <div className="w-24 h-24 rounded-full overflow-hidden mx-auto mb-4 border-2 border-[#1A237E] shadow-sm bg-[#1A237E]/10">
+        <img 
+          src="/images/team/ahi.jpeg" 
+          alt="M. Gilles AHI" 
+          className="w-full h-full object-cover object-top"
+        />
       </div>
       <h3 className="font-bold text-[#1A237E] text-base">M. Gilles AHI</h3>
       <p className="text-xs text-[#1B7A4B] font-semibold mb-2">Formateur Référent</p>
