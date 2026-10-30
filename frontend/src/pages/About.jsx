@@ -314,9 +314,9 @@ export default function About() {
         />
       </div>
       <h3 className="font-bold text-[#1A237E] text-base">M. Franck TETE</h3>
-      <p className="text-xs text-[#1B7A4B] font-semibold mb-2">Formateur consultant en fiscalité et obligations sociales</p>
+      <p className="text-xs text-[#1B7A4B] font-semibold mb-2">Formateur consultant en fiscalité, obligations sociales, posture managériale & gestion d'équipe</p>
       <p className="text-xs text-gray-600 leading-relaxed">
-        Fiscalité et obligations sociales des entreprises.
+        Fiscalité, obligations sociales des entreprises, leadership et management d'équipe.
       </p>
     </div>
 
