@@ -145,10 +145,10 @@ export default function Formations() {
           </p>
 
           <div className="flex flex-wrap gap-4 text-xs font-medium text-gray-700 bg-white p-3.5 rounded-xl mb-8 border border-gray-200/60">
-            <span className="flex items-center gap-1.5"><Clock size={15} className="text-[#1B7A4B]" /> <strong>Durée :</strong> 3 à 5 jours</span>
-            <span className="flex items-center gap-1.5"><MapPin size={15} className="text-[#1B7A4B]" /> <strong>Format :</strong> Présentiel ou à distance</span>
-            <span className="flex items-center gap-1.5"><Users size={15} className="text-[#1B7A4B]" /> <strong>Public :</strong> Comptables, assistants, gestionnaires, étudiants</span>
-            <span className="flex items-center gap-1.5"><Award size={15} className="text-[#1B7A4B]" /> Attestation de fin de formation</span>
+  <span className="flex items-center gap-1.5"><Clock size={15} className="text-[#1B7A4B]" /> <strong>Durée&nbsp;:</strong> 3 à 5 jours</span>
+  <span className="flex items-center gap-1.5"><MapPin size={15} className="text-[#1B7A4B]" /> <strong>Format&nbsp;:</strong> Présentiel ou à distance</span>
+  <span className="flex items-center gap-1.5"><Users size={15} className="text-[#1B7A4B]" /> <strong>Public&nbsp;:</strong> Comptables, assistants, gestionnaires, étudiants</span>
+  <span className="flex items-center gap-1.5"><Award size={15} className="text-[#1B7A4B]" /> Attestation de fin de formation</span>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
