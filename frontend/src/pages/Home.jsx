@@ -274,7 +274,7 @@ export default function Home() {
               <Briefcase className="text-[#1A237E] mb-3" size={28} />
               <h3 className="font-bold text-gray-900 mb-1">Porteurs de projets & Entrepreneurs</h3>
               <p className="text-xs text-gray-600 leading-relaxed">
-                Montage de business plans bancables, études de faisabilité et accompagnement à la recherche de financements.
+                Montage de business plan, étude de faisabilité et montage de dossier de financement.
               </p>
             </div>
 
