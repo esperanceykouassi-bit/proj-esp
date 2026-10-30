@@ -254,7 +254,7 @@ export default function Contact() {
               <div className="space-y-2 text-xs text-gray-700">
                 <div className="flex justify-between pb-1 border-b border-gray-200">
                   <span className="font-medium">Bureau (Lundi — Vendredi) :</span>
-                  <span className="font-bold">08h00 — 18h00</span>
+                  <span className="font-bold">09h00 — 17h00</span>
                 </div>
                 <div className="flex justify-between pb-1 border-b border-gray-200">
                   <span className="font-medium">Formations :</span>
