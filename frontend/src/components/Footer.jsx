@@ -5,7 +5,7 @@ export default function Footer() {
   return (
     <footer className="bg-[#0D1250] text-white font-sans pt-16 pb-8 border-t border-white/10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-12 border-b border-white/10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 pb-12 border-b border-white/10">
           
           {/* COLONNE 1 : LOGO, SOUS-TITRE & MENTIONS (5 cols) */}
           <div className="lg:col-span-5 space-y-4">
@@ -35,8 +35,8 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* COLONNE 2 : LIENS RAPIDES (3 cols) */}
-          <div className="lg:col-span-3 space-y-3">
+          {/* COLONNE 2 : LIENS RAPIDES (Reduit a 2 cols pour gagner de l'espace) */}
+          <div className="lg:col-span-2 space-y-3">
             <h4 className="text-sm font-bold uppercase tracking-wider text-[#8FD9AE] mb-4">
               Navigation
             </h4>
@@ -59,8 +59,8 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* COLONNE 3 : COORDONNÉES EXACTES DU SIÈGE (4 cols) */}
-          <div className="lg:col-span-4 space-y-3">
+          {/* COLONNE 3 : COORDONNÉES EXACTES DU SIÈGE (Élargi a 5 cols) */}
+          <div className="lg:col-span-5 space-y-3">
             <h4 className="text-sm font-bold uppercase tracking-wider text-[#8FD9AE] mb-4">
               Contact & Siège
             </h4>
@@ -83,8 +83,8 @@ export default function Footer() {
 
               <li className="flex items-center gap-2.5">
                 <Phone size={16} className="text-[#8FD9AE] shrink-0" />
-                <span className="text-[11px] sm:text-xs">
-                  Bur. <a href="tel:+2250102211421" className="hover:text-[#8FD9AE] font-semibold whitespace-nowrap">+225 01 02 21 14 21</a> · Fixe <a href="tel:+2252724427186" className="hover:text-[#8FD9AE] whitespace-nowrap">+225 27 24 42 71 86</a>
+                <span className="text-xs">
+                  Bureau : <a href="tel:+2250102211421" className="hover:text-[#8FD9AE] font-semibold whitespace-nowrap">+225 01 02 21 14 21</a> · Fixe : <a href="tel:+2252724427186" className="hover:text-[#8FD9AE] whitespace-nowrap">+225 27 24 42 71 86</a>
                 </span>
               </li>
 
@@ -103,7 +103,7 @@ export default function Footer() {
               </li>
             </ul>
 
-            {/* Réseaux sociaux avec liens officiels */}
+            {/* Réseaux sociaux */}
             <div className="pt-2 flex items-center gap-3">
               <a 
                 href="https://wa.me/2250102211421" 
