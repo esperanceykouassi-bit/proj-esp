@@ -8,7 +8,6 @@ import {
   Sparkles,
   CheckCircle2,
   AlertCircle,
-  Briefcase,
   Users,
   FolderKanban,
   TrendingUp,
@@ -16,8 +15,8 @@ import {
 } from 'lucide-react'
 
 export default function Formations() {
-  const [activeTestTool, setActiveTestTool] = useState(null)
-  const [testStep, setTestStep] = useState(1)
+  const [activeTestTool, setActiveTestTool] = useState(null) // 'excel', 'word', 'powerpoint', 'outlook'
+  const [testStep, setTestStep] = useState(1) // 1: Formulaire d'identification, 2: Questions, 3: Résultat
   const [userInfo, setUserInfo] = useState({ nom: '', telephone: '', email: '' })
   const [answers, setAnswers] = useState({})
   const [score, setScore] = useState(null)
@@ -92,6 +91,7 @@ export default function Formations() {
     setScore(finalScore)
     setTestStep(3)
 
+    // Enregistrement local pour bloquer les doublons
     const history = JSON.parse(localStorage.getItem('skillup_pretests') || '[]')
     history.push({
       tool: activeTestTool,
@@ -100,6 +100,18 @@ export default function Formations() {
       date: new Date().toISOString()
     })
     localStorage.setItem('skillup_pretests', JSON.stringify(history))
+
+    // Notification WhatsApp instantanée pour l'administrateur
+    const messageWhatsApp = `*Nouveau Résultat de Prétest - SkillUp CI*\n\n` +
+      `• *Outil* : ${activeTestTool.toUpperCase()}\n` +
+      `• *Nom* : ${userInfo.nom}\n` +
+      `• *Téléphone* : ${userInfo.telephone}\n` +
+      `• *E-mail* : ${userInfo.email}\n` +
+      `• *Score obtenu* : ${finalScore} / 100`
+
+    const numeroWhatsApp = "2250102211421"
+    const urlWhatsApp = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(messageWhatsApp)}`
+    window.open(urlWhatsApp, '_blank')
   }
 
   return (
@@ -287,7 +299,7 @@ export default function Formations() {
             {testStep === 1 && (
               <form onSubmit={handleUserInfoSubmit} className="space-y-4">
                 <p className="text-xs text-gray-600">
-                  Veuillez renseigner vos coordonnées pour accéder au questionnaire d'évaluation. Vos résultats seront enregistrés et transmis à notre secrétariat. Un seul passage est autorisé.
+                  Veuillez renseigner vos coordonnées pour accéder au questionnaire d'évaluation. Vos résultats seront transmis à notre secrétariat. Un seul passage est autorisé.
                 </p>
 
                 {alreadyTested && (
@@ -302,7 +314,7 @@ export default function Formations() {
                 )}
 
                 <div>
-                  <label className="block text-xs font-semibold text-gray-700 mb-1">Nom & Prénoms *</label>
+                  <label className="block text-xs font-semibold text-gray-700 mb-1">Nom & Prénoms</label>
                   <input
                     type="text"
                     required
@@ -314,7 +326,7 @@ export default function Formations() {
                 </div>
 
                 <div>
-                  <label className="block text-xs font-semibold text-gray-700 mb-1">Téléphone *</label>
+                  <label className="block text-xs font-semibold text-gray-700 mb-1">Téléphone</label>
                   <input
                     type="tel"
                     required
@@ -326,7 +338,7 @@ export default function Formations() {
                 </div>
 
                 <div>
-                  <label className="block text-xs font-semibold text-gray-700 mb-1">Adresse e-mail *</label>
+                  <label className="block text-xs font-semibold text-gray-700 mb-1">Adresse e-mail</label>
                   <input
                     type="email"
                     required
@@ -403,7 +415,7 @@ export default function Formations() {
                 </div>
 
                 <p className="text-xs text-gray-600 leading-relaxed">
-                  Merci <strong>{userInfo.nom}</strong>. Vos coordonnées et vos résultats ont été transmis à notre équipe pédagogique. Un conseiller vous contactera sous 24h pour vous orienter.
+                  Merci <strong>{userInfo.nom}</strong>. Vos résultats ont été transmis à notre équipe via WhatsApp. Un conseiller vous contactera sous 24h pour vous orienter.
                 </p>
 
                 <button
