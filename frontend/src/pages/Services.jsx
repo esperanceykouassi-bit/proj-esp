@@ -5,10 +5,10 @@ import {
   TrendingUp, 
   FolderKanban, 
   GraduationCap, 
-  CheckCircle2, 
+  ArrowRight, 
   Calendar, 
   Phone, 
-  ArrowRight,
+  CheckCircle2, 
   ShieldCheck,
   FileSpreadsheet,
   PieChart,
@@ -301,10 +301,10 @@ export default function Services() {
             </RouterLink>
             <a
               href="tel:+2250102211421"
-              className="bg-transparent hover:bg-white/10 text-white font-semibold px-8 py-4 rounded-xl border border-white/30 transition-colors inline-flex items-center justify-center gap-2"
+              className="bg-transparent hover:bg-white/10 text-white font-semibold px-8 py-4 rounded-xl border border-white/30 transition-colors inline-flex items-center justify-center gap-2 whitespace-nowrap"
             >
-              <Phone size={20} />
-              Nous appeler : +225 01 02 21 14 21
+              <Phone size={20} className="shrink-0" />
+              <span className="whitespace-nowrap">Nous appeler&nbsp;: +225&nbsp;01&nbsp;02&nbsp;21&nbsp;14&nbsp;21</span>
             </a>
           </div>
           <p className="text-xs text-[#8FD9AE] font-medium">
