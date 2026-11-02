@@ -8,8 +8,7 @@ import {
   Send, 
   MessageSquare, 
   CheckCircle2, 
-  Building2, 
-  Calendar 
+  Building2 
 } from 'lucide-react'
 
 export default function Contact() {
@@ -25,7 +24,24 @@ export default function Contact() {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    // Simulation d'envoi du formulaire
+
+    // 1. Construction du message de notification formaté pour WhatsApp
+    const messageWhatsApp = `*Nouveau message de contact - SkillUp Consulting CI*\n\n` +
+      `• *Nom* : ${formData.nom}\n` +
+      `• *Structure* : ${formData.structure || 'Non renseignée'}\n` +
+      `• *Téléphone* : ${formData.telephone}\n` +
+      `• *E-mail* : ${formData.email}\n` +
+      `• *Besoin* : ${formData.besoin}\n` +
+      `• *Message* : ${formData.message}`
+
+    // 2. Numéro WhatsApp du cabinet (au format international sans le +)
+    const numeroWhatsApp = "2250102211421" 
+    const urlWhatsApp = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(messageWhatsApp)}`
+
+    // Ouvre WhatsApp dans un nouvel onglet pour notifier l'équipe
+    window.open(urlWhatsApp, '_blank')
+
+    // 3. Affiche l'écran de confirmation de succès sur le site
     setSubmitted(true)
   }
 
@@ -61,7 +77,6 @@ export default function Contact() {
         </div>
       </section>
 
-
       {/* 2. BLOC D'ACTION RAPIDE (WhatsApp, Appel, E-mail) */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="bg-[#EEF0F8] rounded-3xl p-8 border border-gray-200">
@@ -85,7 +100,7 @@ export default function Contact() {
               <span className="text-xs bg-white/20 font-semibold px-3 py-1 rounded-full whitespace-nowrap">+225 01 02 21 14 21</span>
             </a>
 
-            {/* Canal Appel (Corrigé avec whitespace-nowrap) */}
+            {/* Canal Appel */}
             <a
               href="tel:+2250102211421"
               className="bg-white hover:bg-gray-50 text-[#1B7A4B] border-2 border-[#1B7A4B] p-6 rounded-2xl flex flex-col items-center text-center transition-transform hover:scale-105 shadow-sm"
@@ -113,13 +128,12 @@ export default function Contact() {
         </div>
       </section>
 
-
       {/* 3. FORMULAIRE DE CONTACT & COORDONNÉES */}
       <section id="formulaire-contact" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 scroll-mt-28">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
 
           {/* Formulaire de demande (7 cols) */}
-          <div id="formulaire-contact" className="lg:col-span-7 bg-white p-8 rounded-3xl border border-gray-200 shadow-sm scroll-mt-28">
+          <div className="lg:col-span-7 bg-white p-8 rounded-3xl border border-gray-200 shadow-sm">
             <h3 className="text-2xl font-bold text-[#1A237E] mb-2">Envoyez-nous un message</h3>
             <p className="text-xs text-gray-600 mb-6">Remplissez ce formulaire et nous vous recontacterons sous 24 heures ouvrées.</p>
 
@@ -128,14 +142,14 @@ export default function Contact() {
                 <CheckCircle2 size={48} className="mx-auto mb-3" />
                 <h4 className="font-bold text-lg mb-2">Message bien reçu !</h4>
                 <p className="text-xs leading-relaxed">
-                  Merci de nous avoir contactés. Un conseiller de SkillUp Consulting CI examinera votre demande et vous répondra sous 24h ouvrées.
+                  Merci de nous avoir contactés. Votre notification a bien été transmise à notre équipe via WhatsApp et un conseiller de SkillUp Consulting CI vous répondra sous 24h ouvrées.
                 </p>
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-4">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-xs font-semibold text-gray-700 mb-1">Nom & Prénoms *</label>
+                    <label className="block text-xs font-semibold text-gray-700 mb-1">Nom & Prénoms</label>
                     <input
                       type="text"
                       required
@@ -159,7 +173,7 @@ export default function Contact() {
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-xs font-semibold text-gray-700 mb-1">Téléphone *</label>
+                    <label className="block text-xs font-semibold text-gray-700 mb-1">Téléphone</label>
                     <input
                       type="tel"
                       required
@@ -170,7 +184,7 @@ export default function Contact() {
                     />
                   </div>
                   <div>
-                    <label className="block text-xs font-semibold text-gray-700 mb-1">Adresse e-mail *</label>
+                    <label className="block text-xs font-semibold text-gray-700 mb-1">Adresse e-mail</label>
                     <input
                       type="email"
                       required
@@ -183,7 +197,7 @@ export default function Contact() {
                 </div>
 
                 <div>
-                  <label className="block text-xs font-semibold text-gray-700 mb-1">Votre besoin principal *</label>
+                  <label className="block text-xs font-semibold text-gray-700 mb-1">Votre besoin principal</label>
                   <select
                     value={formData.besoin}
                     onChange={(e) => setFormData({...formData, besoin: e.target.value})}
@@ -198,7 +212,7 @@ export default function Contact() {
                 </div>
 
                 <div>
-                  <label className="block text-xs font-semibold text-gray-700 mb-1">Message / Précisions *</label>
+                  <label className="block text-xs font-semibold text-gray-700 mb-1">Message / Précisions</label>
                   <textarea
                     required
                     rows="4"
@@ -223,7 +237,6 @@ export default function Contact() {
           {/* Coordonnées & Horaires (5 cols) */}
           <div className="lg:col-span-5 space-y-6">
 
-            {/* Carte Adresse */}
             <div className="bg-[#EEF0F8] p-6 rounded-3xl border border-gray-200">
               <h4 className="font-bold text-[#1A237E] text-lg mb-4 flex items-center gap-2">
                 <MapPin className="text-[#1B7A4B]" size={22} />
@@ -245,7 +258,6 @@ export default function Contact() {
               </a>
             </div>
 
-            {/* Carte Horaires d'ouverture */}
             <div className="bg-[#E8F3ED] p-6 rounded-3xl border border-gray-200">
               <h4 className="font-bold text-[#1A237E] text-lg mb-4 flex items-center gap-2">
                 <Clock className="text-[#1B7A4B]" size={22} />
@@ -270,7 +282,6 @@ export default function Contact() {
               </p>
             </div>
 
-            {/* Carte Mentions légales */}
             <div className="bg-white p-6 rounded-3xl border border-gray-200 text-xs text-gray-600">
               <h4 className="font-bold text-[#1A237E] text-sm mb-2 flex items-center gap-2">
                 <Building2 size={18} className="text-[#1B7A4B]" />
@@ -287,7 +298,6 @@ export default function Contact() {
 
         </div>
       </section>
-
 
       {/* 4. CARTE GOOGLE MAPS D'ACCÈS */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
