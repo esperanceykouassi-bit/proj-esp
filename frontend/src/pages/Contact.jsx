@@ -266,7 +266,7 @@ export default function Contact() {
                 </div>
               </div>
               <p className="text-[11px] text-[#1B7A4B] font-semibold mt-4">
-                * Réponse garantie sous 24 heures ouvrées.
+                Réponse garantie sous 24 heures ouvrées.
               </p>
             </div>
 
