@@ -82,10 +82,10 @@ export default function Contact() {
               <MessageSquare size={32} className="mb-3" />
               <div className="font-bold text-lg mb-1">WhatsApp</div>
               <p className="text-xs text-white/90 mb-3">Message direct pour une réponse rapide</p>
-              <span className="text-xs bg-white/20 font-semibold px-3 py-1 rounded-full">+225 01 02 21 14 21</span>
+              <span className="text-xs bg-white/20 font-semibold px-3 py-1 rounded-full whitespace-nowrap">+225 01 02 21 14 21</span>
             </a>
 
-            {/* Canal Appel */}
+            {/* Canal Appel (Corrigé avec whitespace-nowrap) */}
             <a
               href="tel:+2250102211421"
               className="bg-white hover:bg-gray-50 text-[#1B7A4B] border-2 border-[#1B7A4B] p-6 rounded-2xl flex flex-col items-center text-center transition-transform hover:scale-105 shadow-sm"
@@ -93,7 +93,7 @@ export default function Contact() {
               <Phone size={32} className="mb-3" />
               <div className="font-bold text-lg mb-1">Nous appeler</div>
               <p className="text-xs text-gray-600 mb-3">Bureau & Secrétariat exécutif</p>
-              <span className="text-xs bg-[#1B7A4B]/10 font-bold px-3 py-1 rounded-full text-[#1B7A4B]">
+              <span className="text-xs bg-[#1B7A4B]/10 font-bold px-3 py-1 rounded-full text-[#1B7A4B] whitespace-nowrap">
                 01 02 21 14 21 / 27 24 42 71 86
               </span>
             </a>
@@ -120,8 +120,8 @@ export default function Contact() {
 
           {/* Formulaire de demande (7 cols) */}
           <div id="formulaire-contact" className="lg:col-span-7 bg-white p-8 rounded-3xl border border-gray-200 shadow-sm scroll-mt-28">
-  <h3 className="text-2xl font-bold text-[#1A237E] mb-2">Envoyez-nous un message</h3>
-  <p className="text-xs text-gray-600 mb-6">Remplissez ce formulaire et nous vous recontacterons sous 24 heures ouvrées.</p>
+            <h3 className="text-2xl font-bold text-[#1A237E] mb-2">Envoyez-nous un message</h3>
+            <p className="text-xs text-gray-600 mb-6">Remplissez ce formulaire et nous vous recontacterons sous 24 heures ouvrées.</p>
 
             {submitted ? (
               <div className="bg-[#E8F3ED] border border-[#1B7A4B]/30 rounded-2xl p-8 text-center text-[#1B7A4B]">
