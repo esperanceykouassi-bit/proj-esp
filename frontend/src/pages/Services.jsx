@@ -283,40 +283,39 @@ export default function Services() {
 
 
       {/* 7. APPEL À L'ACTION FINAL */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <div className="bg-gradient-to-br from-[#1A237E] to-[#0D1250] text-white rounded-3xl p-8 sm:p-10 md:p-14 shadow-xl">
-          <h2 className="text-2xl sm:text-4xl font-bold mb-4">
-            Parlons de votre besoin
-          </h2>
-          <p className="text-white/80 max-w-xl mx-auto mb-8 text-sm sm:text-base leading-relaxed">
-            Comptabilité, fiscalité, organisation ou projet : un premier échange permet de cerner votre situation et de vous proposer une solution adaptée.
-          </p>
-          
-          {/* Conteneur avec padding horizontal pour éviter de toucher les bords sur mobile */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-6 px-2 sm:px-0">
-            <RouterLink
-              to="/contact"
-              className="bg-[#1B7A4B] hover:bg-[#155e39] text-white font-bold px-8 py-4 rounded-xl transition-all shadow-lg hover:scale-105 inline-flex items-center justify-center gap-2 w-full sm:w-auto"
-            >
-              <Calendar size={20} />
-              Prendre rendez-vous
-            </RouterLink>
-            
-            <a
-              href="tel:+2250102211421"
-              className="bg-transparent hover:bg-white/10 text-white font-semibold px-6 py-4 rounded-xl border border-white/30 transition-colors inline-flex items-center justify-center gap-2 w-full sm:w-auto"
-            >
-              <Phone size={20} className="shrink-0" />
-              <span className="whitespace-nowrap">Nous appeler&nbsp;: +225&nbsp;01&nbsp;02&nbsp;21&nbsp;14&nbsp;21</span>
-            </a>
-          </div>
-
-          <p className="text-xs text-[#8FD9AE] font-medium">
-            Premier échange sans engagement · Réponse sous 24 h ouvrées
-          </p>
-        </div>
-      </section>
+<section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+  <div className="bg-gradient-to-br from-[#1A237E] to-[#0D1250] text-white rounded-3xl p-6 sm:p-10 md:p-14 shadow-xl">
+    <h2 className="text-2xl sm:text-4xl font-bold mb-4">
+      Parlons de votre besoin
+    </h2>
+    <p className="text-white/80 max-w-xl mx-auto mb-8 text-sm sm:text-base leading-relaxed">
+      Comptabilité, fiscalité, organisation ou projet : un premier échange permet de cerner votre situation et de vous proposer une solution adaptée.
+    </p>
+    
+    <div className="flex flex-col sm:flex-row gap-3 justify-center items-center mb-6 max-w-md mx-auto">
+      <RouterLink
+        to="/contact"
+        className="bg-[#1B7A4B] hover:bg-[#155e39] text-white font-bold text-xs sm:text-sm px-6 py-3.5 sm:px-8 sm:py-4 rounded-xl transition-all shadow-lg hover:scale-105 inline-flex items-center justify-center gap-2 w-full sm:w-auto"
+      >
+        <Calendar size={18} />
+        Prendre rendez-vous
+      </RouterLink>
       
+      <a
+        href="tel:+2250102211421"
+        className="bg-transparent hover:bg-white/10 text-white font-semibold text-xs sm:text-sm px-3 py-3.5 sm:px-6 sm:py-4 rounded-xl border border-white/30 transition-colors inline-flex items-center justify-center gap-2 w-full sm:w-auto"
+      >
+        <Phone size={18} className="shrink-0" />
+        <span className="whitespace-nowrap">Nous appeler&nbsp;: +225&nbsp;01&nbsp;02&nbsp;21&nbsp;14&nbsp;21</span>
+      </a>
+    </div>
+
+    <p className="text-xs text-[#8FD9AE] font-medium">
+      Premier échange sans engagement · Réponse sous 24 h ouvrées
+    </p>
+  </div>
+</section>
+
     </div>
   )
 }
