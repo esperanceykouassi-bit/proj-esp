@@ -16,8 +16,8 @@ import {
 } from 'lucide-react'
 
 export default function Formations() {
-  const [activeTestTool, setActiveTestTool] = useState(null) // 'excel', 'word', 'powerpoint', 'outlook'
-  const [testStep, setTestStep] = useState(1) // 1: Formulaire, 2: Questions, 3: Résultat
+  const [activeTestTool, setActiveTestTool] = useState(null)
+  const [testStep, setTestStep] = useState(1)
   const [userInfo, setUserInfo] = useState({ nom: '', telephone: '', email: '' })
   const [answers, setAnswers] = useState({})
   const [score, setScore] = useState(null)
@@ -100,8 +100,6 @@ export default function Formations() {
       date: new Date().toISOString()
     })
     localStorage.setItem('skillup_pretests', JSON.stringify(history))
-
-    console.log(`[SIMULATION EMAIL ADMIN] Résultat prétest ${activeTestTool.toUpperCase()} pour ${userInfo.nom} (${userInfo.email}, Tél: ${userInfo.telephone}) - Score : ${finalScore}%`)
   }
 
   return (
@@ -131,7 +129,7 @@ export default function Formations() {
             transition={{ delay: 0.2 }}
             className="text-base sm:text-lg text-white/90 max-w-3xl mx-auto leading-relaxed"
           >
-            Des modules 100 % pratiques, conçus pour répondre aux réalités des entreprises et des organisations en Côte d'Ivoire. Formations courtes de <strong className="text-[#8FD9AE]">3 à 5 jours</strong> en présentiel ou à distance.
+            Des modules 100 % pratiques, conçus pour répondre aux réalités des entreprises et des organisations en Côte d'Ivoire.
           </motion.p>
         </div>
       </section>
@@ -189,7 +187,7 @@ export default function Formations() {
               <span className="text-xs font-bold text-[#1B7A4B] bg-white px-3 py-1 rounded-full">Durée : 3 à 5 jours</span>
               <h3 className="text-xl font-bold text-[#1A237E] mt-3 mb-2">Axe 2 : Comptabilité & Fiscalité</h3>
               <p className="text-xs text-gray-700 leading-relaxed mb-4">
-                Perfectionnez-vous en comptabilité générale SYSCOHADA Révisé, fiscalité ivoirienne (TVA, IS, ITS, DGI), gestion de la paie et charges sociales (CNPS, FDFP), contrôle de gestion et notions d'audit[cite: 7].
+                Perfectionnez-vous en comptabilité générale SYSCOHADA Révisé, fiscalité ivoirienne (TVA, IS, ITS, DGI), gestion de la paie et charges sociales (CNPS, FDFP), contrôle de gestion et notions d'audit.
               </p>
             </div>
             <div className="text-xs text-[#1B7A4B] font-semibold flex items-center gap-1 border-t border-[#1B7A4B]/20 pt-3">
@@ -206,7 +204,7 @@ export default function Formations() {
               <span className="text-xs font-bold text-[#1B7A4B] bg-[#1B7A4B]/10 px-3 py-1 rounded-full">Durée : 3 à 5 jours</span>
               <h3 className="text-xl font-bold text-[#1A237E] mt-3 mb-2">Axe 3 : Leadership & Comportement</h3>
               <p className="text-xs text-gray-700 leading-relaxed mb-4">
-                Développez votre posture professionnelle : leadership et prise de décision, communication orale et écrite, gestion du temps et des priorités, travail d'équipe et techniques de négociation[cite: 8].
+                Développez votre posture professionnelle : leadership et prise de décision, communication orale et écrite, gestion du temps et des priorités, travail d'équipe et techniques de négociation.
               </p>
             </div>
             <div className="text-xs text-[#1A237E] font-semibold flex items-center gap-1 border-t border-gray-200 pt-3">
@@ -223,7 +221,7 @@ export default function Formations() {
               <span className="text-xs font-bold text-[#1B7A4B] bg-white px-3 py-1 rounded-full">Durée : 3 à 5 jours</span>
               <h3 className="text-xl font-bold text-[#1A237E] mt-3 mb-2">Axe 4 : Montage & Gestion de projets</h3>
               <p className="text-xs text-gray-700 leading-relaxed mb-4">
-                De l'idée au pilotage : rédaction de business plan structuré, études de faisabilité (marché et technique), recherche et montage de dossiers de financement, et méthodologie de suivi-évaluation[cite: 9].
+                De l'idée au pilotage : rédaction de business plan structuré, études de faisabilité (marché et technique), recherche et montage de dossiers de financement, et méthodologie de suivi-évaluation.
               </p>
             </div>
             <div className="text-xs text-[#1B7A4B] font-semibold flex items-center gap-1 border-t border-[#1B7A4B]/20 pt-3">
@@ -240,7 +238,7 @@ export default function Formations() {
               <span className="text-xs font-bold text-[#1B7A4B] bg-[#1B7A4B]/10 px-3 py-1 rounded-full">Durée : 3 à 5 jours</span>
               <h3 className="text-xl font-bold text-[#1A237E] mt-3 mb-2">Axe 5 : Gestion commerciale (GESCOM)</h3>
               <p className="text-xs text-gray-700 leading-relaxed mb-4">
-                Maîtrisez les techniques de vente de la prospection à la conclusion, le traitement des objections, la gestion et la fidélisation de la relation client, ainsi que le marketing opérationnel[cite: 10].
+                Maîtrisez les techniques de vente de la prospection à la conclusion, le traitement des objections, la gestion et la fidélisation de la relation client, ainsi que le marketing opérationnel.
               </p>
             </div>
             <div className="text-xs text-[#1A237E] font-semibold flex items-center gap-1 border-t border-gray-200 pt-3">
@@ -257,7 +255,7 @@ export default function Formations() {
               <span className="text-xs font-bold text-[#1B7A4B] bg-white px-3 py-1 rounded-full">Durée : 3 à 5 jours</span>
               <h3 className="text-xl font-bold text-[#1A237E] mt-3 mb-2">Axe 6 : Assistanat de direction</h3>
               <p className="text-xs text-gray-700 leading-relaxed mb-4">
-                Assurez un support administratif de haut niveau : secrétariat et gestion des dossiers, organisation d'agendas complexes, réunions, déplacements professionnels, accueil, protocole et étiquette[cite: 11].
+                Assurez un support administratif de haut niveau : secrétariat et gestion des dossiers, organisation d'agendas complexes, réunions, déplacements professionnels, accueil, protocole et étiquette.
               </p>
             </div>
             <div className="text-xs text-[#1B7A4B] font-semibold flex items-center gap-1 border-t border-[#1B7A4B]/20 pt-3">
@@ -286,7 +284,6 @@ export default function Formations() {
               </h3>
             </div>
 
-            {/* ÉTAPE 1 : IDENTIFICATION & ANTI-DOUBLON */}
             {testStep === 1 && (
               <form onSubmit={handleUserInfoSubmit} className="space-y-4">
                 <p className="text-xs text-gray-600">
@@ -349,7 +346,6 @@ export default function Formations() {
               </form>
             )}
 
-            {/* ÉTAPE 2 : QUESTIONNAIRE */}
             {testStep === 2 && (
               <div className="space-y-6">
                 <p className="text-xs text-gray-600">
@@ -394,7 +390,6 @@ export default function Formations() {
               </div>
             )}
 
-            {/* ÉTAPE 3 : RÉSULTAT */}
             {testStep === 3 && (
               <div className="text-center space-y-4 py-4">
                 <div className="w-16 h-16 bg-[#1B7A4B]/10 text-[#1B7A4B] rounded-full flex items-center justify-center mx-auto">
