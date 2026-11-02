@@ -74,60 +74,7 @@ export default function Formations() {
       </section>
 
 
-      {/* 2. CALENDRIER : PROCHAINES SESSIONS */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="bg-white rounded-3xl p-6 sm:p-8 border border-gray-200 shadow-sm">
-          <div className="flex items-center gap-3 mb-6">
-            <Calendar className="text-[#1B7A4B]" size={26} />
-            <div>
-              <h2 className="text-xl sm:text-2xl font-bold text-[#1A237E]">Prochaines sessions au calendrier</h2>
-              <p className="text-xs text-gray-600">Inscrivez-vous directement ou demandez une session intra-entreprise sur mesure.</p>
-            </div>
-          </div>
-
-          <div className="overflow-x-auto">
-            <table className="w-full text-left text-xs sm:text-sm text-gray-700">
-              <thead className="bg-[#EEF0F8] text-[#1A237E] font-bold uppercase text-[11px]">
-                <tr>
-                  <th className="p-3.5 rounded-l-xl">Domaine / Formation</th>
-                  <th className="p-3.5">Format</th>
-                  <th className="p-3.5">Horaires</th>
-                  <th className="p-3.5 text-right rounded-r-xl">Action</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-gray-100">
-                <tr>
-                  <td className="p-3.5 font-semibold text-gray-900">Comptabilité SYSCOHADA & Pratique Fiscale</td>
-                  <td className="p-3.5"><span className="bg-green-100 text-green-800 text-[11px] px-2 py-0.5 rounded-full font-medium">Présentiel (Angré)</span></td>
-                  <td className="p-3.5 text-gray-600">Soir & Week-end</td>
-                  <td className="p-3.5 text-right">
-                    <Link to="/contact" className="text-xs font-bold text-[#1B7A4B] hover:underline">S'inscrire →</Link>
-                  </td>
-                </tr>
-                <tr>
-                  <td className="p-3.5 font-semibold text-gray-900">Sage 100 Comptabilité & Gestion Commerciale</td>
-                  <td className="p-3.5"><span className="bg-blue-100 text-blue-800 text-[11px] px-2 py-0.5 rounded-full font-medium">Présentiel / À distance</span></td>
-                  <td className="p-3.5 text-gray-600">Sessions du soir</td>
-                  <td className="p-3.5 text-right">
-                    <Link to="/contact" className="text-xs font-bold text-[#1B7A4B] hover:underline">S'inscrire →</Link>
-                  </td>
-                </tr>
-                <tr>
-                  <td className="p-3.5 font-semibold text-gray-900">Microsoft Excel : Perfectionnement & Tableaux de bord</td>
-                  <td className="p-3.5"><span className="bg-green-100 text-green-800 text-[11px] px-2 py-0.5 rounded-full font-medium">Présentiel & En ligne</span></td>
-                  <td className="p-3.5 text-gray-600">Samedi intensif</td>
-                  <td className="p-3.5 text-right">
-                    <Link to="/contact" className="text-xs font-bold text-[#1B7A4B] hover:underline">S'inscrire →</Link>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </section>
-
-
-      {/* 3. FAMILLE 1 : COMPTABILITÉ & FISCALITÉ */}
+      {/* 2. FAMILLE 1 : COMPTABILITÉ & FISCALITÉ */}
       <section id="comptabilite" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 scroll-mt-28">
         <div className="bg-[#EEF0F8] p-8 rounded-3xl border border-gray-100">
           <div className="flex items-center gap-3 mb-4">
@@ -145,10 +92,10 @@ export default function Formations() {
           </p>
 
           <div className="flex flex-wrap gap-4 text-xs font-medium text-gray-700 bg-white p-3.5 rounded-xl mb-8 border border-gray-200/60">
-  <span className="flex items-center gap-1.5"><Clock size={15} className="text-[#1B7A4B]" /> <strong>Durée&nbsp;:</strong> 3 à 5 jours</span>
-  <span className="flex items-center gap-1.5"><MapPin size={15} className="text-[#1B7A4B]" /> <strong>Format&nbsp;:</strong> Présentiel ou à distance</span>
-  <span className="flex items-center gap-1.5"><Users size={15} className="text-[#1B7A4B]" /> <strong>Public&nbsp;:</strong> Comptables, assistants, gestionnaires, étudiants</span>
-  <span className="flex items-center gap-1.5"><Award size={15} className="text-[#1B7A4B]" /> Attestation de fin de formation</span>
+            <span className="flex items-center gap-1.5"><Clock size={15} className="text-[#1B7A4B]" /> <strong>Durée&nbsp;:</strong> 3 à 5 jours</span>
+            <span className="flex items-center gap-1.5"><MapPin size={15} className="text-[#1B7A4B]" /> <strong>Format&nbsp;:</strong> Présentiel ou à distance</span>
+            <span className="flex items-center gap-1.5"><Users size={15} className="text-[#1B7A4B]" /> <strong>Public&nbsp;:</strong> Comptables, assistants, gestionnaires, étudiants</span>
+            <span className="flex items-center gap-1.5"><Award size={15} className="text-[#1B7A4B]" /> Attestation de fin de formation</span>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
@@ -180,7 +127,7 @@ export default function Formations() {
       </section>
 
 
-      {/* 4. FAMILLE 2 : LOGICIELS SAGE 100 (EX-SAARI) */}
+      {/* 3. FAMILLE 2 : LOGICIELS SAGE 100 (EX-SAARI) */}
       <section id="sage" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 scroll-mt-28">
         <div className="bg-[#E8F3ED] p-8 rounded-3xl border border-gray-100">
           <div className="flex items-center gap-3 mb-4">
@@ -198,9 +145,9 @@ export default function Formations() {
           </p>
 
           <div className="flex flex-wrap gap-4 text-xs font-medium text-gray-700 bg-white p-3.5 rounded-xl mb-8 border border-gray-200/60">
-            <span className="flex items-center gap-1.5"><Clock size={15} className="text-[#1B7A4B]" /> <strong>Durée :</strong> 3 à 4 jours par module</span>
-            <span className="flex items-center gap-1.5"><MapPin size={15} className="text-[#1B7A4B]" /> <strong>Format :</strong> En laboratoire informatique ou à distance</span>
-            <span className="flex items-center gap-1.5"><Users size={15} className="text-[#1B7A4B]" /> <strong>Public :</strong> Comptables, gestionnaires de stock, RH</span>
+            <span className="flex items-center gap-1.5"><Clock size={15} className="text-[#1B7A4B]" /> <strong>Durée&nbsp;:</strong> 3 à 4 jours par module</span>
+            <span className="flex items-center gap-1.5"><MapPin size={15} className="text-[#1B7A4B]" /> <strong>Format&nbsp;:</strong> En laboratoire informatique ou à distance</span>
+            <span className="flex items-center gap-1.5"><Users size={15} className="text-[#1B7A4B]" /> <strong>Public&nbsp;:</strong> Comptables, gestionnaires de stock, RH</span>
             <span className="flex items-center gap-1.5"><Award size={15} className="text-[#1B7A4B]" /> Attestation de fin de formation</span>
           </div>
 
@@ -232,7 +179,7 @@ export default function Formations() {
       </section>
 
 
-      {/* 5. FAMILLE 3 : GESTION DE PROJET */}
+      {/* 4. FAMILLE 3 : GESTION DE PROJET */}
       <section id="projets" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 scroll-mt-28">
         <div className="bg-[#EEF0F8] p-8 rounded-3xl border border-gray-100">
           <div className="flex items-center gap-3 mb-4">
@@ -250,9 +197,9 @@ export default function Formations() {
           </p>
 
           <div className="flex flex-wrap gap-4 text-xs font-medium text-gray-700 bg-white p-3.5 rounded-xl mb-8 border border-gray-200/60">
-            <span className="flex items-center gap-1.5"><Clock size={15} className="text-[#1B7A4B]" /> <strong>Durée :</strong> 3 à 5 jours</span>
-            <span className="flex items-center gap-1.5"><MapPin size={15} className="text-[#1B7A4B]" /> <strong>Format :</strong> Présentiel ou à distance</span>
-            <span className="flex items-center gap-1.5"><Users size={15} className="text-[#1B7A4B]" /> <strong>Public :</strong> Chefs de projets, responsables d'ONG, entrepreneurs</span>
+            <span className="flex items-center gap-1.5"><Clock size={15} className="text-[#1B7A4B]" /> <strong>Durée&nbsp;:</strong> 3 à 5 jours</span>
+            <span className="flex items-center gap-1.5"><MapPin size={15} className="text-[#1B7A4B]" /> <strong>Format&nbsp;:</strong> Présentiel ou à distance</span>
+            <span className="flex items-center gap-1.5"><Users size={15} className="text-[#1B7A4B]" /> <strong>Public&nbsp;:</strong> Chefs de projets, responsables d'ONG, entrepreneurs</span>
             <span className="flex items-center gap-1.5"><Award size={15} className="text-[#1B7A4B]" /> Attestation de fin de formation</span>
           </div>
 
@@ -285,7 +232,7 @@ export default function Formations() {
       </section>
 
 
-      {/* 6. FAMILLE 4 : LEADERSHIP & MANAGEMENT */}
+      {/* 5. FAMILLE 4 : LEADERSHIP & MANAGEMENT */}
       <section id="leadership" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 scroll-mt-28">
         <div className="bg-[#E8F3ED] p-8 rounded-3xl border border-gray-100">
           <div className="flex items-center gap-3 mb-4">
@@ -303,9 +250,9 @@ export default function Formations() {
           </p>
 
           <div className="flex flex-wrap gap-4 text-xs font-medium text-gray-700 bg-white p-3.5 rounded-xl mb-8 border border-gray-200/60">
-            <span className="flex items-center gap-1.5"><Clock size={15} className="text-[#1B7A4B]" /> <strong>Durée :</strong> 2 à 3 jours</span>
-            <span className="flex items-center gap-1.5"><MapPin size={15} className="text-[#1B7A4B]" /> <strong>Format :</strong> Présentiel ou séminaire d'entreprise</span>
-            <span className="flex items-center gap-1.5"><Users size={15} className="text-[#1B7A4B]" /> <strong>Public :</strong> Chefs d'équipe, managers, responsables d'association</span>
+            <span className="flex items-center gap-1.5"><Clock size={15} className="text-[#1B7A4B]" /> <strong>Durée&nbsp;:</strong> 2 à 3 jours</span>
+            <span className="flex items-center gap-1.5"><MapPin size={15} className="text-[#1B7A4B]" /> <strong>Format&nbsp;:</strong> Présentiel ou séminaire d'entreprise</span>
+            <span className="flex items-center gap-1.5"><Users size={15} className="text-[#1B7A4B]" /> <strong>Public&nbsp;:</strong> Chefs d'équipe, managers, responsables d'association</span>
             <span className="flex items-center gap-1.5"><Award size={15} className="text-[#1B7A4B]" /> Attestation de fin de formation</span>
           </div>
 
@@ -334,7 +281,7 @@ export default function Formations() {
       </section>
 
 
-      {/* 7. FAMILLE 5 : BUREAUTIQUE (EXCEL) */}
+      {/* 6. FAMILLE 5 : BUREAUTIQUE (EXCEL) */}
       <section id="bureautique" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 scroll-mt-28">
         <div className="bg-[#EEF0F8] p-8 rounded-3xl border border-gray-100">
           <div className="flex items-center gap-3 mb-4">
@@ -352,9 +299,9 @@ export default function Formations() {
           </p>
 
           <div className="flex flex-wrap gap-4 text-xs font-medium text-gray-700 bg-white p-3.5 rounded-xl mb-8 border border-gray-200/60">
-            <span className="flex items-center gap-1.5"><Clock size={15} className="text-[#1B7A4B]" /> <strong>Durée :</strong> 2 à 4 jours</span>
-            <span className="flex items-center gap-1.5"><MapPin size={15} className="text-[#1B7A4B]" /> <strong>Format :</strong> Pratique sur ordinateur (Présentiel ou distanciel)</span>
-            <span className="flex items-center gap-1.5"><Users size={15} className="text-[#1B7A4B]" /> <strong>Public :</strong> Tout public professionnel, étudiants</span>
+            <span className="flex items-center gap-1.5"><Clock size={15} className="text-[#1B7A4B]" /> <strong>Durée&nbsp;:</strong> 2 à 4 jours</span>
+            <span className="flex items-center gap-1.5"><MapPin size={15} className="text-[#1B7A4B]" /> <strong>Format&nbsp;:</strong> Pratique sur ordinateur (Présentiel ou distanciel)</span>
+            <span className="flex items-center gap-1.5"><Users size={15} className="text-[#1B7A4B]" /> <strong>Public&nbsp;:</strong> Tout public professionnel, étudiants</span>
             <span className="flex items-center gap-1.5"><Award size={15} className="text-[#1B7A4B]" /> Attestation de fin de formation</span>
           </div>
 
@@ -387,7 +334,7 @@ export default function Formations() {
       </section>
 
 
-      {/* 8. ENCART DÉDIÉ : ÉTUDIANTS & JEUNES DIPLÔMÉS */}
+      {/* 7. ENCART DÉDIÉ : ÉTUDIANTS & JEUNES DIPLÔMÉS */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="bg-[#E8F3ED] border border-[#1B7A4B]/30 rounded-3xl p-8 flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="flex items-start gap-4">
@@ -408,7 +355,7 @@ export default function Formations() {
       </section>
 
 
-      {/* 9. BLOC SUR MESURE ET APPEL À L'ACTION FINAL */}
+      {/* 8. BLOC SUR MESURE ET APPEL À L'ACTION FINAL */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <div className="bg-gradient-to-br from-[#1A237E] to-[#0D1250] text-white rounded-3xl p-10 md:p-14 shadow-xl">
           <h2 className="text-2xl sm:text-4xl font-bold mb-4">
