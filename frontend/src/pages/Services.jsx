@@ -225,7 +225,7 @@ export default function Services() {
 
         </div>
         <p className="text-[11px] text-gray-500 italic text-right">
-          * La décision d'octroi de financement appartient au seul organisme financeur.
+          La décision d'octroi de financement appartient au seul organisme financeur.
         </p>
       </section>
 
