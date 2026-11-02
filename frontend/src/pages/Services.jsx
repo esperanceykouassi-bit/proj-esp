@@ -301,8 +301,8 @@ export default function Services() {
             </RouterLink>
             <a
               href="tel:+2250102211421"
-              className="bg-transparent hover:bg-white/10 text-white font-semibold px-8 py-4 rounded-xl border border-white/30 transition-colors inline-flex items-center justify-center gap-2 whitespace-nowrap"
-            >
+              className="bg-transparent hover:bg-white/10 text-white font-semibold px-6 sm:px-8 py-4 rounded-xl border border-white/30 transition-colors inline-flex items-center justify-center gap-2 whitespace-nowrap w-full sm:w-auto"
+>
               <Phone size={20} className="shrink-0" />
               <span className="whitespace-nowrap">Nous appeler&nbsp;: +225&nbsp;01&nbsp;02&nbsp;21&nbsp;14&nbsp;21</span>
             </a>
